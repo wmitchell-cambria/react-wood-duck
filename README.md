@@ -1,7 +1,4 @@
-# Need to be updated
-## License
+# Needs to be updated
 
+## License
 MIT
-# woodduck
-#woodduck
-# woodduck
