@@ -10,14 +10,4 @@ const TextAreaComponent = ({gridClassName, labelClassName, id, label, onChange, 
 )
 
 
-class TextArea extends React.Component {
-	render () {
-		return (
-			<div>
-			<TextAreaComponent  />
-</div>
-		)
-	}
-}
-
-export default TextArea
+export default TextAreaComponent

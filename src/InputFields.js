@@ -9,14 +9,4 @@ const InputComponent = ({gridClassName, fieldClassName, labelClassName, id, labe
   </div>
 )
 
-class InputFields extends React.Component {
-	render () {
-		return (
-			<div>
-			<InputComponent  />
-			</div>
-		)
-	}
-}
-
-export default InputFields
+export {InputComponent}

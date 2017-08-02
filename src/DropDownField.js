@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const DropDownField = ({gridClassName, value, disable, selectClassName, optionList, onChange, label}) => (
+const DropDown = ({gridClassName, value, disable, selectClassName, optionList, onChange, label}) => (
   <div className={gridClassName}>
     <label>{label}</label>
     <select value={value} disabled={disable} onChange={onChange} className={selectClassName}>
@@ -16,7 +16,25 @@ const DropDownField = ({gridClassName, value, disable, selectClassName, optionLi
     </select>
   </div>
 )
-DropDownField.PropTypes = {
+DropDown.PropTypes = {
   value: React.PropTypes.string
 }
-export {DropDownField}
+
+class DropDownField extends React.Component {
+  render () {
+    return (
+      <div>
+      <DropDown
+         gridClassName= "col-md-4 col-sm-6 col-xs-12"
+         selectClassName= "form-control"
+         label="DropDown"
+         value=""
+         optionList={[{value:'choice1',id:1},{value:'choice2',id:2}]}
+      />
+      </div>
+    )
+  }
+}
+
+export default DropDownField
+
