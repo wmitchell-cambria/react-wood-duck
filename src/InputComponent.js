@@ -9,4 +9,4 @@ const InputComponent = ({gridClassName, fieldClassName, labelClassName, id, labe
   </div>
 )
 
-export {InputComponent}
+export default InputComponent
