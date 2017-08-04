@@ -12,7 +12,7 @@
 }
 
 .App-header {
-  background-color: #b1b1b1;
+  background-color: #008FED;
   height: 115px;
   padding: 20px;
   max-width: 100%;
@@ -85,7 +85,7 @@ a.Git-button.pull-right {
 }
 @media screen and (min-width : 765px) {
 .nav-bar{
-  background-color: #e5e5e5;
+  background-color: #008FED;
         min-height: 1200px;
         font-size: 25px;
         width: 180px;
@@ -93,7 +93,7 @@ a.Git-button.pull-right {
     }
 }
 .nav-bar{
-    background-color: #e5e5e5;
+    background-color: #008FED;
 
   font-size: 25px;
   font-family: monospace;
@@ -129,7 +129,7 @@ body {
 }
 
 .card {
-    background-color: #fff;
+    background-color: #b1b1b1;
     color: #050505;
     margin-top: 1rem;
 }
