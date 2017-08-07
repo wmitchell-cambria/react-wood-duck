@@ -8,7 +8,7 @@ var Nav = require('./dist/Nav.js').default;
 var TextAreaComponent = require('./dist/TextAreaComponent.js').default;
 
 module.exports = {
-	Header: Header,
+	Header,
 	CheckBoxField: CheckBoxField,
 	InputComponent: InputComponent,
 	Cards: Cards,
