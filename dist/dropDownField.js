@@ -125,9 +125,6 @@
           'div',
           null,
           _react2.default.createElement(DropDown, {
-            gridClassName: 'col-md-4 col-sm-6 col-xs-12',
-            selectClassName: 'form-control',
-            label: 'DropDown',
             value: '3',
             optionList: [{ value: 'choice1', id: 1 }, { value: 'choice2', id: 2 }, { value: 'select', id: 3 }]
           })

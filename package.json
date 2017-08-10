@@ -4,7 +4,7 @@
   "description": "Test",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ca-cwds/woodduck.git"
+    "url": "https://github.com/ca-cwds/react-wood-duck.git"
   },
   "author": "Naga Pradeep Gajula",
   "license": "MIT",
@@ -16,9 +16,6 @@
     "react-component",
     "react"
   ],
-  "options": {
-    "mocha": "--require scripts/mocha_runner src/**/__tests__/**/*.js"
-  },
   "scripts": {
     "prepublish": "babel --plugins transform-es2015-modules-umd src --ignore __tests__ --out-dir ./dist && node-sass src/styles/App.css dist/styles/App.css",
     "lint": "eslint ./src",
@@ -44,8 +41,8 @@
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "nodemon": "^1.9.1",
-    "react-addons-test-utils": "^15.0.0",
     "react": "^15.0.0",
+    "react-addons-test-utils": "^15.0.0",
     "react-dom": "^15.0.0",
     "sinon": "^1.17.3"
   },
