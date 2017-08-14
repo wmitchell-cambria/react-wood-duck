@@ -1,6 +1,6 @@
 {
   "name": "react-wood-duck",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Test",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "react-component",
     "react"
   ],
-  "options":{
+  "options": {
     "mocha": "--require scripts/mocha_runner src/**/__tests__/**/*.js"
   },
   "scripts": {
