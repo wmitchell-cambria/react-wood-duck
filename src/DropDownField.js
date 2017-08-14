@@ -1,37 +1,35 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
 
-const DropDown = ({gridClassName, value, disable, selectClassName, optionList, onChange, label}) => (
-  <div className={gridClassName}>
-    <label>{label}</label>
-    <select value={value} disabled={disable} onChange={onChange} className={selectClassName}>
-      {!disable && <option key='' value='' />}
-      {
-        optionList.map((item) => {
-          return (
-            <option key={item.id} value={item.id}>{item.value}</option>
-          )
-        })
-      }
-    </select>
-  </div>
-)
-DropDown.PropTypes = {
-  value: React.PropTypes.string
-}
+const DropDownField = (props) => (
+    <div className="form-group">
+        <div className={props.gridClassName}>
+            <label>{props.label}</label>
+            <select
+                name={props.name}
+                value={props.selectedOption}
+                onChange={props.handleOnChange}
+                className={props.selectClassName}
+                disabled={props.disable}
+            >
+                <option value="">{props.placeholder}</option>
+                {props.options.map(opt => {
+                    return (
+                        <option
+                            key={opt}
+                            value={opt}>{opt}</option>
+                    );
+                })}
+            </select>
+        </div>
+    </div>
+);
 
-class DropDownField extends React.Component {
-  render () {
-    return (
-      <div>
-      <DropDown
-         value="3"
-         optionList={[{value:'choice1',id:1},{value:'choice2',id:2},{value:'select',id:3}]}
-      />
-      </div>
-    )
-  }
-}
+DropDownField.propTypes = {
+    name: React.PropTypes.string.isRequired,
+    options: React.PropTypes.array.isRequired,
+    selectedOption: React.PropTypes.string,
+    handleOnChange: React.PropTypes.func.isRequired,
+    placeholder: React.PropTypes.string
+};
 
-export default DropDownField
-
+export default DropDownField;

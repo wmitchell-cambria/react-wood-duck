@@ -37,16 +37,17 @@
             type = _ref.type;
         return _react2.default.createElement(
             "div",
-            { className: gridClassName },
+            { className: "form-group" },
             _react2.default.createElement(
                 "div",
-                null,
+                { className: gridClassName },
                 _react2.default.createElement(
                     "label",
                     { className: labelClassName, htmlFor: id },
-                    "Date Picker"
+                    label
                 ),
-                _react2.default.createElement("input", { className: "form-control", id: id, type: "date", placeholder: "mm-dd-yyyy", value: value, onChange: onChange })
+                _react2.default.createElement("input", { className: fieldClassName, pattern: "[0-9]{2}-[0-9]{2}-[0-9]{4}",
+                    id: id, type: "date", placeholder: placeholder, value: value, onChange: onChange })
             )
         );
     };

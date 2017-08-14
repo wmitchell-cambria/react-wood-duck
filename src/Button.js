@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Buttons = (props) => {
+const Button = (props) => {
 
     const btnClass = `btn btn-${props.btnClassName}`;
     return (
@@ -12,4 +12,4 @@ const Buttons = (props) => {
     );
 }
 
-export default Buttons;
+export default Button;

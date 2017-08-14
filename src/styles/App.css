@@ -5,25 +5,25 @@
 
 /////////////////////////////////////////
 
-$lightest-blue: #f5f5f5;
 $light-blue: #1ba7fa;
-$medium-blue: #2c7dae;
+$medium-blue: #2974a2;
 $dark-blue: #053d53;
 
 $light-green: #3fbfad;
-$medium-green: #2b8377;
+$medium-green: #297d74;
 $dark-green: #065144;
 
 $white: #fff;
+$white-smoke: #f5f5f5;
 $lightest-grey: #e8e8e8;
 $light-grey: #d4d4d4;
 $medium-grey: #b1b1b1;
-$dark-grey: #767676;
+$dark-grey: #707070;
 $darkest-grey: #050505;
 
 $yellow: #e8d41c;
 $orange: #fa8d29;
-$red: #e3263d;
+$red: #d8263d;
 
 /////////////////////////////////////////
 
@@ -31,7 +31,6 @@ $red: #e3263d;
 
 /////////////////////////////////////////
 
-.c-lightest-blue {color: $lightest-blue;}
 .c-light-blue {color: $light-blue;}
 .c-medium-blue {color: $medium-blue;}
 .c-dark-blue {color: $dark-blue;}
@@ -41,6 +40,7 @@ $red: #e3263d;
 .c-dark-green {color: $dark-green;}
 
 .c-white {color: $white;}
+.c-white-smoke {color: $white-smoke;}
 .c-lightest-grey {color: $lightest-grey;}
 .c-light-grey {color: $light-grey;}
 .c-medium-grey {color: $medium-grey;}
@@ -51,7 +51,6 @@ $red: #e3263d;
 .c-orange {color: $orange;}
 .c-red {color: $red;}
 
-.bg-lightest-blue {background-color: $lightest-blue;}
 .bg-light-blue {background-color: $light-blue;}
 .bg-medium-blue {background-color: $medium-blue;}
 .bg-dark-blue {background-color: $dark-blue;}
@@ -61,6 +60,7 @@ $red: #e3263d;
 .bg-dark-green {background-color: $dark-green;}
 
 .bg-white {background-color: $white;}
+.bg-white-smoke {background-color: $white-smoke;}
 .bg-lightest-grey {background-color: $lightest-grey;}
 .bg-light-grey {background-color: $light-grey;}
 .bg-medium-grey {background-color: $medium-grey;}
@@ -86,13 +86,14 @@ $red: #e3263d;
 
 /////////////////////////////////////////
 
-$font-family: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', 'sans-serif';
+$font-family: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', sans-serif;
 $code-font-family: 'Source Code Pro', Consolas, Monaco, 'Andale Mono', monospace;
 $icon-font-family: 'FontAwesome';
 
 /////////////////////////////////////////
 
 // - Font Weights - //
+
 /////////////////////////////////////////
 
 $extralight-weight: 200;
@@ -129,8 +130,8 @@ $double-spacing: $base-spacing * 2;
 
 /////////////////////////////////////////
 
-$thin-border: 1px;
-$regular-border: 2px;
+$thin-border: 0.1rem;
+$regular-border: 0.2rem;
 
 /////////////////////////////////////////
 
@@ -138,9 +139,19 @@ $regular-border: 2px;
 
 /////////////////////////////////////////
 
-$small-border-radius: 1px;
-$base-border-radius: 2px;
-$large-border-radius: 3px;
+$base-border-radius: 0.2rem;
+$small-border-radius: $base-border-radius / 2;
+
+/////////////////////////////////////////
+
+// - Special Borders - //
+
+/////////////////////////////////////////
+
+%error-border {
+  border: $base-border-radius solid $red;
+  width: calc(100% +1.9rem);
+}
 
 /////////////////////////////////////////
 
@@ -181,6 +192,94 @@ $large-border-radius: 3px;
 
 /////////////////////////////////////////
 
+.input-error {
+  position: relative;
+
+  input {
+    @extend %error-border;
+  }
+
+  textarea {
+    @extend %error-border;
+  }
+
+  select {
+    @extend %error-border;
+  }
+
+  label {
+    margin-top: 0;
+  }
+
+  .input-inline {
+    border: .1rem solid $light-grey;
+    width: inherit;
+  }
+}
+
+.input-error-label {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: $normal-weight;
+}
+
+.input-error-message {
+  color: $red;
+  display: block;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+
+.input-error-message:first-child::before {
+  content: '\f071';
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  padding-right: .5rem;
+  text-decoration: inherit;
+}
+
+.input-error-message:not(:first-child) {
+  padding-left: 2rem;
+}
+
+.alert-message {
+  background-color: $white-smoke;
+  display: table;
+  margin-top: $base-spacing;
+  width: 100%;
+
+  .alert-icon {
+    display: table-cell;
+    font-size: $large-font;
+    padding: $half-spacing $base-spacing;
+    text-align: center;
+    vertical-align: middle;
+    width: 5.4rem;
+  }
+
+  .alert-text {
+    display: table-cell;
+    margin-left: $base-spacing;
+    padding: $base-spacing;
+  }
+}
+
+.info-message {
+  .alert-icon {
+    background-color: $medium-blue;
+    color: $white;
+  }
+}
+
+.error-message {
+  .alert-icon {
+    background-color: $red;
+    color: $white;
+  }
+}
+
+
 /////////////////////////////////////////
 
 // - Buttons - //
@@ -207,54 +306,71 @@ $large-border-radius: 3px;
 
   &.btn-default {
     background-color: transparent;
-    box-shadow: inset 0 0 0 2px $dark-grey;
+    box-shadow: inset 0 0 0 $base-border-radius $dark-grey;
     color: $dark-grey;
   }
 
   &.btn-default:hover {
     background-color: transparent;
-    box-shadow: inset 0 0 0 2px $darkest-grey;
+    box-shadow: inset 0 0 0 $base-border-radius $darkest-grey;
     color: $darkest-grey;
   }
 
   &.btn-default:focus {
-    box-shadow: inset 0 0 0 2px $dark-blue, 0 0 3px $medium-blue, 0 0 7px $medium-blue;
+    box-shadow: inset 0 0 0 $base-border-radius $dark-blue, 0 0 0.3rem $medium-blue, 0 0 0.7rem $medium-blue;
     color: $darkest-grey;
   }
 
   &.btn-default:active {
     background-color: transparent;
-    box-shadow: inset 0 0 0 2px $darkest-grey;
+    box-shadow: inset 0 0 0 $base-border-radius $darkest-grey;
     color: $darkest-grey;
   }
 
   &.btn-primary {
     background-color: transparent;
-    box-shadow: inset 0 0 0 2px $medium-blue;
+    box-shadow: inset 0 0 0 $base-border-radius $medium-blue;
     color: $medium-blue;
   }
 
   &.btn-primary:hover {
     background-color: transparent;
-    box-shadow: inset 0 0 0 2px $dark-blue;
+    box-shadow: inset 0 0 0 $base-border-radius $dark-blue;
     color: $dark-blue;
   }
 
   &.btn-primary:focus {
-    box-shadow: inset 0 0 0 2px $dark-blue, 0 0 3px $medium-blue, 0 0 7px $medium-blue;
+    box-shadow: inset 0 0 0 $base-border-radius $dark-blue, 0 0 0.3rem $medium-blue, 0 0 0.7rem $medium-blue;
     color: $dark-blue;
   }
 
   &.btn-primary:active {
     background-color: transparent;
-    box-shadow: inset 0 0 0 2px $dark-blue;
+    box-shadow: inset 0 0 0 $base-border-radius $dark-blue;
     color: $dark-blue;
   }
-}
 
-.btn-lg {
-  font-size: 1.9rem;
-  padding: 1.5rem 3rem;
+  &.btn-warning {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 $base-border-radius $red;
+    color: $red;
+  }
+
+  &.btn-warning:hover {
+    background-color: $red;
+    color: $white;
+  }
+
+  &.btn-warning:focus {
+    background-color: $red;
+    box-shadow: 0 0 0.3rem $medium-blue, 0 0 0.7rem $medium-blue;
+    color: $white;
+  }
+
+  &.btn-warning:active {
+    background-color: $red;
+    color: $white;
+  }
 }
 
 @media screen and (max-width: 481px) {
@@ -296,13 +412,75 @@ $large-border-radius: 3px;
 
 /////////////////////////////////////////
 
-// - Fonts - //
+// - Cards - //
 
 /////////////////////////////////////////
 
+.card {
+  background-color: $white;
+  color: $darkest-grey;
+
+  label {
+    color: $dark-grey;
+    margin-top: 3rem;
+  }
+
+  .card-header {
+    border-bottom: .1rem solid $lightest-grey;
+    display: block;
+    font-size: $large-font;
+    overflow: hidden;
+    padding: $base-spacing $double-spacing;
+
+    span {
+      float: left;
+      font-weight: $normal-weight;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      float: right;
+      text-decoration: none;
+    }
+
+    button {
+      background: none;
+      border: none;
+    }
+  }
+
+  .card-body {
+    border-top: 0;
+    padding: 0 $double-spacing $double-spacing;
+
+    @media screen and (max-width: 767px) {
+      .centered {
+        margin-left: $base-spacing;
+        margin-right: $base-spacing;
+      }
+    }
+
+    .btn {
+      margin-left: $half-spacing;
+      margin-top: $double-spacing;
+    }
+
+    .btn-block {
+      margin-left: 0;
+      margin-top: $double-spacing;
+    }
+  }
+
+  &.edit {
+    border-left: .7rem solid $medium-blue;
+  }
+}
+
+
 // Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
 // License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- 
+
 @import 'icon/variables';
 @import 'icon/mixins';
 @import 'icon/path';
@@ -316,30 +494,6 @@ $large-border-radius: 3px;
 @import 'icon/stacked';
 @import 'icon/icons';
 @import 'icon/screen-reader';
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 300;
-  src: url('Source_Sans_Pro-normal-300.woff') format('woff');
-  unicode-range: U+0-10FFFF;
-}
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: url('Source_Sans_Pro-normal-400.woff') format('woff');
-  unicode-range: U+0-10FFFF;
-}
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 600;
-  src: url('Source_Sans_Pro-normal-600.woff') format('woff');
-  unicode-range: U+0-10FFFF;
-}
 
 /////////////////////////////////////////
 
@@ -375,63 +529,12 @@ select:focus {
   box-shadow: 0 0 3px $medium-blue, 0 0 7px $medium-blue;
 }
 
-.input-error {
-  margin-top: 3rem;
-  padding-bottom: .8rem;
-  padding-top: .8rem;
-  position: relative;
-
-  input {
-    border: 3px solid $red;
-    width: calc(100% +1.9rem);
-  }
-
-  textarea {
-    border: 3px solid $red;
-    width: calc(100% +1.9ream);
-  }
-
-  select {
-    border: 3px solid $red;
-    width: calc(100% +1.9rem);
-  }
-
-  label {
-    margin-top: 0;
-  }
-
-  .input-inline {
-    border: 1px solid $light-grey;
-    width: inherit;
-  }
-
-  .input-inline-error {
-    border: 3px solid $red;
-  }
-}
-
-.input-error-label {
-  display: block;
-  font-size: 1.7rem;
-  font-weight: $bold-weight;
-}
-
-.input-error-message {
-  color: $red;
-  display: block;
-  font-size: 1.7rem;
-  font-weight: $bold-weight;
-  padding-bottom: 3px;
-  padding-top: 3px;
-}
-
 label {
-  color: $dark-blue;
+  color: $dark-grey;
   display: block;
   font-size: $small-font;
   font-weight: $normal-weight;
   margin-top: 2rem;
-  max-width: 46rem;
 }
 
 textarea {
@@ -442,15 +545,15 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background-image: url('arrow-down.png');
+  background-image: url('../images/arrow-down.png');
+  background-image: url('../images/arrow-down.svg');
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1.3rem;
 }
 
 legend {
-  font-size: 3rem;
-  font-weight: $bold-weight;
+  border-bottom: none;
 }
 
 .fieldset-inputs label {
@@ -474,7 +577,7 @@ input[type='checkbox'] + label,
 input[type='radio'] + label {
   cursor: pointer;
   font-weight: $normal-weight;
-  margin-bottom: .5em;
+  margin-bottom: .5rem;
 }
 
 input[type='checkbox'] + label::before,
@@ -556,9 +659,7 @@ input[type='radio']:disabled + label::before {
 }
 
 .required::after {
-  @include fa-icon;
-  color: $red;
-  content: '\f069';
+  content: ' (required)';
 }
 
 /////////////////////////////////////////
@@ -624,6 +725,30 @@ input[type='radio']:disabled + label::before {
 
 .react-autosuggest__suggestion--focused {
   background-color: $light-grey;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/Source_Sans_Pro-normal-300.woff') format('woff');
+  unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Source_Sans_Pro-normal-400.woff') format('woff');
+  unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/Source_Sans_Pro-normal-600.woff') format('woff');
+  unicode-range: U+0-10FFFF;
 }
 
 // Space Helpers //
@@ -821,61 +946,16 @@ input[type='radio']:disabled + label::before {
   }
 }
 
-.arrow-down
-{
-  background-image: url('arrow-down.png');
-  border: 0;
-  border-radius: 0;
-  height: 60px;
-  width: 150px;
-  display: inline-block;
-}
+/////////////////////////////////////////
 
-.correct8
-{
-  background-image: url('correct8.png');
-  border: 0;
-  border-radius: 0;
-  height: 60px;
-  width: 150px;
-  display: inline-block;
+// - IE specific css rules - //
+
+/////////////////////////////////////////
+
+::-ms-clear {
+  display: none;
 }
-.error
-{
-  background-image: url('error.png');
-  border: 0;
-  border-radius: 0;
-  height: 60px;
-  width: 150px;
-  display: inline-block;
-}
-.info
-{
-  background-image: url('info.png');
-  border: 0;
-  border-radius: 0;
-  height: 60px;
-  width: 150px;
-  display: inline-block;
-}
-.success
-{
-  background-image: url('success.png');
-  border: 0;
-  border-radius: 0;
-  height: 298px;
-  width: 298px;
-  display: inline-block;
-}
-.warning
-{
-  background-image: url('warning.png');
-  border: 0;
-  border-radius: 0;
-  height: 60px;
-  width: 150px;
-  display: inline-block;
-}
+Contact GitHub API Training Shop Blog About
 
 /////////////////////////////////////////
 
@@ -883,11 +963,10 @@ input[type='radio']:disabled + label::before {
 
 /////////////////////////////////////////
 
-
 .list-item {
-  background-color: $lightest-blue;
+  background-color: $white-smoke;
   margin: $double-spacing 0 0;
-  padding: $base-spacing 0;
+  padding: 0 0 $base-spacing;
   position: relative;
 
   input,
@@ -897,11 +976,12 @@ input[type='radio']:disabled + label::before {
 }
 
 .list-item__a {
-  font-size: 2rem;
+  font-size: 1.5rem;
   position: absolute;
   right: 1.3rem;
   top: .7rem;
 }
+
 
 
 .Select--multi .Select-control {
@@ -914,9 +994,9 @@ input[type='radio']:disabled + label::before {
 
 .Select--multi .Select-value {
   background-color: $white;
-  border: .2rem solid $lightest-blue;
+  border: .2rem solid $medium-blue;
   border-radius: 40rem;
-  color: $lightest-blue;
+  color: $medium-blue;
   margin: .3rem;
   padding: .2rem 1rem;
 }
@@ -931,7 +1011,7 @@ input[type='radio']:disabled + label::before {
 
   &:hover {
     background: $white;
-    color: $lightest-blue;
+    color: $medium-blue;
   }
 }
 
@@ -955,127 +1035,6 @@ input[type='radio']:disabled + label::before {
 
 /////////////////////////////////////////
 
-// - Navigation - //
-
-/////////////////////////////////////////
-
-.top-navigation {
-  background-color: $dark-blue;
-  color: $white;
-  font-size: 2.4rem;
-  font-weight: 600;
-  padding: 1rem 1.5rem;
-  position: fixed;
-  width: 100%;
-  z-index: 99;
-}
-
-.sidenav-list {
-  display: block;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  > li {
-    display: list-item;
-    margin: 0;
-  }
-
-  > li::before {
-    display: none;
-  }
-
-  > li::after {
-    display: none;
-  }
-
-  li {
-    border-top: 1px solid $light-grey;
-    font-size: 1.7rem;
-
-    &:first-child {
-      border-top: 0;
-    }
-  }
-
-  a {
-    border: 0;
-    display: block;
-    line-height: 1.3;
-    padding: .85rem 1rem .85rem 1.8rem;
-    text-decoration: none;
-
-    &:hover {
-      background-color: $lightest-grey;
-      color: $medium-blue;
-      text-decoration: none;
-    }
-
-    &:focus {
-      position: relative;
-      z-index: 1;
-    }
-
-    &.current {
-      border-left: 4px solid $medium-blue;
-      color: $medium-blue;
-      font-weight: 700;
-      padding-left: 1.4rem;
-    }
-  }
-}
-
-.sidenav-sub-list {
-  display: block;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-
-  > li {
-    display: list-item;
-    margin: 0;
-  }
-
-  > li::before {
-    display: none;
-  }
-
-  > li::after {
-    display: none;
-  }
-
-  li {
-    border: 0;
-    font-size: 1.5rem;
-  }
-
-  a {
-    line-height: 1.3;
-    padding-left: 2.8rem;
-
-    &:hover {
-      border: 0;
-      padding-left: 2.8rem;
-    }
-
-    &.current {
-      border: 0;
-      padding-left: 2.8rem;
-    }
-  }
-
-  .sidenav-sub-list a {
-    padding-left: 3.8rem;
-
-    &:hover {
-      padding-left: 3.8rem;
-    }
-  }
-}
-
-/////////////////////////////////////////
-
 // - Tables - //
 
 /////////////////////////////////////////
@@ -1094,7 +1053,7 @@ table {
   }
 
   tr:nth-child(even) {
-    background-color: $lightest-blue;
+    background-color: $white-smoke;
   }
 
   thead {
@@ -1215,72 +1174,3 @@ ul,
 ol {
   margin: 0;
 }
-
-
-/////////////////////////////////////////
-
-// - Cards - //
-
-/////////////////////////////////////////
-
-.card {
-  background-color: $white;
-  color: $darkest-grey;
-
-  label {
-    color: $dark-grey;
-    margin-top: 3rem;
-  }
-
-  .card-header {
-    border-bottom: .1rem solid $lightest-grey;
-    display: block;
-    font-size: $large-font;
-    overflow: hidden;
-    padding: $base-spacing $double-spacing;
-
-    span {
-      float: left;
-      font-weight: $normal-weight;
-      margin: 0;
-      padding: 0;
-    }
-
-    a {
-      float: right;
-      text-decoration: none;
-    }
-
-    button {
-      background: none;
-      border: none;
-    }
-  }
-
-  .card-body {
-    border-top: 0;
-    padding: 0 $double-spacing $double-spacing;
-
-    @media screen and (max-width: 767px) {
-      .centered {
-        margin-left: $base-spacing;
-        margin-right: $base-spacing;
-      }
-    }
-
-    .btn {
-      margin-left: $half-spacing;
-      margin-top: $double-spacing;
-    }
-
-    .btn-block {
-      margin-left: 0;
-      margin-top: $double-spacing;
-    }
-  }
-
-  &.edit {
-    border-left: .7rem solid $red;
-  }
-}
-

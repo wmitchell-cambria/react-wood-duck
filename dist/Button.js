@@ -8,7 +8,7 @@
             exports: {}
         };
         factory(mod.exports, global.react);
-        global.Buttons = mod.exports;
+        global.Button = mod.exports;
     }
 })(this, function (exports, _react) {
     "use strict";
@@ -25,7 +25,7 @@
         };
     }
 
-    var Buttons = function Buttons(props) {
+    var Button = function Button(props) {
 
         var btnClass = "btn btn-" + props.btnClassName;
         return _react2.default.createElement(
@@ -39,5 +39,5 @@
         );
     };
 
-    exports.default = Buttons;
+    exports.default = Button;
 });
