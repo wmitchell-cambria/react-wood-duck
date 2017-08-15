@@ -1,12 +1,11 @@
 import React from 'react'
 
 const CheckboxRadioGroup = (props) => (
-    <div className={props.gridClassName}>
-        <label className="form-label">{props.label}</label>
-        <div>
+    <fieldset className="fieldset-inputs sans col-md-4 col-sm-6 col-xs-12">
+        <legend className="sr-only">{props.label}</legend>
             {props.options.map(opt => {
                 return (
-                    <div key={opt}>
+                    <label for={opt} key={opt}>
                         <input
                             className={props.fieldClassName}
                             name={props.name}
@@ -14,15 +13,13 @@ const CheckboxRadioGroup = (props) => (
                             value={opt}
                             checked={ props.selectedOptions.indexOf(opt) > -1 }
                             type={props.type} />
-                    <label className={props.labelClassName}>
-                      {opt}
+                        <span>{opt}</span>
                     </label>
-                </div>
                 );
             })}
-        </div>
-    </div>
+    </fieldset>
 );
+
 
 CheckboxRadioGroup.propTypes = {
     label: React.PropTypes.string.isRequired,

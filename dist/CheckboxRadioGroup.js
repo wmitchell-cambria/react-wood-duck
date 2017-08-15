@@ -1,8 +1,8 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(['exports', 'react'], factory);
+        define(["exports", "react"], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require('react'));
+        factory(exports, require("react"));
     } else {
         var mod = {
             exports: {}
@@ -11,7 +11,7 @@
         global.CheckboxRadioGroup = mod.exports;
     }
 })(this, function (exports, _react) {
-    'use strict';
+    "use strict";
 
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -27,35 +27,31 @@
 
     var CheckboxRadioGroup = function CheckboxRadioGroup(props) {
         return _react2.default.createElement(
-            'div',
-            { className: props.gridClassName },
+            "fieldset",
+            { className: "fieldset-inputs sans col-md-4 col-sm-6 col-xs-12" },
             _react2.default.createElement(
-                'label',
-                { className: 'form-label' },
+                "legend",
+                { className: "sr-only" },
                 props.label
             ),
-            _react2.default.createElement(
-                'div',
-                null,
-                props.options.map(function (opt) {
-                    return _react2.default.createElement(
-                        'div',
-                        { key: opt },
-                        _react2.default.createElement('input', {
-                            className: props.fieldClassName,
-                            name: props.name,
-                            onChange: props.handleOnChange,
-                            value: opt,
-                            checked: props.selectedOptions.indexOf(opt) > -1,
-                            type: props.type }),
-                        _react2.default.createElement(
-                            'label',
-                            { className: props.labelClassName },
-                            opt
-                        )
-                    );
-                })
-            )
+            props.options.map(function (opt) {
+                return _react2.default.createElement(
+                    "label",
+                    { "for": opt, key: opt },
+                    _react2.default.createElement("input", {
+                        className: props.fieldClassName,
+                        name: props.name,
+                        onChange: props.handleOnChange,
+                        value: opt,
+                        checked: props.selectedOptions.indexOf(opt) > -1,
+                        type: props.type }),
+                    _react2.default.createElement(
+                        "span",
+                        null,
+                        opt
+                    )
+                );
+            })
         );
     };
 
