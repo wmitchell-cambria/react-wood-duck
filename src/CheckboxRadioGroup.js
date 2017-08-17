@@ -5,7 +5,7 @@ const CheckboxRadioGroup = (props) => (
         <legend className="sr-only">{props.label}</legend>
             {props.options.map(opt => {
                 return (
-                    <label for={opt} key={opt}>
+                    <label key={opt}>
                         <input
                             className={props.fieldClassName}
                             name={props.name}

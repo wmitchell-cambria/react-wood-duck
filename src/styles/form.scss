@@ -119,13 +119,13 @@ legend {
 }
 
 /* the checked style using the :checked pseudo class */
-[type="radio"]:checked + span:before {
+[type="radio"]:checked + span:before,[type="checkbox"]:checked + span:before  {
     background-color: #2974a2;
     box-shadow: 0 0 0 1px #2974a2;
 }
 
 [type="checkbox"]:checked + span:before  {
-    background-image: url('../images/correct8.png');
+    background-image: url(https://ca-cwds.github.io/research-design/images/correct8.svg);
     background-position: 50%;
     background-repeat: no-repeat;
 }

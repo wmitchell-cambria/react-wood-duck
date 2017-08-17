@@ -37,7 +37,7 @@
             props.options.map(function (opt) {
                 return _react2.default.createElement(
                     "label",
-                    { "for": opt, key: opt },
+                    { key: opt },
                     _react2.default.createElement("input", {
                         className: props.fieldClassName,
                         name: props.name,

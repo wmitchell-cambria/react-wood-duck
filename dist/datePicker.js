@@ -47,7 +47,8 @@
                     label
                 ),
                 _react2.default.createElement("input", { className: fieldClassName, pattern: "[0-9]{2}-[0-9]{2}-[0-9]{4}",
-                    id: id, type: "date", placeholder: placeholder, value: value, onChange: onChange })
+                    id: id, type: "date", placeholder: placeholder, value: value, onChange: onChange
+                })
             )
         );
     };
