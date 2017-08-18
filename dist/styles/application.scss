@@ -6284,6 +6284,9 @@ button.close {
   .card.edit {
     border-left: 0.7rem solid #2974a2; }
 
+.btn {
+  outline: none; }
+
 input,
 textarea,
 select {
@@ -6324,8 +6327,7 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background-image: url("../images/arrow-down.png");
-  background-image: url("../images/arrow-down.svg");
+  background-image: url("https://ca-cwds.github.io/research-design/images/arrow-down.svg") !important;
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1.3rem; }

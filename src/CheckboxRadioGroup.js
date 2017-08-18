@@ -3,7 +3,7 @@ import React from 'react'
 const CheckboxRadioGroup = (props) => (
     <fieldset className="fieldset-inputs sans col-md-4 col-sm-6 col-xs-12">
         <legend className="sr-only">{props.label}</legend>
-            {props.options.map(opt => {
+        {props.options.map(opt => {
                 return (
                     <label key={opt}>
                         <input
@@ -16,7 +16,8 @@ const CheckboxRadioGroup = (props) => (
                         <span>{opt}</span>
                     </label>
                 );
-            })}
+           })}
+          
     </fieldset>
 );
 
