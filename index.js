@@ -8,6 +8,9 @@ var InputComponent = require('./dist/InputComponent.js').default;
 var ListItem = require('./dist/ListItem.js').default;
 var Table = require('./dist/Table.js').default;
 var TextArea = require('./dist/TextArea.js').default;
+var DateTimePicker = require('./dist/DateTimePicker.js').default;
+var ReactDatePicker = require('./dist/ReactDatePicker.js').default;
+var MultiSelect = require('./dist/MultiSelect.js').default;
 
 module.exports = {
 	Alert,
@@ -20,4 +23,7 @@ module.exports = {
 	ListItem,
 	Table,
 	TextArea,
+	DateTimePicker,
+	ReactDatePicker,
+	MultiSelect,
 };

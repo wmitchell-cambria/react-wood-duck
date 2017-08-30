@@ -25,9 +25,11 @@
 		};
 	}
 
+	var props = { label: "hi", options: [] };
+
 	describe('CheckboxRadioGroup', function () {
 		var renderedComp = _ReactTestUtils2.default.createRenderer();
-		var compRendered = renderedComp.render(_react2.default.createElement(_CheckboxRadioGroup2.default, null));
+		var compRendered = renderedComp.render(_react2.default.createElement(_CheckboxRadioGroup2.default, props));
 		var result_tag = renderedComp.getRenderOutput();
 
 		it('renders the tag', function () {

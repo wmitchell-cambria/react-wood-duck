@@ -25,9 +25,11 @@
 		};
 	}
 
+	var props = { name: "hi", options: [] };
+
 	describe('DropDownField', function () {
 		var renderedComp = _ReactTestUtils2.default.createRenderer();
-		var compRendered = renderedComp.render(_react2.default.createElement(_DropDownField2.default, null));
+		var compRendered = renderedComp.render(_react2.default.createElement(_DropDownField2.default, props));
 		var result_tag = renderedComp.getRenderOutput();
 
 		it('renders the tag', function () {

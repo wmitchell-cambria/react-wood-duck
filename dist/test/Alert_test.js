@@ -37,5 +37,7 @@
 		it('verify the className', function () {
 			expect(result_tag.props.className).toBe('row');
 		});
+
+		it();
 	});
 });

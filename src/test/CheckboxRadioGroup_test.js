@@ -2,10 +2,12 @@ import React from 'react';
 import CheckboxRadioGroup from '../CheckboxRadioGroup.js';
 import TestUtils from 'react-dom/lib/ReactTestUtils';
 
+let props = {label:"hi", type:"radio", name:"CheckboxRadioGroup", options: []};
+
 describe('CheckboxRadioGroup', function()
 {
 	const renderedComp = TestUtils.createRenderer()
-	const compRendered = renderedComp.render(<CheckboxRadioGroup />)
+	const compRendered = renderedComp.render(<CheckboxRadioGroup {...props}/>)
 	const result_tag = renderedComp.getRenderOutput()
 
 	it('renders the tag', function() {
