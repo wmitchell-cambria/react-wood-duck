@@ -25,7 +25,7 @@
 		};
 	}
 
-	var props = { label: "hi", options: [] };
+	var props = { label: "hi", type: "radio", name: "CheckboxRadioGroup", options: [] };
 
 	describe('CheckboxRadioGroup', function () {
 		var renderedComp = _ReactTestUtils2.default.createRenderer();
