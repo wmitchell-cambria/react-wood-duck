@@ -33,7 +33,7 @@ The react-wood-duck is a shared pattern library hosting re-usable components and
 
 To Install:
 
-	npm install react-wood-duck --save
+	npm install react-wood-duck --save --dev
 
 For specific version:
 
