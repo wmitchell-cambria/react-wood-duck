@@ -70,6 +70,7 @@
   "dependencies": {
     "babel-runtime": "^6.6.1",
     "bootstrap": "^3.3.7",
+    "copyfiles": "^1.2.0",
     "moment": "^2.18.1",
     "node-sass": "^4.5.3",
     "react-datetime": "^2.9.0",
