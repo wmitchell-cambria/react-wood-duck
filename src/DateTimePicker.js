@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-const DateTime = require('react-datetime');
+import DateTime from 'react-datetime';
+
 
 class DateTimePicker extends React.Component {
     constructor(props) {

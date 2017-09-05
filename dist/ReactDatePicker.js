@@ -10,7 +10,7 @@
         factory(mod.exports, global.react, global.propTypes, global.reactDatetime);
         global.ReactDatePicker = mod.exports;
     }
-})(this, function (exports, _react, _propTypes, DateTime) {
+})(this, function (exports, _react, _propTypes, _reactDatetime) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -20,6 +20,8 @@
     var _react2 = _interopRequireDefault(_react);
 
     var _propTypes2 = _interopRequireDefault(_propTypes);
+
+    var _reactDatetime2 = _interopRequireDefault(_reactDatetime);
 
     function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {
@@ -90,7 +92,7 @@
             };
 
             _this._renderDatePicker = function () {
-                return _react2.default.createElement(DateTime, {
+                return _react2.default.createElement(_reactDatetime2.default, {
                     value: _this.state.startDate,
                     onChange: function onChange(e) {
                         return _this._handleChange(e);
