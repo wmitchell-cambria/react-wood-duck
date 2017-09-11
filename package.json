@@ -16,9 +16,6 @@
     "react-component",
     "react"
   ],
-  "options": {
-    "mocha": "--require scripts/mocha_runner src/**/test/**/*.js"
-  },
   "scripts": {
     "prepublish": "babel --plugins transform-es2015-modules-umd src --out-dir ./dist && node-sass src/styles/application.scss dist/styles/application.scss && node-sass src/styles/application.scss dist/styles/application.css && copyfiles -f ./src/images/* ./dist/images && copyfiles -f ./src/styles/icon/* ./dist/styles/icon && copyfiles -f ./src/fonts/* ./dist/fonts && echo 'all dist copied.'",
     "lint": "eslint ./src",
@@ -39,7 +36,6 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
     "chai": "^3.5.0",
-    "enzyme": "^2.2.0",
     "eslint": "^2.7.0",
     "eslint-plugin-babel": "^3.1.0",
     "eslint-plugin-react": "^4.2.3",
