@@ -1,0 +1,21 @@
+---
+
+title: Alert
+status: prototype
+
+collated: true
+
+variants:
+  - name: default
+    context:
+      alertClassName: info
+      alertMessage: Well done guys
+      faIcon: fa-check-circle
+
+  - name: warning
+    label: Warning
+    context:
+      alertClassName: error
+      alertMessage: This is a warning message!!!
+      faIcon: fa-exclamation-triangle
+      

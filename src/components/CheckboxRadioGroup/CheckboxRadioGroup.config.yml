@@ -1,0 +1,15 @@
+---
+
+title: CheckboxRadioGroup
+status: prototype
+
+context:
+  label: A sample label
+  options: [
+    {"key": 1, "name": "Mickey Mouse", "type": "checkbox"},
+    {"key": 2, "name": "Daffy Duck", "type": "checkbox"},
+    {"key": 3, "name": "Winnie the Pooh", "type": "checkbox"}
+  ]
+  selectedOptions: ["key": 2, "name": "Daffy Duck", "type": "checkbox"]
+  type: checkbox
+      

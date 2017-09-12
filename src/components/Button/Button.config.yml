@@ -1,0 +1,24 @@
+---
+
+title: Button
+status: prototype
+
+collated: true
+
+variants:
+  - name: default
+    context:
+      btnClassName: primary
+      btnName: View more
+
+  - name: warning
+    label: Warning
+    context:
+      btnClassName: warning
+      btnName: Discard changes
+
+  - name: danger
+    label: Danger
+    context:
+      btnClassName: danger
+      btnName: Save changes
