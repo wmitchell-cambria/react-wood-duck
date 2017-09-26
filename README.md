@@ -1,3 +1,5 @@
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
 # react-wood-duck
 
 The react-wood-duck is a shared pattern library hosting re-usable components and styles to be used across all CWS-NS digital services. This library provides a common ‘language’ for CWS-NS designers and developers for front-end assets. It is aimed at improving communication, collaboration, productivity, and reducing coding efforts.
@@ -39,14 +41,14 @@ To Install:
 For specific version:
 
 	npm install react-wood-duck@version
-  
+
 ## Usage
 
 Now, you can import the components from the library into the application:
 
 	@import {component-name} from 'react-wood-duck'
-  
-## Development 
+
+## Development
 #### (src, dist)
 
 The most important files in this library are index.js and package.json. As you know, package.json is a standard Npm configuration file. In the index.js file, we have the main export for the components to be exported. It points to the **dist** folder which will be created after the publish task has been run. It will basically transpile the code in **src** to ES5 and place all transpiled code in the dist folder.
