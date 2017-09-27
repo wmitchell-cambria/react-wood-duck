@@ -12,28 +12,28 @@ class GlobalHeader extends React.Component {
     render() {
         const { logo, searchIcon, addIcon, notificationIcon, profileName, profileAvatar } = this.props;
         return (
-            <header className="container-fluid">
-                <div className="row">
+            <header className="container-fluid" role= "banner">
+                <nav className="row" role= "navigation">
                     <div className="col-xs-12 col-sm-1">
                         <div className="logo">{logo}</div>
                     </div>
-                    <div className="col-xs-12 col-sm-11">
+                    <div className="col-xs-12 col-sm-11" >
                         <div className="pull-right">
                             <ul className="header-actions">
-                                <li>
-                                    {searchIcon}
+                                <li >
+                                <a role= "search" aria-search= "search" href= "#">{searchIcon} </a>   
                                 </li>
-                                <li>
-                                    {addIcon}
+                                <li >
+                                <a aria-add= "add" href= "#">{addIcon} </a>
                                 </li>
-                                <li>
-                                    {notificationIcon}
+                                <li >
+                                <a aria-notification= "notification" href= "#">{notificationIcon}</a>
                                 </li>
                                 <li>
                                     <span className="divider" />
                                 </li>
                                 <li>
-                                    <p className="profile">{profileName}</p>
+                                    <p className="profile"> <a href= "#">{profileName}</a> </p>
                                 </li>
                                 <li>
                                     <div className="profile-avatar">{profileAvatar}</div>
@@ -41,7 +41,7 @@ class GlobalHeader extends React.Component {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </nav>
             </header>
         );
     }
