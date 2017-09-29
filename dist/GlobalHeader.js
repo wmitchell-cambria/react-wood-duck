@@ -107,10 +107,10 @@
 
                 return _react2.default.createElement(
                     'header',
-                    { className: 'container-fluid' },
+                    { className: 'container-fluid', role: 'banner' },
                     _react2.default.createElement(
-                        'div',
-                        { className: 'row' },
+                        'nav',
+                        { className: 'row', role: 'navigation' },
                         _react2.default.createElement(
                             'div',
                             { className: 'col-xs-12 col-sm-1' },
@@ -132,17 +132,29 @@
                                     _react2.default.createElement(
                                         'li',
                                         null,
-                                        searchIcon
+                                        _react2.default.createElement(
+                                            'a',
+                                            { role: 'search', 'aria-search': 'search', href: '#' },
+                                            searchIcon
+                                        )
                                     ),
                                     _react2.default.createElement(
                                         'li',
                                         null,
-                                        addIcon
+                                        _react2.default.createElement(
+                                            'a',
+                                            { 'aria-add': 'add', href: '#' },
+                                            addIcon
+                                        )
                                     ),
                                     _react2.default.createElement(
                                         'li',
                                         null,
-                                        notificationIcon
+                                        _react2.default.createElement(
+                                            'a',
+                                            { 'aria-notification': 'notification', href: '#' },
+                                            notificationIcon
+                                        )
                                     ),
                                     _react2.default.createElement(
                                         'li',
@@ -155,7 +167,12 @@
                                         _react2.default.createElement(
                                             'p',
                                             { className: 'profile' },
-                                            profileName
+                                            ' ',
+                                            _react2.default.createElement(
+                                                'a',
+                                                { href: '#' },
+                                                profileName
+                                            )
                                         )
                                     ),
                                     _react2.default.createElement(

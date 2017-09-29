@@ -3363,46 +3363,40 @@ body {
  GLOBAL HEADER STYLING
 ***/
 header {
-  background-color: #FFFFFF;
+  background-color: #fff;
   text-align: center;
-  padding: 1.000em; }
-
-header i.fa {
-  color: #264F70;
-  font-size: 16pt; }
-
-.logo {
-  color: #083452;
-  font-size: 16pt;
-  text-align: left; }
-
-.divider {
-  height: 25px;
-  border: 0.111em solid #EBEBEA; }
-
-ul.header-actions li {
-  list-style: none;
-  display: inline-block;
-  padding: 0 20px;
-  vertical-align: middle; }
-
-.profile {
-  font-size: 16pt;
-  margin: 0;
-  text-align: left;
-  max-width: 490px;
-  color: #264F70;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
-
-.profile-avatar {
-  font-size: 13pt;
-  border-radius: 100%;
-  border: none;
-  margin: 0;
-  background-color: #083452;
-  color: #FFFFFF;
-  flex: 0 0 15%;
-  padding: 5px;
-  text-align: center; }
+  padding: 0.625em; }
+  header .logo {
+    color: #083452;
+    font-size: 16pt;
+    text-align: left; }
+  header ul.header-actions li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 1.250em;
+    vertical-align: middle; }
+  header ul.header-actions .fa {
+    color: #264F70;
+    font-size: 16pt; }
+  header ul.header-actions .divider {
+    height: 1.563em;
+    border: 0.063em solid #ebebea; }
+  header ul.header-actions .profile {
+    font-size: 16pt;
+    margin: 0;
+    text-align: left;
+    max-width: 30.625em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #264F70; }
+  header ul.header-actions .profile-avatar {
+    font-size: 13pt;
+    border-radius: 100%;
+    border: none;
+    margin: 0;
+    background-color: #083452;
+    color: #fff;
+    flex: 0 0 15%;
+    padding: 0.313em;
+    text-align: center; }
