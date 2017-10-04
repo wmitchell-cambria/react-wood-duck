@@ -50,7 +50,6 @@
 			var componentRendered = renderer.render(_react2.default.createElement(_SideNav2.default, { content: 'a', columnWidth: 4 }));
 			var resultTag = renderer.getRenderOutput();
 			expect(resultTag.props.className).toBe('container col-md-4');
-			alert;
 		});
 	});
 });
