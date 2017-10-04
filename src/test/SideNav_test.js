@@ -21,12 +21,12 @@ describe('Side Nav', function()
 	it('returns side nav element with default column width when columnWidth is not provided', function() {
 		const componentRendered = renderer.render(<SideNav content="a" />)
 		const resultTag = renderer.getRenderOutput()
-		expect(resultTag.props.className).toBe('container col-md-3')
+		expect(resultTag.props.className).toBe('container bg-white col-md-3')
 	})
 
 	it('returns side nav element with specified column width', function() {
 		const componentRendered = renderer.render(<SideNav content="a" columnWidth={4} />)
 		const resultTag = renderer.getRenderOutput()
-		expect(resultTag.props.className).toBe('container col-md-4')
+		expect(resultTag.props.className).toBe('container bg-white col-md-4')
 	})
 })
