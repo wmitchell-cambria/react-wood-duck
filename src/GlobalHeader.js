@@ -17,7 +17,7 @@ class GlobalHeader extends React.Component {
                     <div className="col-xs-12 col-sm-1">
                         <div className="logo">{logo}</div>
                     </div>
-                    <div className="col-xs-12 col-sm-11" >
+                    <div className="col-xs-12 col-sm-11">
                         <div className="pull-right">
                             <ul className="header-actions">
                                 <li>
