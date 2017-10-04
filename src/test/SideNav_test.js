@@ -28,6 +28,5 @@ describe('Side Nav', function()
 		const componentRendered = renderer.render(<SideNav content="a" columnWidth={4} />)
 		const resultTag = renderer.getRenderOutput()
 		expect(resultTag.props.className).toBe('container col-md-4')
-		alert 
 	})
 })
