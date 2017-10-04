@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 import About from './About';
 import Accessibility from './Accessibility';
 import Colors from './Colors';
+import SideNav from './SideNav';
 //Components
 import Alert from '../src/Alert';
 import Button from '../src/Button';
@@ -21,9 +22,10 @@ import MultiSelect from '../src/MultiSelect';
 import ReactDatePicker from '../src/ReactDatePicker';
 import Table from '../src/Table';
 import TextArea from '../src/TextArea';
+
 // Style Sheets
 import 'bootstrap/dist/css/bootstrap.css';
-import '../dist/styles/application.css';
+import '../src/styles/application.scss';
 
 const inputName = (
   <InputComponent
@@ -147,3 +149,4 @@ storiesOf('TextArea', module)
       value=""
     />
   ));
+
