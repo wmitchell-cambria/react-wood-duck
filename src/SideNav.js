@@ -6,14 +6,14 @@ class SideNav extends React.Component {
 		super(props);
 	}
 	render() {
-		const classField = `container col-md-${this.props.columnWidth}`;
+		const classField = `container bg-white col-md-${this.props.columnWidth}`;
 		if(!this.props.content) { 
 			return null;
 		} else { 
 			return (
 	         		<div className={classField}>
 					<div className="row">
-						<span> Sample Side Nav </span>
+						<span className="c-dark-blue h4"> Sample Side Nav </span>
 						<ul className="nav nav-stacked">
 							<li className="active"><a href="#">Test Item 0</a></li>
         	       					<li><a href="#">Test Item 1</a></li>
