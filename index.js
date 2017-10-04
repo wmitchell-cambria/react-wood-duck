@@ -12,6 +12,7 @@ var DateTimePicker = require('./dist/DateTimePicker.js').default;
 var ReactDatePicker = require('./dist/ReactDatePicker.js').default;
 var MultiSelect = require('./dist/MultiSelect.js').default;
 var GlobalHeader = require('./dist/GlobalHeader.js').default;
+var SideNav = require('./dist/SideNav.js').default;
 
 module.exports = {
 	Alert,
@@ -27,5 +28,6 @@ module.exports = {
 	DateTimePicker,
 	ReactDatePicker,
 	MultiSelect,
-	GlobalHeader
+	GlobalHeader,
+	SideNav
 };
