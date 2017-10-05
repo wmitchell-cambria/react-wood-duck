@@ -3411,7 +3411,7 @@ header {
   background: -o-linear-gradient(left, #072D47 0%, #0C4E78 10%, #087B8E 90%, #065A67 100%);
   background: -moz-linear-gradient(left, #072D47 0%, #0C4E78 10%, #087B8E 90%, #065A67 100%);
   background: linear-gradient(to right, #072D47 0%, #0C4E78 10%, #087B8E 90%, #065A67 100%);
-  position: fixed;
+  position: sticky;
   width: 100%;
   transition: top .2s ease;
   z-index: 1; }
@@ -3429,8 +3429,5 @@ header {
   font-size: 16pt;
   color: #fff;
   cursor: pointer; }
-
-.main {
-  margin-top: 6em; }
 
 /** ENDS **/
