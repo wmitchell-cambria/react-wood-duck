@@ -17,7 +17,7 @@
     "react"
   ],
   "scripts": {
-    "prepublish": "babel --plugins transform-es2015-modules-umd src --out-dir ./dist && node-sass src/styles/application.scss dist/styles/application.scss && node-sass src/styles/application.scss dist/styles/application.css && copyfiles -f ./src/images/* ./dist/images && copyfiles -f ./src/styles/icon/* ./dist/styles/icon && copyfiles -f ./src/fonts/* ./dist/fonts && echo 'all dist copied.'",
+    "prepublish": "babel --plugins transform-es2015-modules-umd src --out-dir ./dist && node-sass src/styles/application.scss dist/styles/application.scss && node-sass src/styles/application.scss dist/styles/application.css && echo 'all dist copied.'",
     "lint": "eslint ./src",
     "lintfix": "eslint ./src --fix",
     "test": "karma start --single-run",
