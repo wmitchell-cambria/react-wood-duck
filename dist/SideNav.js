@@ -83,7 +83,7 @@
 		_createClass(SideNav, [{
 			key: "render",
 			value: function render() {
-				var classField = "container col-md-" + this.props.columnWidth;
+				var classField = "container bg-white col-md-" + this.props.columnWidth;
 				if (!this.props.content) {
 					return null;
 				} else {
@@ -93,6 +93,11 @@
 						_react2.default.createElement(
 							"div",
 							{ className: "row" },
+							_react2.default.createElement(
+								"span",
+								{ className: "c-dark-blue h4" },
+								" Sample Side Nav "
+							),
 							_react2.default.createElement(
 								"ul",
 								{ className: "nav nav-stacked" },
