@@ -36,4 +36,4 @@ SideNav.defaultProps = {
 	columnWidth: 3
 }
 
-module.exports = SideNav;
+export default SideNav;
