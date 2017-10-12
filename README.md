@@ -2,7 +2,7 @@
 
 # react-wood-duck
 
-The react-wood-duck is a shared pattern library hosting re-usable components and styles to be used across all CWS-NS digital services. This library provides a common ‘language’ for CWS-NS designers and developers for front-end assets. It is aimed at improving communication, collaboration, productivity, and reducing coding efforts.
+The **react-wood-duck component library** is a set of re-usable components and styles to be used across all CWS-NS digital services. This library provides a common ‘language’ for CWS-NS designers and developers for front-end assets. It is aimed at improving communication, collaboration, productivity, and reducing coding efforts.
 
 ## Table of Contents
 
@@ -17,22 +17,28 @@ The react-wood-duck is a shared pattern library hosting re-usable components and
 	* [Publish to NPM](#publish-to-npm)
 	* [Documentation](#documentation)
 
-## List of components
+## List of Components
+* Global Components (Required by all DS teams)
+	* GlobalHeader
+	* PageHeader
 
-*	Alerts
-*	Button
-*	Cards
-*	CheckboxRadioGroup
-*	DropDownField
-*	DatePicker
-*	GlobalHeader
-*	InputComponent
-*	ListItem
-*	Select/Multiselect
-*       SideNav
-*	TextArea
-*	Table
-*   PageHeader
+* Page Layout Components
+	* Layout01 (Level 01 Page Template)
+	* Layout03 (Level 03 Page Template)
+	* SideNav
+
+* Other Components
+	* Alerts
+	* Button
+	* Cards
+	* CheckboxRadioGroup
+	* DropDownField
+	* DatePicker
+	* InputComponent
+	* ListItem
+	* Select/Multiselect
+	* TextArea
+	* Table
 
 ## Installation
 
@@ -55,7 +61,7 @@ You can also import the corresponding styles from `react-wood-duck` from `dist/s
 ## Development
 #### (src, dist)
 
-The most important files in this library are index.js and package.json. As you know, package.json is a standard Npm configuration file. In the index.js file, we have the main export for the components to be exported. It points to the **dist** folder which will be created after the publish task has been run. It will basically transpile the code in **src** to ES5 and place all transpiled code in the dist folder.
+The most important files in this library are **index.js** and **package.json**. **package.json** is a standard NPM configuration file. In the index.js file, we have the main export for the components to be exported. It points to the **dist** folder which will be created after the publish task has been run. It will basically transpile the code in **src** to ES5 and place all transpiled code in the dist folder.
 
 You will work mostly in the **src** folder where you can write your React component code. If you look in the repo, you’ll find some basic re-usable react components, styles folder where all the CSS and images are located that supports styles. Also in the **src** folder we have the __tests__ folder were you can right your test cases for the components.
 
@@ -63,7 +69,7 @@ You will work mostly in the **src** folder where you can write your React compon
 
 ## Contributing
 
-Contribution and Integration of this pattern library by digital services results in reducing coding efforts for all developers. You can contribute by adding new components and by modifying existing components and styles.
+Contribution and Integration of this pattern library by digital services results in reduced coding efforts for all developers. You can contribute by adding new components and by modifying existing components and styles. Once ready for review, please submit a pull request to the Lead Developers and DevOps product manager.
 
 ### Add and Modify the Components
 
@@ -119,5 +125,5 @@ Use [SemVer](http://semver.org/) for versioning:
 	
 ### Documentation
 
-When you add the new components, update the [List of Components](#list-of-components) in ReadMe file.			
+When you add new component(s), please update the [List of Components](#list-of-components) in this ReadMe file.			
 Any necessary documentation can be added.
