@@ -16,6 +16,7 @@ The **react-wood-duck component library** is a set of re-usable components and s
 	* [Versioning](#versioning)
 	* [Publish to NPM](#publish-to-npm)
 	* [Documentation](#documentation)
+	* [Storybook](#storybook)
 
 ## List of Components
 * Global Components (Required by all DS teams)
@@ -127,3 +128,48 @@ Use [SemVer](http://semver.org/) for versioning:
 
 When you add new component(s), please update the [List of Components](#list-of-components) in this ReadMe file.			
 Any necessary documentation can be added.
+
+### Storybook
+
+After adding a new component, you can write a story for the new component. Create a file
+inside ./stories/components - NewStory.js and then write your story like this:
+
+	import React from 'react';
+	import { storiesOf } from '@storybook/react';
+	import { withInfo } from '@storybook/addon-info';
+	import NewComponent from '../../src/NewComponent';
+	const CenterDecorator = (storyFn) => (
+		<div className='container'>
+			{storyFn()}
+		</div>
+	);
+	const newComponent = withInfo(
+		`
+		#### Title
+			some info
+		#### Usage
+			some info on usage
+		`
+	)(() => (
+		<NewComponent name="hello world"/>
+	));
+
+	storiesOf('Components', module)
+		.addDecorator(CenterDecorator)
+		.add('NewComponent', newComponent);
+
+The addDecorator is a storybook decorator which wraps the components and style the layout like
+centering the components. The withInfo function accepts an html markup and an object so you can
+show some documentation on your components. It shows the component's code and prop types.
+
+After writing your story, import your story at index.js
+
+	import NewComponent from './components/NewComponent';
+
+Run your storybook with:
+	
+	yarn run storybook
+
+View your storybook browser http://localhost:6006/
+
+Access storybook here for [react-wood-duck](https://ca-cwds.github.io/react-wood-duck/)

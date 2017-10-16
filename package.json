@@ -1,6 +1,6 @@
 {
   "name": "react-wood-duck",
-  "version": "0.1.24",
+  "version": "0.1.28",
   "description": "The CWDS component library (react-wood-duck) is for all CWDS digital service teams to contribute to and use in order to provide a consistent look, feel, and behavior for the overall CWDS application.",
   "repository": {
     "type": "git",
@@ -20,8 +20,8 @@
     "prepublish": "babel --plugins transform-es2015-modules-umd src --out-dir ./dist && node-sass src/styles/application.scss dist/styles/application.scss && node-sass src/styles/application.scss dist/styles/application.css && echo 'all dist copied.'",
     "lint": "eslint ./src",
     "lintfix": "eslint ./src --fix",
-    "lint:configtest": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",    
-    "prettier:check": "prettier --list-different --config ./.prettierrc \"src/**/*.js?(x)\"",    
+    "lint:configtest": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "prettier:check": "prettier --list-different --config ./.prettierrc \"src/**/*.js?(x)\"",
     "test": "karma start --single-run",
     "test-watch": "karma start",
     "build:dev": "webpack",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.11",
+    "@storybook/addon-info": "^3.2.12",
     "@storybook/addon-links": "^3.2.10",
     "@storybook/react": "^3.2.11",
     "@storybook/storybook-deployer": "^2.0.0",
