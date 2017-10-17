@@ -11,20 +11,14 @@ class Layout03 extends React.Component {
   render() {
     return (
       <div>
-        <GlobalHeader/>
-        <PageHeader/>
-        <SideNav content="Text"/>
-          <div>
-            {this.props.children}
-          </div>
+        <GlobalHeader />
+        <PageHeader />
+        <SideNav content="Text" />
+        <div>{this.props.children}</div>
       </div>
     );
   }
 }
-Layout03.PropTypes = {
-
-};
-Layout03.defaultProps = {
-  
-};
+Layout03.PropTypes = {};
+Layout03.defaultProps = {};
 export default Layout03;

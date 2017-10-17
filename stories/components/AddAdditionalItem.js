@@ -6,11 +6,7 @@ import { withInfo } from '@storybook/addon-info';
 import InputComponent from '../../src/InputComponent';
 import ListItem from '../../src/AddAdditionalItem';
 
-const CenterDecorator = (storyFn) => (
-  <div className='container'>
-    { storyFn() }
-  </div>
-);
+const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
 const inputName = (
   <InputComponent
     label="Name"

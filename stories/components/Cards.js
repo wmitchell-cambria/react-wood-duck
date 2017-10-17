@@ -70,11 +70,6 @@ const CardsStory = withInfo(
     
       - Saving the card should keep
   `
-)(() => (
-  <Cards
-    cardHeaderText="Profile Information"
-    children={cardBody}
-  />
-));
+)(() => <Cards cardHeaderText="Profile Information" children={cardBody} />);
 
 storiesOf('In Progress', module).add('Cards', CardsStory);

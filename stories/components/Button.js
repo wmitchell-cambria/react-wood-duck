@@ -8,16 +8,8 @@ import Button from '../../src/Button';
 const center = { display: 'flex', justifyContent: 'center' };
 const style = { padding: '15px' };
 
-const CenterDecorator = (storyFn) => (
-  <div style={center}>
-    { storyFn() }
-  </div>
-);
-const ButtonContainer = ({children}) =>(
-  <div style={style}>
-    {children}
-  </div>
-);
+const CenterDecorator = storyFn => <div style={center}>{storyFn()}</div>;
+const ButtonContainer = ({ children }) => <div style={style}>{children}</div>;
 
 const ButtonStory = withInfo(
   ` 
@@ -81,29 +73,16 @@ const ButtonStory = withInfo(
 )(() => (
   <div>
     <ButtonContainer>
-      <Button 
-        btnClassName="primary" 
-        btnName="Primary Button" 
-      />
+      <Button btnClassName="primary" btnName="Primary Button" />
     </ButtonContainer>
     <ButtonContainer>
-      <Button 
-        btnClassName="default" 
-        btnName="Secondary Button" 
-      />
+      <Button btnClassName="default" btnName="Secondary Button" />
     </ButtonContainer>
     <ButtonContainer>
-      <Button 
-        btnClassName="warning" 
-        btnName="Warning Button" 
-      />
+      <Button btnClassName="warning" btnName="Warning Button" />
     </ButtonContainer>
     <ButtonContainer>
-      <Button 
-        btnClassName="default" 
-        btnName="Delete changes" 
-        disabled="true" 
-      />
+      <Button btnClassName="default" btnName="Delete changes" disabled="true" />
     </ButtonContainer>
   </div>
 ));

@@ -5,11 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 
 import TextArea from '../../src/TextArea';
 
-const CenterDecorator = (storyFn) => (
-  <div className='container' >
-    { storyFn() }
-  </div>
-);
+const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
 
 const TextAreaStory = () => (
   <TextArea
@@ -20,7 +16,7 @@ const TextAreaStory = () => (
     placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     value=""
   />
-)
+);
 
 storiesOf('In Progress', module)
   .addDecorator(CenterDecorator)

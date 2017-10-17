@@ -10,20 +10,14 @@ class Layout01 extends React.Component {
   render() {
     return (
       <div>
-        <GlobalHeader/>
-        <PageHeader/>
-          <div>
-            {this.props.children}
-          </div>
+        <GlobalHeader />
+        <PageHeader />
+        <div>{this.props.children}</div>
       </div>
     );
   }
 }
-Layout01.PropTypes = {
-
-};
-Layout01.defaultProps = {
-
-};
+Layout01.PropTypes = {};
+Layout01.defaultProps = {};
 
 export default Layout01;
