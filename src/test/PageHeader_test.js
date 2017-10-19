@@ -6,9 +6,9 @@ describe('PageHeader', function() {
   var input = {
     pageTitle: 'testPageTitle',
   };
-  const renderedComp = TestUtils.createRenderer();
-  const compRendered = renderedComp.render(<PageHeader />);
-  const resultTag = renderedComp.getRenderOutput();
+  const renderedComponent = TestUtils.createRenderer();
+  renderedComponent.render(<PageHeader />);
+  const resultTag = renderedComponent.getRenderOutput();
   const pageHeader = TestUtils.renderIntoDocument(<PageHeader />);
   const pageHeaderwithProps = TestUtils.renderIntoDocument(
     <PageHeader {...input} />

@@ -1,10 +1,5 @@
 import React from 'react';
-
-/* Attached Prop fields
-* gridClassName, fieldClassName,labelClassName, id, label, onChange,
-* value,placeholder, type, serverError, serverErrorMessage, validationError,validationErrorMessage, required
-*
-* */
+import PropTypes from 'prop-types';
 
 const InputComponent = props => {
   let errorMessage = '';
@@ -27,15 +22,15 @@ const InputComponent = props => {
       >
         <label className={props.labelClassName} htmlFor={props.id}>
           {props.label}
+          <input
+            className={props.fieldClassName}
+            id={props.id}
+            type={props.type}
+            placeholder={props.placeholder}
+            value={props.value}
+            onChange={props.onChange}
+          />
         </label>
-        <input
-          className={props.fieldClassName}
-          id={props.id}
-          type={props.type}
-          placeholder={props.placeholder}
-          value={props.value}
-          onChange={props.onChange}
-        />
         {errorMessage !== '' ? (
           <span className="error text-danger">{errorMessage}</span>
         ) : (
@@ -46,4 +41,20 @@ const InputComponent = props => {
   );
 };
 
+InputComponent.propTypes = {
+  id: PropTypes.number,
+  labelClassName: PropTypes.string,
+  required: PropTypes.bool,
+  validationError: PropTypes.bool,
+  validationErrorMessage: PropTypes.string,
+  gridClassName: PropTypes.string,
+  fieldClassName: PropTypes.string,
+  serverError: PropTypes.bool,
+  serverErrorMessage: PropTypes.string,
+  label: PropTypes.string,
+  type: PropTypes.any,
+  placeholder: PropTypes.string,
+  value: PropTypes.any,
+  onChange: PropTypes.func,
+};
 export default InputComponent;

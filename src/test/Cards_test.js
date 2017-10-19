@@ -3,9 +3,9 @@ import Cards from '../Cards.js';
 import TestUtils from 'react-dom/lib/ReactTestUtils';
 
 describe('Cards', function() {
-  const renderedComp = TestUtils.createRenderer();
-  const compRendered = renderedComp.render(<Cards />);
-  const resultTag = renderedComp.getRenderOutput();
+  const renderedComponent = TestUtils.createRenderer();
+  renderedComponent.render(<Cards />);
+  const resultTag = renderedComponent.getRenderOutput();
 
   it('renders the tag', function() {
     expect(resultTag.type).toBe('div');

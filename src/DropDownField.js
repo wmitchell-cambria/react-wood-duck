@@ -1,5 +1,6 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+/*eslint-disable */
 const DropDownField = props => (
   <div className="form-group">
     <div className={props.gridClassName}>
@@ -9,8 +10,7 @@ const DropDownField = props => (
         value={props.selectedOption}
         onChange={props.handleOnChange}
         className={props.selectClassName}
-        disabled={props.disable}
-      >
+        disabled={props.disable}>
         <option value="">{props.placeholder}</option>
         {props.options.map(opt => {
           return (
@@ -25,11 +25,13 @@ const DropDownField = props => (
 );
 
 DropDownField.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  options: React.PropTypes.array.isRequired,
-  selectedOption: React.PropTypes.string,
-  handleOnChange: React.PropTypes.func.isRequired,
-  placeholder: React.PropTypes.string,
+  gridClassName: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+  selectedOption: PropTypes.string,
+  handleOnChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
 };
 
 export default DropDownField;

@@ -1,5 +1,6 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+/*eslint-disable */
 const CheckboxRadioGroup = props => (
   <fieldset className="fieldset-inputs sans col-md-4 col-sm-6 col-xs-12">
     <legend className="sr-only">{props.label}</legend>
@@ -22,12 +23,13 @@ const CheckboxRadioGroup = props => (
 );
 
 CheckboxRadioGroup.propTypes = {
-  label: React.PropTypes.string.isRequired,
-  type: React.PropTypes.oneOf(['checkbox', 'radio']).isRequired,
-  name: React.PropTypes.string.isRequired,
-  options: React.PropTypes.array.isRequired,
-  selectedOptions: React.PropTypes.array,
-  handleOnChange: React.PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
+  fieldClassName: PropTypes.string,
+  type: PropTypes.oneOf(['checkbox', 'radio']).isRequired,
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+  selectedOptions: PropTypes.array,
+  handleOnChange: PropTypes.func.isRequired,
 };
 
 export default CheckboxRadioGroup;

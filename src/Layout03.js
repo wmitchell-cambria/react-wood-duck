@@ -5,9 +5,6 @@ import PageHeader from './PageHeader.js';
 import SideNav from './SideNav.js';
 
 class Layout03 extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>
@@ -19,6 +16,6 @@ class Layout03 extends React.Component {
     );
   }
 }
-Layout03.PropTypes = {};
+Layout03.propTypes = { children: PropTypes };
 Layout03.defaultProps = {};
 export default Layout03;

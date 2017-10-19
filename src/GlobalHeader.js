@@ -6,9 +6,6 @@ const defaultAddIcon = () => <i className="fa fa-plus" />;
 const defaultBellIcon = () => <i className="fa fa-bell" />;
 
 class GlobalHeader extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const {
       logo,
@@ -20,7 +17,7 @@ class GlobalHeader extends React.Component {
     } = this.props;
     return (
       <header className="container-fluid" role="banner">
-        <nav className="row" role="navigation">
+        <nav className="row">
           <div className="col-xs-12 col-sm-1">
             <div className="logo">{logo}</div>
           </div>
@@ -28,17 +25,17 @@ class GlobalHeader extends React.Component {
             <div className="pull-right">
               <ul className="header-actions">
                 <li>
-                  <a role="search" aria-search="search" href="#">
+                  <a aria-label="search" href="#/">
                     {searchIcon}
                   </a>
                 </li>
                 <li>
-                  <a aria-add="add" href="#">
+                  <a aria-label="add new" href="#/">
                     {addIcon}
                   </a>
                 </li>
                 <li>
-                  <a aria-notification="notification" href="#">
+                  <a aria-label="notifications" href="#/">
                     {notificationIcon}
                   </a>
                 </li>
@@ -48,7 +45,7 @@ class GlobalHeader extends React.Component {
                 <li>
                   <p className="profile">
                     {' '}
-                    <a href="#">{profileName}</a>
+                    <a href="#/">{profileName}</a>
                   </p>
                 </li>
                 <li>
@@ -63,7 +60,7 @@ class GlobalHeader extends React.Component {
   }
 }
 
-GlobalHeader.PropTypes = {
+GlobalHeader.propTypes = {
   logo: PropTypes.string,
   profileName: PropTypes.string,
   profileAvatar: PropTypes.string,

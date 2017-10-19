@@ -4,7 +4,7 @@ import TestUtils from 'react-dom/lib/ReactTestUtils';
 
 describe('AddAdditionalItem', function() {
   const renderedComp = TestUtils.createRenderer();
-  const compRendered = renderedComp.render(<AddAdditionalItem />);
+  renderedComp.render(<AddAdditionalItem />);
   const resultTag = renderedComp.getRenderOutput();
 
   it('renders the tag', function() {

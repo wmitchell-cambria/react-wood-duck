@@ -4,9 +4,6 @@ import GlobalHeader from './GlobalHeader.js';
 import PageHeader from './PageHeader.js';
 
 class Layout01 extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>
@@ -17,7 +14,7 @@ class Layout01 extends React.Component {
     );
   }
 }
-Layout01.PropTypes = {};
+Layout01.propTypes = { children: PropTypes };
 Layout01.defaultProps = {};
 
 export default Layout01;

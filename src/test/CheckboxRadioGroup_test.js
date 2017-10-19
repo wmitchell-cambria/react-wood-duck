@@ -10,9 +10,9 @@ let props = {
 };
 
 describe('CheckboxRadioGroup', function() {
-  const renderedComp = TestUtils.createRenderer();
-  const compRendered = renderedComp.render(<CheckboxRadioGroup {...props} />);
-  const resultTag = renderedComp.getRenderOutput();
+  const renderedComponent = TestUtils.createRenderer();
+  renderedComponent.render(<CheckboxRadioGroup {...props} />);
+  const resultTag = renderedComponent.getRenderOutput();
 
   it('renders the tag', function() {
     expect(resultTag.type).toBe('fieldset');

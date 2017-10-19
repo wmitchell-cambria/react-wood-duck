@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Cards = props => (
   <div className="bg-lightest-grey container">
@@ -13,5 +14,10 @@ const Cards = props => (
     </div>
   </div>
 );
+
+Cards.propTypes = {
+  cardHeaderText: PropTypes.string,
+  children: PropTypes,
+};
 
 export default Cards;

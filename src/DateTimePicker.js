@@ -8,13 +8,15 @@ class DateTimePicker extends React.Component {
     this.state = {
       startDate: '',
     };
+    this._handleChange = this._handleChange.bind(this);
+    this._renderDatePicker = this._renderDatePicker.bind(this);
   }
-  _handleChange = e => {
+  _handleChange(e) {
     this.setState({
       startDate: e._d,
     });
-  };
-  _renderDatePicker = () => {
+  }
+  _renderDatePicker() {
     return (
       <DateTime
         value={this.state.startDate}
@@ -22,7 +24,7 @@ class DateTimePicker extends React.Component {
         timeFormat={this.props.timeFormat}
       />
     );
-  };
+  }
   render() {
     return <div>{this._renderDatePicker()}</div>;
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = props => {
   const btnClass = `btn btn-${props.btnClassName}`;
@@ -9,6 +10,12 @@ const Button = props => {
       </button>
     </div>
   );
+};
+
+Button.propTypes = {
+  btnClassName: PropTypes.string,
+  btnName: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default Button;

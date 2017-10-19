@@ -8,9 +8,9 @@ describe('Global Header', function() {
     profileName: 'testProfileName',
     profileAvatar: 'testProfileAvatar',
   };
-  const renderedComp = TestUtils.createRenderer();
-  const compRendered = renderedComp.render(<GlobalHeader />);
-  const resultTag = renderedComp.getRenderOutput();
+  const renderedComponent = TestUtils.createRenderer();
+  renderedComponent.render(<GlobalHeader />);
+  const resultTag = renderedComponent.getRenderOutput();
   const header = TestUtils.renderIntoDocument(<GlobalHeader />);
   const headerwithProps = TestUtils.renderIntoDocument(
     <GlobalHeader {...input} />
@@ -36,7 +36,6 @@ describe('Global Header', function() {
   it('find element with class and default props', function() {
     let divElmArr = TestUtils.scryRenderedDOMComponentsWithClass(header, 'row');
     expect(divElmArr.length).toEqual(1);
-    // findRenderedDOMComponentsWithClass
     var divtElm1 = TestUtils.findRenderedDOMComponentWithClass(header, 'logo');
     expect(divtElm1.className).toBe('logo');
     expect(divtElm1.textContent).toEqual('CWDS');

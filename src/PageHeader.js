@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class PageHeader extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class PageHeader extends Component {
   handleScroll(currentWindow = window, currentDocument = document) {
     var element = currentDocument.querySelector('.pageHeader');
     var pageY = window.scrollY;
-    var pageY = currentWindow.scrollY;
+    pageY = currentWindow.scrollY;
     if (pageY !== 0 && element.getBoundingClientRect().bottom > 100) {
       this.setState({ stickyHeader: true });
     } else if (pageY === 0) {
@@ -37,11 +38,7 @@ class PageHeader extends Component {
             <div className="page-title text-left">{this.props.pageTitle}</div>
           </div>
           <div className="col-xs-6">
-            <button
-              type="button"
-              role="button"
-              className="primary-btn pull-right"
-            >
+            <button type="button" className="primary-btn pull-right">
               Save Form
             </button>
           </div>
@@ -50,7 +47,7 @@ class PageHeader extends Component {
     );
   }
 }
-PageHeader.PropTypes = {
+PageHeader.propTypes = {
   pageTitle: PropTypes.string,
 };
 PageHeader.defaultProps = {

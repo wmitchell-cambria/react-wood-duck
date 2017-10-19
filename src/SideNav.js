@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SideNav extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const classField = `container bg-white col-md-${this.props.columnWidth}`;
     if (!this.props.content) {
@@ -16,13 +13,13 @@ class SideNav extends React.Component {
             <span className="c-dark-blue h4"> Sample Side Nav </span>
             <ul className="nav nav-stacked">
               <li className="active">
-                <a href="#">Test Item 0</a>
+                <a href="#/">Test Item 0</a>
               </li>
               <li>
-                <a href="#">Test Item 1</a>
+                <a href="#/">Test Item 1</a>
               </li>
               <li>
-                <a href="#">Test Item 2</a>
+                <a href="#/">Test Item 2</a>
               </li>
             </ul>
           </div>
@@ -32,7 +29,7 @@ class SideNav extends React.Component {
   }
 }
 
-SideNav.PropTypes = {
+SideNav.propTypes = {
   content: PropTypes.string,
   columnWidth: PropTypes.number,
 };

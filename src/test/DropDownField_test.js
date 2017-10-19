@@ -5,9 +5,9 @@ import TestUtils from 'react-dom/lib/ReactTestUtils';
 let props = { name: 'hi', options: [] };
 
 describe('DropDownField', function() {
-  const renderedComp = TestUtils.createRenderer();
-  const compRendered = renderedComp.render(<DropDownField {...props} />);
-  const resultTag = renderedComp.getRenderOutput();
+  const renderedComponent = TestUtils.createRenderer();
+  renderedComponent.render(<DropDownField {...props} />);
+  const resultTag = renderedComponent.getRenderOutput();
 
   it('renders the tag', function() {
     expect(resultTag.type).toBe('div');

@@ -3,9 +3,9 @@ import Alert from '../Alert.js';
 import TestUtils from 'react-dom/lib/ReactTestUtils';
 
 describe('Alert', function() {
-  const renderedComp = TestUtils.createRenderer();
-  const compRendered = renderedComp.render(<Alert />);
-  const resultTag = renderedComp.getRenderOutput();
+  const renderedComponent = TestUtils.createRenderer();
+  renderedComponent.render(<Alert />);
+  const resultTag = renderedComponent.getRenderOutput();
 
   it('renders the tag', function() {
     expect(resultTag.type).toBe('div');
