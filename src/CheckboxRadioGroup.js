@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-/*eslint-disable */
 const CheckboxRadioGroup = props => (
   <fieldset className="fieldset-inputs sans col-md-4 col-sm-6 col-xs-12">
     <legend className="sr-only">{props.label}</legend>
