@@ -7,11 +7,11 @@
     "url": "https://github.com/ca-cwds/react-wood-duck.git"
   },
   "author": "Naga Pradeep Gajula",
-  "license": "AGPL",
+  "license": "AGPL-3.0",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/ca-cwds/react-wood-duck/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/ca-cwds/react-wood-duck",
   "keywords": [
     "react-component",
     "react"
@@ -25,7 +25,7 @@
     "test": "karma start --single-run",
     "test-watch": "karma start",
     "build:dev": "webpack",
-    "buid:prod": "NODE_ENV=production webpack",
+    "build:prod": "NODE_ENV=production webpack",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o .out",
     "storybook:deploy": "storybook-to-ghpages"
