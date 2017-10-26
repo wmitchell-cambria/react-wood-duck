@@ -98,6 +98,7 @@
     "node-sass": "^4.5.3",
     "prettier": "^1.7.4",
     "prop-types": "^15.6.0",
+    "react-autosuggest": "^9.3.2",
     "react-datetime": "^2.9.0",
     "react-select": "^1.0.0-rc.5"
   }

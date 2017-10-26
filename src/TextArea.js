@@ -21,12 +21,12 @@ const TextArea = props => (
 );
 
 TextArea.propTypes = {
-  gridClassName: PropTypes.string,
-  labelClassName: PropTypes.string,
   label: PropTypes.string.isRequired,
   rows: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  labelClassName: PropTypes.string,
+  gridClassName: PropTypes.string,
   resize: PropTypes.bool,
   placeholder: PropTypes.string,
   handleOnChange: PropTypes.func.isRequired,

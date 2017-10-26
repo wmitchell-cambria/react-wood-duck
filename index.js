@@ -16,6 +16,7 @@ var PageHeader = require('./dist/PageHeader.js').default;
 var SideNav = require('./dist/SideNav.js').default;
 var Layout01 = require('./dist/Layout01.js').default;
 var Layout03 = require('./dist/Layout03.js').default;
+var CommonAddressComponent = require('./dist/CommonAddressComponent.js').default;
 
 module.exports = {
 	Alert,
@@ -35,5 +36,6 @@ module.exports = {
 	PageHeader,
 	SideNav,
 	Layout01,
-	Layout03
+	Layout03,
+	CommonAddressComponent
 };

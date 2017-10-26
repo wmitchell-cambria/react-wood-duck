@@ -29,3 +29,4 @@ import Table from './components/Table';
 import TextArea from './components/TextArea';
 import Layout01 from './components/Layout01';
 import Layout03 from './components/Layout03';
+import CommonAddressComponent from './components/CommonAddressComponent';
