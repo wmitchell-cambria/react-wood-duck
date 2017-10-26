@@ -10,12 +10,17 @@ class Layout03 extends React.Component {
       <div>
         <GlobalHeader />
         <PageHeader />
-        <SideNav content="Text" />
+        <SideNav content={this.props.sideNavContent} />
         <div>{this.props.children}</div>
       </div>
     );
   }
 }
-Layout03.propTypes = { children: PropTypes };
+
+Layout03.propTypes = {
+   sideNavContent: PropTypes.object.isRequired,
+   children: PropTypes 
+};
+
 Layout03.defaultProps = {};
 export default Layout03;
