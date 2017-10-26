@@ -18,10 +18,10 @@
   ],
   "scripts": {
     "prepublish": "babel --plugins transform-es2015-modules-umd src --out-dir ./dist && node-sass src/styles/application.scss dist/styles/application.scss && node-sass src/styles/application.scss dist/styles/application.css && echo 'all dist copied.'",
-    "lint": "eslint ./src",
+    "lint": "eslint ./{src,stories}",
     "lintfix": "eslint ./src --fix",
     "lint:configtest": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "prettier:check": "prettier --list-different --config ./.prettierrc \"src/**/*.js?(x)\"",
+    "prettier:check": "prettier --list-different --config ./.prettierrc \"{src,stories}/**/*.js?(x)\"",
     "test": "karma start --single-run",
     "test-watch": "karma start",
     "build:dev": "webpack",
