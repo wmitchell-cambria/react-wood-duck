@@ -7,22 +7,6 @@ import InputComponent from '../../src/InputComponent';
 import ListItem from '../../src/AddAdditionalItem';
 
 const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
-const inputName = (
-  <InputComponent
-    label="Name"
-    type="text"
-    gridClassName="col-md-6 col-sm-6 col-xs-12"
-  />
-);
-const inputPhone = (
-  <InputComponent
-    label="Phone Number"
-    type="number"
-    gridClassName="col-md-6 col-sm-6 col-xs-12"
-  />
-);
-const clearfix = <div className="clearfix" />;
-
 const ListItemStory = withInfo(
   `
     #### Usage

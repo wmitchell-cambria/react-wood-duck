@@ -84,7 +84,7 @@ const ButtonStory = withInfo(
       <Button btnClassName="warning" btnName="Warning Button" />
     </ButtonContainer>
     <ButtonContainer>
-      <Button btnClassName="default" btnName="Delete changes" disabled="true" />
+      <Button btnClassName="disabled" btnName="Disabled" disabled="true" />
     </ButtonContainer>
   </div>
 ));
