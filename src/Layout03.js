@@ -10,7 +10,7 @@ class Layout03 extends React.Component {
       <div>
         <GlobalHeader />
         <PageHeader />
-        <SideNav content={this.props.sideNavContent} />
+        <SideNav content={this.props.sideNavContent} columnWidth={this.props.sideNavColumnWidth}/>
         <div>{this.props.children}</div>
       </div>
     );
