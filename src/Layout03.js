@@ -19,6 +19,7 @@ class Layout03 extends React.Component {
 
 Layout03.propTypes = {
    sideNavContent: PropTypes.object.isRequired,
+   sideNavcolumnWidth: PropTypes.number,
    children: PropTypes 
 };
 
