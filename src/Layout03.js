@@ -10,7 +10,10 @@ class Layout03 extends React.Component {
       <div>
         <GlobalHeader />
         <PageHeader />
-        <SideNav content={this.props.sideNavContent} columnWidth={this.props.sideNavColumnWidth}/>
+        <SideNav
+          content={this.props.sideNavContent}
+          columnWidth={this.props.sideNavColumnWidth}
+        />
         <div>{this.props.children}</div>
       </div>
     );
@@ -18,9 +21,9 @@ class Layout03 extends React.Component {
 }
 
 Layout03.propTypes = {
-   sideNavContent: PropTypes.object.isRequired,
-   sideNavcolumnWidth: PropTypes.number,
-   children: PropTypes 
+  sideNavContent: PropTypes.object.isRequired,
+  sideNavColumnWidth: PropTypes.number,
+  children: PropTypes,
 };
 
 Layout03.defaultProps = {};
