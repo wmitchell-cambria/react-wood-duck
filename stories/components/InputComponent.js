@@ -33,14 +33,32 @@ const InputComponentStory = withInfo(
         broken into segments are often not meaningful.
         `
 )(() => (
-  <InputComponent
-    label="Full Name"
-    gridClassName="col-md-12 col-sm-12 col-xs-12"
-    labelClassName="Full Name"
-    placeholder="Enter Full Name"
-  />
+  <div>
+    <InputComponent
+      label="Full Name"
+      gridClassName="col-md-12 col-sm-12 col-xs-12"
+      labelClassName="Full Name"
+      placeholder="Enter Full Name"
+    />
+
+    <InputComponent
+      label="Full Name"
+      gridClassName="col-md-12 col-sm-12 col-xs-12"
+      labelClassName="Full Name"
+      validationError={true}
+      validationErrorMessage="Error message goes here"
+    />
+
+    <InputComponent
+      label="Full Name"
+      gridClassName="col-md-12 col-sm-12 col-xs-12"
+      labelClassName="Full Name"
+      placeholder="Disabled"
+      disabled={true}
+    />
+  </div>
 ));
 
-storiesOf('In Progress', module)
+storiesOf('Components', module)
   .addDecorator(CenterDecorator)
   .add('InputComponent', InputComponentStory);

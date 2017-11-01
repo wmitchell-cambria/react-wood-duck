@@ -72,4 +72,4 @@ const CardsStory = withInfo(
   `
 )(() => <Cards cardHeaderText="Profile Information">{cardBody}</Cards>);
 
-storiesOf('In Progress', module).add('Cards', CardsStory);
+storiesOf('Components', module).add('Cards', CardsStory);

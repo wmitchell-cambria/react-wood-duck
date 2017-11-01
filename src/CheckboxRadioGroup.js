@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CheckboxRadioGroup = props => (
-  <fieldset className="fieldset-inputs sans col-md-4 col-sm-6 col-xs-12">
+  <fieldset className="fieldset-inputs sans">
     <legend className="sr-only">{props.label}</legend>
     {props.options.map(opt => {
       return (
@@ -23,6 +23,7 @@ const CheckboxRadioGroup = props => (
 );
 
 CheckboxRadioGroup.propTypes = {
+  heading: PropTypes.string,
   label: PropTypes.string,
   fieldClassName: PropTypes.string,
   type: PropTypes.oneOf(['checkbox', 'radio']),

@@ -34,7 +34,7 @@ The **react-wood-duck component library** is a set of re-usable components and s
 	* Cards
 	* CheckboxRadioGroup
 	* DropDownField
-	* DatePicker
+	* DateTimePicker
 	* InputComponent
 	* ListItem
 	* Select/Multiselect
@@ -172,7 +172,7 @@ show some documentation on your components. It shows the component's code and pr
 
 After writing your story, import your story at index.js
 
-	import NewComponent from './components/NewComponent';
+	import from './components/NewComponent';
 
 Run your storybook with:
 	

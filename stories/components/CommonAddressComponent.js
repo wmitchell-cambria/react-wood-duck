@@ -56,12 +56,12 @@ const CommonAddressComponentStory = () => (
     suggestions={[]}
     stateTypes={stateTypes.items}
     addressFields={addressFields}
-    onChange={onChange}
+    onChange={onChange()}
     onSuggestionsFetchRequested={event => {}}
     onSuggestionSelected={() => {}}
   />
 );
 
-storiesOf('In Progress', module)
+storiesOf('Components', module)
   .addDecorator(CenterDecorator)
   .add('CommonAddressComponent', CommonAddressComponentStory);

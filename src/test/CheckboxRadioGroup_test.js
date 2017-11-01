@@ -7,6 +7,7 @@ let props = {
   type: 'radio',
   name: 'CheckboxRadioGroup',
   options: [],
+  heading: 'CheckBox Test',
 };
 
 describe('CheckboxRadioGroup', function() {
@@ -19,8 +20,6 @@ describe('CheckboxRadioGroup', function() {
   });
 
   it('verify the className', function() {
-    expect(resultTag.props.className).toBe(
-      'fieldset-inputs sans col-md-4 col-sm-6 col-xs-12'
-    );
+    expect(resultTag.props.className).toBe('fieldset-inputs sans');
   });
 });

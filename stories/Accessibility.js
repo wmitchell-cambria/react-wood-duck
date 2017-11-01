@@ -268,4 +268,4 @@ const Accessibility = () => (
   </main>
 );
 
-storiesOf('CWDS Asset Library', module).add('Accessibility', Accessibility);
+storiesOf('CWDS Component Library', module).add('Accessibility', Accessibility);
