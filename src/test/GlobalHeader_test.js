@@ -96,4 +96,24 @@ describe('Global Header', function() {
     expect(dElm1.className).toBe('profile-avatar');
     expect(dElm1.textContent).toEqual('testProfileAvatar');
   });
+
+  describe('#logout', () => {
+    it('allows a logout when clicking profile', function() {
+      const logoutUrl = 'http://localhost:9876/logout';
+      let profileElement = TestUtils.findRenderedDOMComponentWithClass(
+        header,
+        'profile'
+      );
+      let profileNameButton = profileElement.children[0];
+      TestUtils.Simulate.click(profileNameButton);
+      let dropDownElement = TestUtils.findRenderedDOMComponentWithClass(
+        header,
+        'c_dropdown'
+      );
+      expect(dropDownElement.className).toBe('c_dropdown');
+      let logoutButton = dropDownElement.children[0];
+      TestUtils.Simulate.click(logoutButton);
+      expect(logoutButton.children[0].href).toEqual(logoutUrl);
+    });
+  });
 });
