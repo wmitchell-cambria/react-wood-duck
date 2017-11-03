@@ -22,11 +22,11 @@ The **react-wood-duck component library** is a set of re-usable components and s
 * Global Components (Required by all DS teams)
 	* GlobalHeader
 	* PageHeader
+  * SideNav (Optional)
 
 * Page Layout Components
 	* Layout01 (Level 01 Page Template)
 	* Layout03 (Level 03 Page Template)
-	* SideNav
 
 * Other Components
 	* Alerts
@@ -37,9 +37,12 @@ The **react-wood-duck component library** is a set of re-usable components and s
 	* DateTimePicker
 	* InputComponent
 	* ListItem
-	* Select/Multiselect
-	* TextArea
-	* Table
+	* NavLink
+  * NavLinks
+  * NavLinksContainer
+  * Select/Multiselect
+  * TextArea
+  * Table
 
 ## Installation
 

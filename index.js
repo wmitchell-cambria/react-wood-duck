@@ -8,6 +8,9 @@ var AddAdditionalItem = require('./dist/AddAdditionalItem.js').default;
 var Table = require('./dist/Table.js').default;
 var TextArea = require('./dist/TextArea.js').default;
 var DateTimePicker = require('./dist/DateTimePicker.js').default;
+var NavLink = require('./dist/NavLink.js').default;
+var NavLinks = require('./dist/NavLinks.js').default;
+var NavLinksContainer = require('./dist/NavLinksContainer.js').default;
 var MultiSelect = require('./dist/MultiSelect.js').default;
 var GlobalHeader = require('./dist/GlobalHeader.js').default;
 var PageHeader = require('./dist/PageHeader.js').default;
@@ -29,6 +32,9 @@ module.exports = {
   TextArea: TextArea,
   DateTimePicker: DateTimePicker,
   MultiSelect: MultiSelect,
+  NavLink: NavLink,
+  NavLinks: NavLinks,
+  NavLinksContainer: NavLinksContainer,
   GlobalHeader: GlobalHeader,
   PageHeader: PageHeader,
   SideNav: SideNav,

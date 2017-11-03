@@ -6,11 +6,37 @@ import SideNav from './SideNav.js';
 
 class Layout03 extends React.Component {
   render() {
+    const sideNavContent = [
+      {
+        type: 'navLinks',
+        navItems: [
+          {
+            type: 'navLink',
+            text: 'Tommy Cambell',
+            href: '#tom',
+            preIcon: 'fa fa-user',
+          },
+          {
+            type: 'navLink',
+            text: 'Aubrey Cambell',
+            href: '#aub',
+            preIcon: 'fa fa-user',
+          },
+          {
+            type: 'navLink',
+            text: 'Chris Cambell',
+            href: '#chris',
+            preIcon: 'fa fa-user',
+          },
+        ],
+      },
+    ];
+    const sideNavColumnWidth = 3;
     return (
       <div>
         <GlobalHeader />
         <PageHeader />
-        <SideNav content="Text" />
+        <SideNav content={sideNavContent} columnWidth={sideNavColumnWidth} />
         <div>{this.props.children}</div>
       </div>
     );

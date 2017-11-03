@@ -1,28 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import NavLinksContainer from './NavLinksContainer';
 
 class SideNav extends React.Component {
   render() {
-    const classField = `container bg-white col-md-${this.props.columnWidth}`;
-    if (!this.props.content) {
+    const classField = `container hidden-xs col-md-${this.props
+      .columnWidth} side-nav`;
+    if (!this.props.content || this.props.content.length === 0) {
       return null;
     } else {
+      const sideNavComponents = this.props.content.map(function(
+        sideNavItem,
+        index
+      ) {
+        if (sideNavItem.type === 'navLinks')
+          return (
+            <div
+              className="row"
+              key={index}
+              role="navigation"
+              aria-label="Main Content Navigation Menu"
+            >
+              <NavLinksContainer navLinks={sideNavItem.navItems} />
+            </div>
+          );
+      });
       return (
-        <div className={classField}>
-          <div className="row">
-            <span className="c-dark-blue h4"> Sample Side Nav </span>
-            <ul className="nav nav-stacked">
-              <li className="active">
-                <a href="#/">Test Item 0</a>
-              </li>
-              <li>
-                <a href="#/">Test Item 1</a>
-              </li>
-              <li>
-                <a href="#/">Test Item 2</a>
-              </li>
-            </ul>
-          </div>
+        <div className={classField} aria-label="Side Nav">
+          {sideNavComponents}
         </div>
       );
     }
@@ -30,12 +35,11 @@ class SideNav extends React.Component {
 }
 
 SideNav.propTypes = {
-  content: PropTypes.string,
+  content: PropTypes.arrayOf(PropTypes.object).isRequired,
   columnWidth: PropTypes.number,
 };
 
 SideNav.defaultProps = {
-  content: '',
   columnWidth: 3,
 };
 

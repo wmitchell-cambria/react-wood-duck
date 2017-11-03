@@ -1,0 +1,42 @@
+li.navlink {
+   font-size: 1.4rem;
+   a {
+      text-decoration:none;
+      color: black;
+      display: inline-block;
+   }
+   a:focus, a:hover, a.active {
+      color: #17486a;
+      background-color: transparent;
+      box-shadow: none;
+      border-color: transparent;
+      font-weight: bold;
+   }
+} 
+
+.post-navlink-icon {
+   float: right;
+   position: absolute;
+   top: 50%;
+   right: 0;
+   transform: translateY(-50%);
+}
+
+.active-inactive-navlink {
+   padding-left: 16px;
+   padding-right: 10px;
+   width: 16px;
+}
+
+.inactive-navlink {
+   @extend .active-inactive-navlink;
+   border-left: 6px solid transparent;
+}
+
+.active-navlink {
+   @extend .active-inactive-navlink;
+   height: 30px;
+   border-left: 6px solid #17486a;
+   left: 0;
+   margin-top: 7px;
+}
