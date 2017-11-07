@@ -13,7 +13,7 @@ const basicNavLinkUsage = `
 
       - Do not use if there is a single anchor link.
 
-      - This supports a number of variations by passing a different set of properties which are shown as seperate stories under NavLink story. All these properties can be used individually or together.
+      - This supports a number of variations by passing a different set of properties few of which are shown as seperate stories under NavLink menu. All these properties can be used individually or together.
 
        `;
 storiesOf('Sub Components-beta/NavLink', module)

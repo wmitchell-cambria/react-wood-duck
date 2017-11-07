@@ -97,8 +97,8 @@ For Example:
 	var Alert = require('./dist/Alert.js').default;
 	var Button = require('./dist/Button.js').default;
 	module.exports = {
-		Alert,
-		Button,
+		Alert: Alert,
+		Button: Button,
 	};
 		
 After creating or modifying the react components in **react-wood-duck/src**,

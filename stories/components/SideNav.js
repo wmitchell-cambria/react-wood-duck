@@ -11,7 +11,7 @@ const navLinks = [
       { type: 'navLink', text: 'Screener Summary', href: '#screenerSummary' },
       {
         type: 'navLink',
-        text: 'Allgeations & Disposition',
+        text: 'Allegations & Disposition',
         href: '#allegations',
       },
       {
@@ -70,7 +70,7 @@ const SideNavStory = withInfo(
                    [
                         {type: "navLinks", navItems: [
                             {type: "navLink", text: "Screener Summary", href: "#screenerSummary"},
-                            {type: "navLink", text: "Allgeations & Disposition", href: "#allegations"},
+                            {type: "navLink", text: "Allegations & Disposition", href: "#allegations"},
                             {type: "navLink", text: "History of Involvement", href: "#history"},
                         ]
                         }
@@ -121,7 +121,7 @@ const SideNavStory = withInfo(
                                 {type: "navLink", text: "Chris Cambell", href: "#chris", preIcon: "fa fa-user"}
                             ]
                         },
-                        {type: "navLink", text: "Allgeations & Disposition", href: "#allegations"},
+                        {type: "navLink", text: "Allegations & Disposition", href: "#allegations"},
                         {type: "navLink", text: "History of Involvement", href: "#history"},
                     ]
                     }

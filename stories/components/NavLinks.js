@@ -54,7 +54,7 @@ const simpleNavLinks = [
 
 const navLinksWithInnerNav = [
   { type: 'navLink', text: 'Screener Summary', href: '#screenerSummary' },
-  { type: 'navLink', text: 'Allgeations & Disposition', href: '#allegations' },
+  { type: 'navLink', text: 'Allegations & Disposition', href: '#allegations' },
   {
     type: 'navLinkWithInnerNav',
     text: 'People & Roles',
@@ -122,7 +122,7 @@ storiesOf('Sub Components-beta/NavLinks', module)
                   <pre><code style=${codeStyle}>    
                       [
                           {type: "navLink", text: "Screener Summary", href: "#screenerSummary"},
-                          {type: "navLink", text: "Allgeations & Disposition", href: "#allegations"}:u
+                          {type: "navLink", text: "Allegations & Disposition", href: "#allegations"}:u
                           {
                               type: "navLinkWithInnerNav", text: "People & Roles", href:"#pplroles", navItems: [
                                   {type: "navLink", text: "Tommy Cambell", href: "#tommy", preIcon: "fa fa-user", postIcon: "fa fa-exclamation-triangle c-red"},
