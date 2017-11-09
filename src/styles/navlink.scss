@@ -23,7 +23,6 @@ li.navlink {
 }
 
 .active-inactive-navlink {
-   padding-left: 16px;
    padding-right: 10px;
    width: 16px;
 }
@@ -39,4 +38,36 @@ li.navlink {
    border-left: 6px solid #17486a;
    left: 0;
    margin-top: 7px;
+}
+
+@mixin indent($level) {
+   margin-right: $large-spacing * $level;
+}
+
+.indent-level0 {
+   @include indent(0);
+}
+
+.indent-level1 {
+   @include indent(1);
+}
+
+.indent-level2 {
+   @include indent(2);
+}
+
+.indent-level3 {
+   @include indent(3);
+}
+
+.indent-level4 {
+   @include indent(4);
+}
+
+.indent-level5 {
+   @include indent(5);
+}
+
+.indent-level6 {
+   @include indent(6);
 }

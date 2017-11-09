@@ -3,23 +3,15 @@ import PropTypes from 'prop-types';
 
 class NavLink extends React.Component {
   render() {
-    const preIcon = this.props.preIcon ? (
-      <i className={this.props.preIcon} />
-    ) : null;
-    const postIcon = this.props.postIcon ? (
-      <i className={`${this.props.postIcon} post-navlink-icon`} />
-    ) : null;
     const activeNavLinkClassName = this.props.active
       ? 'active-navlink'
       : 'inactive-navlink';
     const activeAnchorClassName = this.props.active ? 'active' : '';
-    const indentationStyle = {
-      marginRight: this.props.indentationLevel * 3 + 'rem',
-    };
+    const indentationClassName = `indent-level${this.props.indentationLevel}`;
     return (
       <li className="navlink" key={this.props.text}>
-        <span className={activeNavLinkClassName} style={indentationStyle} />
-        {preIcon}
+        <span className={activeNavLinkClassName + ' ' + indentationClassName} />
+        {this.props.preIcon && <i className={this.props.preIcon} />}
         <a
           href={this.props.href}
           className={activeAnchorClassName}
@@ -27,7 +19,7 @@ class NavLink extends React.Component {
         >
           {this.props.text}
         </a>
-        {postIcon}
+        {this.props.postIcon && <i className={this.props.postIcon} />}
         {this.props.children}
       </li>
     );

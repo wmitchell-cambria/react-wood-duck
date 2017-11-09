@@ -9,6 +9,7 @@ describe('NavLink', function() {
   const preIconClass = 'fa fa-user';
   const postIconClass = 'fa icon-warning-sign';
   const indentationLevel = 2;
+  const indentationClassName = `indent-level${indentationLevel}`;
 
   const activeNavLinkClassName = 'active-navlink';
   const inactiveNavLinkClassName = 'inactive-navlink';
@@ -58,8 +59,8 @@ describe('NavLink', function() {
       );
       const spanElement = liElement.children[0];
       expect(spanElement.tagName).toBe('SPAN');
-      expect(spanElement.className).toBe(inactiveNavLinkClassName);
-      expect(spanElement.style.cssText).toBe('margin-right: 6rem;');
+      expect(spanElement.className).toMatch(inactiveNavLinkClassName);
+      expect(spanElement.className).toMatch(indentationClassName);
     });
 
     it('does not have pre & post icon elements', function() {
