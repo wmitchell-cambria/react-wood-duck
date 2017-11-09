@@ -46,12 +46,8 @@ NavLink.propTypes = {
 };
 
 NavLink.defaultProps = {
-  preIcon: '',
-  postIcon: '',
   active: false,
-  handleClick: null,
   indentationLevel: 0,
-  children: null,
 };
 
 export default NavLink;
