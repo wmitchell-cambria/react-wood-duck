@@ -23,8 +23,8 @@ li.navlink {
 }
 
 .active-inactive-navlink {
-   padding-right: 10px;
-   width: 16px;
+   padding-right: $small-spacing;
+   width: $small-width;
 }
 
 .inactive-navlink {
