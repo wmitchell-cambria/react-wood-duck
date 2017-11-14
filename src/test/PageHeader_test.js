@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHeader from '../pageHeader.js';
+import PageHeader from '../PageHeader.js';
 import TestUtils from 'react-dom/lib/ReactTestUtils';
 
 describe('PageHeader', function() {
