@@ -98,22 +98,33 @@ describe('Global Header', function() {
   });
 
   describe('#logout', () => {
-    it('allows a logout when clicking profile', function() {
-      const logoutUrl = 'http://localhost:9876/logout';
-      let profileElement = TestUtils.findRenderedDOMComponentWithClass(
+    it('allows a logout dropdown when clicking on profile avatar', function() {
+      let profileAvatarElement = TestUtils.findRenderedDOMComponentWithClass(
         header,
-        'profile'
+        'profile-avatar'
       );
-      let profileNameButton = profileElement.children[0];
-      TestUtils.Simulate.click(profileNameButton);
+      let profileAvatarButton = profileAvatarElement.children[0];
+      TestUtils.Simulate.click(profileAvatarButton);
       let dropDownElement = TestUtils.findRenderedDOMComponentWithClass(
         header,
         'c_dropdown'
       );
       expect(dropDownElement.className).toBe('c_dropdown');
       let logoutButton = dropDownElement.children[0];
-      TestUtils.Simulate.click(logoutButton);
-      expect(logoutButton.children[0].href).toEqual(logoutUrl);
+      expect(logoutButton.children[0].textContent).toEqual('Logout');
+    });
+    it('hides a logout dropdown when clicking on profile avatar', function() {
+      let profileAvatarElement = TestUtils.findRenderedDOMComponentWithClass(
+        header,
+        'profile-avatar'
+      );
+      let profileAvatarButton = profileAvatarElement.children[0];
+      TestUtils.Simulate.blur(profileAvatarButton);
+      let profileAvatarArray = TestUtils.scryRenderedDOMComponentsWithClass(
+        header,
+        'profile-avatar'
+      );
+      expect(profileAvatarArray.length).toEqual(1);
     });
   });
 });

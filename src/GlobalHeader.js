@@ -12,7 +12,9 @@ class GlobalHeader extends React.Component {
       isHidden: true,
     };
     this._handleChange = this._handleChange.bind(this);
+    this._handleBlur = this._handleBlur.bind(this);
     this._renderToggle = this._renderToggle.bind(this);
+    this._clickUrl = this._clickUrl.bind(this);
   }
   _handleChange() {
     this.setState({
@@ -20,11 +22,23 @@ class GlobalHeader extends React.Component {
     });
   }
 
+  _handleBlur() {
+    this.setState({
+      isHidden: true,
+    });
+  }
+
+  _clickUrl() {
+    window.location.href = this.props.logoutUrl;
+  }
+
   _renderToggle() {
     return (
       <ul className="c_dropdown">
         <li>
-          <a href={this.props.logoutUrl}>Logout</a>
+          <a onMouseDown={this._clickUrl} href="#/">
+            Logout
+          </a>
         </li>
       </ul>
     );
@@ -65,18 +79,21 @@ class GlobalHeader extends React.Component {
                 <li>
                   <p className="profile">
                     {' '}
+                    <a href="#/">{profileName}</a>
+                  </p>
+                </li>
+                <li>
+                  <div className="profile-avatar">
                     <a
                       href="#/"
                       onClick={this._handleChange}
-                      onBlur={this._handleChange}
+                      tabIndex="0"
+                      onBlur={this._handleBlur}
                     >
-                      {profileName}
+                      {profileAvatar}
                     </a>
-                  </p>
-                  {!this.state.isHidden && this._renderToggle()}
-                </li>
-                <li>
-                  <div className="profile-avatar">{profileAvatar}</div>
+                    {!this.state.isHidden && this._renderToggle()}
+                  </div>
                 </li>
               </ul>
             </div>
