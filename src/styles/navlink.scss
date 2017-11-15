@@ -12,9 +12,13 @@ li.navlink {
       border-color: transparent;
       font-weight: bold;
    }
+}
+
+.pre-icon {
+   margin-left: $small-spacing;
 } 
 
-.post-navlink-icon {
+.post-icon {
    float: right;
    position: absolute;
    top: 50%;

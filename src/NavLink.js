@@ -1,30 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class NavLink extends React.Component {
-  render() {
-    const activeNavLinkClassName = this.props.active
-      ? 'active-navlink'
-      : 'inactive-navlink';
-    const activeAnchorClassName = this.props.active ? 'active' : '';
-    const indentationClassName = `indent-level${this.props.indentationLevel}`;
-    return (
-      <li className="navlink" key={this.props.text}>
-        <span className={activeNavLinkClassName + ' ' + indentationClassName} />
-        {this.props.preIcon && <i className={this.props.preIcon} />}
-        <a
-          href={this.props.href}
-          className={activeAnchorClassName}
-          onClick={e => this.props.handleClick(this.props.href, e)}
-        >
-          {this.props.text}
-        </a>
-        {this.props.postIcon && <i className={this.props.postIcon} />}
-        {this.props.children}
-      </li>
-    );
-  }
-}
+const NavLink = function(props) {
+  const activeNavLinkClassName = props.active
+    ? 'active-navlink'
+    : 'inactive-navlink';
+  const activeAnchorClassName = props.active ? 'active' : '';
+  const indentationClassName = `indent-level${props.indentationLevel}`;
+  return (
+    <li className="navlink" key={props.text}>
+      <span className={activeNavLinkClassName + ' ' + indentationClassName} />
+      {props.preIcon && <i className={`${props.preIcon} pre-icon`} />}
+      <a
+        href={props.href}
+        className={activeAnchorClassName}
+        onClick={e => props.handleClick(props.href, e)}
+      >
+        {props.text}
+      </a>
+      {props.postIcon && <i className={`${props.postIcon} post-icon`} />}
+      {props.children}
+    </li>
+  );
+};
 
 NavLink.propTypes = {
   /** NavLink Text  */
@@ -37,7 +35,7 @@ NavLink.propTypes = {
   postIcon: PropTypes.string,
   /** Indicates if current NavLink is actively selected */
   active: PropTypes.bool,
-  /** Hyperlink On Click Handler */
+  /** Hyperlink On Click Handler. This can be used to indicate actively selected NavLink. */
   handleClick: PropTypes.func,
   /** It is used to align nested Navigation links */
   indentationLevel: PropTypes.number,

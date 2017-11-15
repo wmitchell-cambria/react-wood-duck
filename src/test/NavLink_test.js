@@ -8,8 +8,9 @@ describe('NavLink', () => {
   const navLinkHref = 'test.html';
   const navLinkText = 'Nav Link Test';
   const navLinkClass = 'navlink';
-  const preIconClass = 'fa fa-user';
-  const postIconClass = 'fa icon-warning-sign';
+  const preIconProp = 'fa fa-user';
+  const postIconProp = 'fa icon-warning-sign';
+  const postIconClass = 'post-navlink-icon';
   const indentationLevel = 2;
 
   const activeNavLinkClass = 'active-navlink';
@@ -17,7 +18,6 @@ describe('NavLink', () => {
   const indentationClassName = `indent-level${indentationLevel}`;
 
   describe('basic navlink', () => {
-    
     const inactiveBasicNavLink = shallow(
       <NavLink
         href={navLinkHref}
@@ -28,11 +28,6 @@ describe('NavLink', () => {
       />
     );
     const inst = inactiveBasicNavLink.instance();
-
-    it('is an instance and not null', () => {
-      expect(inactiveBasicNavLink).not.toBe(null);
-      expect(inst).toEqual(jasmine.any(NavLink));
-    });
 
     it('has all the props', () => {
       expect(inst.props.text).toBe(navLinkText);
@@ -55,7 +50,9 @@ describe('NavLink', () => {
     });
 
     it('has inactive styling and valid indentation style', () => {
-      expect(inactiveBasicNavLink.filterWhere(n => n.hasClass(inactiveNavLinkClass))).toBeTruthy();
+      expect(
+        inactiveBasicNavLink.filterWhere(n => n.hasClass(inactiveNavLinkClass))
+      ).toBeTruthy();
     });
 
     it('has valid indentation style', () => {
@@ -70,15 +67,11 @@ describe('NavLink', () => {
 
   describe('with pre icon property', () => {
     const navLinkWithPreIcon = shallow(
-      <NavLink href={navLinkHref} text={navLinkText} preIcon={preIconClass} />
+      <NavLink href={navLinkHref} text={navLinkText} preIcon={preIconProp} />
     );
-    const inst = navLinkWithPreIcon.instance();
-    const liElement = navLinkWithPreIcon.filterWhere(n => n.hasClass(preIconClass));
-
-    it('is an instance and not null', () => {
-      expect(navLinkWithPreIcon).not.toBe(null);
-      expect(inst).toEqual(jasmine.any(NavLink));
-    });
+    const liElement = navLinkWithPreIcon.filterWhere(n =>
+      n.hasClass(preIconProp)
+    );
 
     it('has basic elements', () => {
       expect(liElement).toBeTruthy();
@@ -86,29 +79,33 @@ describe('NavLink', () => {
     });
 
     it('has pre icon element', () => {
-      expect(navLinkWithPreIcon.filterWhere(n => n.hasClass(preIconClass))).toBeTruthy();
+      expect(
+        navLinkWithPreIcon.filterWhere(n => n.hasClass(preIconProp))
+      ).toBeTruthy();
     });
   });
 
   describe('with post icon property', () => {
     const navLinkWithPostIcon = shallow(
-      <NavLink href={navLinkHref} text={navLinkText} postIcon={postIconClass} />
+      <NavLink href={navLinkHref} text={navLinkText} postIcon={postIconProp} />
     );
-    const inst = navLinkWithPostIcon.instance();
     const liElement = navLinkWithPostIcon.find('li');
-
-    it('is an instance and not null', () => {
-      expect(navLinkWithPostIcon).not.toBe(null);
-      expect(inst).toEqual(jasmine.any(NavLink));
-    });
 
     it('has basic elements', () => {
       expect(liElement).toBeTruthy();
       expect(liElement.find('a')).toBeTruthy();
     });
 
-    it('has post icon element', () => {
-      expect(navLinkWithPostIcon.filterWhere(n => n.hasClass(postIconClass))).toBeTruthy();
+    it('has valid post icon element', () => {
+      expect(
+        navLinkWithPostIcon.filterWhere(n => n.hasClass(postIconProp))
+      ).toBeTruthy();
+    });
+
+    it('has valid post icon style', () => {
+      expect(
+        navLinkWithPostIcon.filterWhere(n => n.hasClass(postIconClass))
+      ).toBeTruthy();
     });
   });
 
@@ -117,16 +114,11 @@ describe('NavLink', () => {
       <NavLink
         href={navLinkHref}
         text={navLinkText}
-        preIcon={preIconClass}
-        postIcon={postIconClass}
+        preIcon={preIconProp}
+        postIcon={postIconProp}
       />
     );
-    const inst = navLinkWithPrePostIcons.instance();
     const liElement = navLinkWithPrePostIcons.find('li');
-
-    it('is an instance and not null', () => {
-      expect(inst).toEqual(jasmine.any(NavLink));
-    });
 
     it('has basic elements', function() {
       expect(liElement).toBeTruthy();
@@ -134,8 +126,12 @@ describe('NavLink', () => {
     });
 
     it('has pre & post icons', function() {
-       expect(navLinkWithPrePostIcons.filterWhere(n => n.hasClass(preIconClass))).toBeTruthy();
-       expect(navLinkWithPrePostIcons.filterWhere(n => n.hasClass(postIconClass))).toBeTruthy();
+      expect(
+        navLinkWithPrePostIcons.filterWhere(n => n.hasClass(preIconProp))
+      ).toBeTruthy();
+      expect(
+        navLinkWithPrePostIcons.filterWhere(n => n.hasClass(postIconProp))
+      ).toBeTruthy();
     });
   });
 
@@ -145,12 +141,7 @@ describe('NavLink', () => {
         <div>Test Child</div>
       </NavLink>
     );
-    const inst = navLinkWithChildren.instance();
     const liElement = navLinkWithChildren.find('li');
-
-    it('is an instance and not null', () => {
-      expect(inst).toEqual(jasmine.any(NavLink));
-    });
 
     it('has basic elements', function() {
       expect(liElement).toBeTruthy();
@@ -167,11 +158,13 @@ describe('NavLink', () => {
       <NavLink
         href={navLinkHref}
         text={navLinkText}
-        preIcon={preIconClass}
+        preIcon={preIconProp}
         active={true}
       />
     );
-    const activeNavLink = activeNavLinkWithPreIcon.filterWhere(n => n.hasClass(activeNavLinkClass));
+    const activeNavLink = activeNavLinkWithPreIcon.filterWhere(n =>
+      n.hasClass(activeNavLinkClass)
+    );
 
     it('has active style', function() {
       expect(activeNavLink).toBeTruthy();
@@ -179,22 +172,23 @@ describe('NavLink', () => {
   });
 
   describe('with handleClick callback', function() {
-     let foo;
-     let navLinkWithClickHandler;
-     beforeEach(function() {
-       foo = {handleClick : function() {}};
-       spyOn(foo, 'handleClick');
-       navLinkWithClickHandler= shallow( 
-         <NavLink
-           href={navLinkHref}
-           href={navLinkText}
-           handleClick={foo.handleClick}
-         />
-       );
-     });
-     it('invokes callback on click', function() {
-        navLinkWithClickHandler.find('a').simulate('click');
-        expect(foo.handleClick).toHaveBeenCalled();
-     });
+    let clickInstance;
+    let navLinkWithClickHandler;
+    beforeEach(function() {
+      clickInstance = { handleClick: function() {} };
+      spyOn(clickInstance, 'handleClick');
+      navLinkWithClickHandler = shallow(
+        <NavLink
+          href={navLinkHref}
+          text={navLinkText}
+          handleClick={clickInstance.handleClick}
+        />
+      );
+    });
+
+    it('invokes callback on click', function() {
+      navLinkWithClickHandler.find('a').simulate('click');
+      expect(clickInstance.handleClick).toHaveBeenCalled();
+    });
   });
 });

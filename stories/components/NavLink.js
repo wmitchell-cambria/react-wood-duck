@@ -7,9 +7,9 @@ const basicNavLinkUsage = `
     #### Basic NavLink Usage
       - Use when there are list of navigation links.
 
-      - Use a seperate NavLink component for each navigation link.
+      - Use a seperate *NavLink* component for each navigation link.
 
-      - Surround list of navigation links with NavLinks component.
+      - Surround list of navigation links with *NavLinks* component.
 
       - Do not use if there is a single anchor link.
 
@@ -29,7 +29,7 @@ storiesOf('Sub Components-beta/NavLink', module)
     'Active NavLink',
     withInfo(`
      #### Usage
-      - Use when this Navigation link is currently selected.
+      - Use when a Navigation link is currently selected.
 
       - Provide *active* property with true value.
 
@@ -46,7 +46,7 @@ storiesOf('Sub Components-beta/NavLink', module)
      #### Usage
       - Use when there is a need to show pre icon for Navigation Link.
 
-      - Provide *preIcon* property to NavLink component. This is string with value of css className(s) to display the icon.
+      - Provide *preIcon* property to *NavLink* component. This is a string of css className(s) to display the icon.
 
      ${basicNavLinkUsage}
     `)(() => (
@@ -61,7 +61,7 @@ storiesOf('Sub Components-beta/NavLink', module)
      #### Usage
       - Use when there is a need to show post icon for Navigation Link.
 
-      - Provide a *postIcon* property to NavLink component. This is string with value of css className(s) to display the icon.
+      - Provide a *postIcon* property to *NavLink* component. This is a string of css className(s) to display the icon.
 
      ${basicNavLinkUsage}
     `)(() => (

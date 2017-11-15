@@ -1,61 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NavLink from './NavLink';
 
-class NavLinks extends React.Component {
-  render() {
-    const {
-      navLinks,
-      indentationLevel,
-      activeNavLinkHref,
-      handleClick,
-    } = this.props;
-    if (!navLinks || navLinks.length === 0) {
-      return null;
-    }
-    const navLinksComponentsList = navLinks.map(function(currentNavLink) {
-      const navLinkProps = {
-        text: currentNavLink.text,
-        href: currentNavLink.href,
-        preIcon: currentNavLink.preIcon,
-        postIcon: currentNavLink.postIcon,
-        handleClick: handleClick,
-        active: activeNavLinkHref === currentNavLink.href,
-        indentationLevel: indentationLevel,
-      };
-      const navLinkChildren =
-        currentNavLink.type === 'navLinkWithInnerNav' ? (
-          <NavLinks
-            navLinks={currentNavLink.navItems}
-            handleClick={handleClick}
-            activeNavLinkHref={activeNavLinkHref}
-            indentationLevel={indentationLevel + 1}
-          />
-        ) : null;
-      return (
-        <NavLink key={currentNavLink.text} {...navLinkProps}>
-          {navLinkChildren}
-        </NavLink>
-      );
-    }, this);
-    return <ul className="nav nav-stacked">{navLinksComponentsList}</ul>;
+const NavLinks = function(props) {
+  const { children, nested } = props;
+  if (!children || children.length === 0) {
+    return null;
   }
-}
+  const navLinks = <ul className="nav nav-stacked">{children}</ul>;
+  if (nested) {
+    return navLinks;
+  } else {
+    return (
+      <div
+        className="row"
+        role="navigation"
+        aria-label="Main Content Navigation Menu"
+      >
+        {navLinks}
+      </div>
+    );
+  }
+};
 
 NavLinks.propTypes = {
-  /** List describing navigation links to be rendered */
-  navLinks: PropTypes.arrayOf(PropTypes.object).isRequired,
-  /** Indentation Level of navigation links. Useful for nested navigation links */
-  indentationLevel: PropTypes.number,
-  /** Indicates Href of currently active navlink */
-  activeNavLinkHref: PropTypes.string,
-  /** Call back function for each navigation link */
-  handleClick: PropTypes.func,
+  /** Component(s) to be rendered under NavLinks. Usually NavLink component(s) **/
+  children: PropTypes.object,
+  /** Is this NavLinks component nested inside another NavLinks/NavLink component **/
+  nested: PropTypes.bool,
 };
 
 NavLinks.defaultProps = {
-  indentationLevel: 0,
-  activeNavLinkHref: '',
+  nested: false,
 };
 
 export default NavLinks;
