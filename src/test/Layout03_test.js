@@ -1,28 +1,45 @@
 import React from 'react';
+import NavLink from '../NavLink.js';
+import NavLinks from '../NavLinks.js';
+import SideBar from '../SideBar.js';
 import Layout03 from '../Layout03.js';
-import SideNav from '../SideNav.js';
 import GlobalHeader from '../GlobalHeader.js';
 import PageHeader from '../PageHeader.js';
-import TestUtils from 'react-dom/lib/ReactTestUtils';
+import { shallow } from 'enzyme';
+import './EnzymeSetup';
 
 describe('Layout03', function() {
-  it('renders the tag', function() {
-    const renderer = TestUtils.createRenderer();
-    renderer.render(<Layout03 />);
-    const resultTag = renderer.getRenderOutput();
-    expect(resultTag.type).toBe('div');
+  const clickHandler = function() {};
+  const sideBarContent =
+    <NavLinks>
+    <NavLink
+      text="Tommy Cambell"
+      href="#tm"
+      preIcon="fa fa-user"
+      handleClick={clickHandler}
+      active={true}
+      key={1}
+    />
+    <NavLink
+      text="Aubrey Cambell"
+      href="#au"
+      preIcon="fa fa-user"
+      handleClick={clickHandler}
+      key={2}
+    />
+    </NavLinks>;
+  const sideBarWidth = 4;
+  const wrapper = shallow(<Layout03 sideBarContent={sideBarContent} sideBarColumnWidth={sideBarWidth}/>);
+
+  it('verify the no of "div" tags ', () => {
+    expect(wrapper.find('div').length).toEqual(2);
   });
 
-  it('includes Global Header, Page Header and Side Nav components', function() {
-    const layout = TestUtils.renderIntoDocument(<Layout03 />);
+  it('contains matching elements', () => {
+    expect(wrapper.containsMatchingElement(<PageHeader />)).toEqual(true);
+    expect(wrapper.containsMatchingElement(<GlobalHeader />)).toEqual(true);
     expect(
-      TestUtils.findRenderedComponentWithType(layout, GlobalHeader)
-    ).toBeTruthy();
-    expect(
-      TestUtils.findRenderedComponentWithType(layout, PageHeader)
-    ).toBeTruthy();
-    expect(
-      TestUtils.findRenderedComponentWithType(layout, SideNav)
-    ).toBeTruthy();
+      wrapper.containsMatchingElement(<SideBar columnWidth={sideBarWidth}>{sideBarContent}</SideBar>)
+    ).toEqual(true);
   });
 });

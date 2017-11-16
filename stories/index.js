@@ -30,7 +30,7 @@ import './components/MultiSelect';
 import './components/NavLinksContainer';
 import './components/NavLink';
 import './components/NavLinks';
-import './components/SideNav';
+import './components/SideBar';
 import './components/Table';
 import './components/TextArea';
 // Page Templates

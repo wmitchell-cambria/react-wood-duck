@@ -16,7 +16,7 @@ const basicNavLinkUsage = `
       - This supports a number of variations by passing a different set of properties few of which are shown as seperate stories under NavLink menu. All these properties can be used individually or together.
 
        `;
-storiesOf('Sub Components-beta/NavLink', module)
+storiesOf('Sub Components/NavLink', module)
   .add(
     'Basic NavLink',
     withInfo(`${basicNavLinkUsage}`)(() => (

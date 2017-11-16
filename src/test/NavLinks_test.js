@@ -58,7 +58,7 @@ describe('NavLinks', function() {
   describe('given empty navigation links', () => {
     const nullNavLinksComponent = shallow(<NavLinks />);
 
-    it('renders No nav links', () => {
+    it('renders No navigation links', () => {
       expect(nullNavLinksComponent.html()).toBe(null);
       expect(nullNavLinksComponent.children().length).toBe(0);
     });
@@ -68,23 +68,23 @@ describe('NavLinks', function() {
     const simpleNavLinksComponent = shallow(
       <NavLinks>{simpleNavLinks}</NavLinks>
     );
-    const simpleNavLinksResultTag = simpleNavLinksComponent.find('ul');
+    const simpleNavLinksUlElement = simpleNavLinksComponent.find('ul');
+    const simpleNavLinksNavElement = simpleNavLinksComponent.find('.row');
 
-    it('NavLinks are wrapped in nav element', () => {
-      const simpleNavLinksDiv = simpleNavLinksComponent.find('.row');
-      expect(simpleNavLinksDiv.length).toBe(1);
-      expect(simpleNavLinksDiv.props().className).toBe('row');
-      expect(simpleNavLinksDiv.props().role).toBe('navigation');
+    it('renders nav element', () => {
+      expect(simpleNavLinksNavElement.props().className).toBe('row');
     });
 
-    it('Navigation Links are wrapped in ul tag', () => {
-      expect(simpleNavLinksResultTag.type()).toBe('ul');
-      expect(simpleNavLinksResultTag.props().className).toBe('nav nav-stacked');
-      expect(simpleNavLinksResultTag.children().length).toBe(2);
+    it('renders with accessibility attributes', () => {
+      expect(simpleNavLinksNavElement.prop('aria-label')).toBe('Main Content Navigation Menu');
+    });
+
+    it('renders ul tag', () => {
+      expect(simpleNavLinksUlElement.props().className).toBe('nav nav-stacked');
     });
 
     it('renders simple navigation links', () => {
-      expect(simpleNavLinksResultTag.props().children).toEqual(simpleNavLinks);
+      expect(simpleNavLinksUlElement.props().children).toEqual(simpleNavLinks);
     });
   });
 
@@ -94,13 +94,12 @@ describe('NavLinks', function() {
     );
 
     it('renders only one nav element', () => {
-      expect(nestedNavLinksComponent.filter('.row').length).toBe(1);
+      expect(nestedNavLinksComponent.filter('nav').length).toBe(1);
     });
 
     it('renders nested navigation links', () => {
       const nestedNavLinksResultTag = nestedNavLinksComponent.find('ul');
-      expect(nestedNavLinksResultTag.children().length).toBe(2);
-      expect(nestedNavLinksResultTag.props().children).toEqual(nestedNavLinks);
+      expect(nestedNavLinksComponent.find('ul').props().children).toEqual(nestedNavLinks);
     });
   });
 });
