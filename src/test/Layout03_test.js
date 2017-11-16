@@ -10,26 +10,32 @@ import './EnzymeSetup';
 
 describe('Layout03', function() {
   const clickHandler = function() {};
-  const sideBarContent =
+  const sideBarContent = (
     <NavLinks>
-    <NavLink
-      text="Tommy Cambell"
-      href="#tm"
-      preIcon="fa fa-user"
-      handleClick={clickHandler}
-      active={true}
-      key={1}
-    />
-    <NavLink
-      text="Aubrey Cambell"
-      href="#au"
-      preIcon="fa fa-user"
-      handleClick={clickHandler}
-      key={2}
-    />
-    </NavLinks>;
+      <NavLink
+        text="Tommy Cambell"
+        href="#tm"
+        preIcon="fa fa-user"
+        handleClick={clickHandler}
+        active={true}
+        key={1}
+      />
+      <NavLink
+        text="Aubrey Cambell"
+        href="#au"
+        preIcon="fa fa-user"
+        handleClick={clickHandler}
+        key={2}
+      />
+    </NavLinks>
+  );
   const sideBarWidth = 4;
-  const wrapper = shallow(<Layout03 sideBarContent={sideBarContent} sideBarColumnWidth={sideBarWidth}/>);
+  const wrapper = shallow(
+    <Layout03
+      sideBarContent={sideBarContent}
+      sideBarColumnWidth={sideBarWidth}
+    />
+  );
 
   it('verify the no of "div" tags ', () => {
     expect(wrapper.find('div').length).toEqual(2);
@@ -39,7 +45,9 @@ describe('Layout03', function() {
     expect(wrapper.containsMatchingElement(<PageHeader />)).toEqual(true);
     expect(wrapper.containsMatchingElement(<GlobalHeader />)).toEqual(true);
     expect(
-      wrapper.containsMatchingElement(<SideBar columnWidth={sideBarWidth}>{sideBarContent}</SideBar>)
+      wrapper.containsMatchingElement(
+        <SideBar columnWidth={sideBarWidth}>{sideBarContent}</SideBar>
+      )
     ).toEqual(true);
   });
 });

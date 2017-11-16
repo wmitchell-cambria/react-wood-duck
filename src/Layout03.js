@@ -11,18 +11,16 @@ class Layout03 extends React.Component {
       <div>
         <GlobalHeader />
         <PageHeader />
-        <SideBar columnWidth={sideBarColumnWidth}>
-            {sideBarContent}
-        </SideBar>
+        <SideBar columnWidth={sideBarColumnWidth}>{sideBarContent}</SideBar>
         <div>{this.props.children}</div>
       </div>
     );
   }
 }
 Layout03.propTypes = {
-   children: PropTypes.any,
-   sideBarContent: PropTypes.node,
-   sideBarColumnWidth: PropTypes.number
+  children: PropTypes.any,
+  sideBarContent: PropTypes.node,
+  sideBarColumnWidth: PropTypes.number,
 };
 
 export default Layout03;

@@ -25,18 +25,21 @@ const handleClick = function() {
 };
 const simpleNavLinks = [
   <NavLink
+    key={1}
     text="Tommy Cambell"
     href="#tom"
     preIcon="fa fa-user"
     handleClick={handleClick}
   />,
   <NavLink
+    key={2}
     text="Aubrey Cambell"
     href="#aub"
     preIcon="fa fa-user"
     handleClick={handleClick}
   />,
   <NavLink
+    key={3}
     text="Chris Cambell"
     href="#chr"
     preIcon="fa fa-user"
@@ -46,18 +49,26 @@ const simpleNavLinks = [
 
 const navLinksWithInnerNav = [
   <NavLink
+    key={1}
     text="Screener Summary"
     href="#screenerSummary"
     handleClick={handleClick}
   />,
   <NavLink
+    key={2}
     text="Allegations & Disposition"
     href="#allegations"
     handleClick={handleClick}
   />,
-  <NavLink text="People & Roles" href="#pplroles" handleClick={handleClick}>
+  <NavLink
+    key={3}
+    text="People & Roles"
+    href="#pplroles"
+    handleClick={handleClick}
+  >
     <NavLinks>
       <NavLink
+        key={1}
         text="Tommy Cambell"
         href="#tommy"
         preIcon="fa fa-user"
@@ -66,6 +77,7 @@ const navLinksWithInnerNav = [
         indentationLevel={1}
       />
       <NavLink
+        key={2}
         text="Aubrey Cambell"
         href="#aubrey"
         preIcon="fa fa-user"
@@ -73,6 +85,7 @@ const navLinksWithInnerNav = [
         indentationLevel={1}
       />
       <NavLink
+        key={3}
         text="Chris Cambell"
         href="#chris"
         preIcon="fa fa-user"
@@ -81,7 +94,7 @@ const navLinksWithInnerNav = [
       />
     </NavLinks>
   </NavLink>,
-  <NavLink text="History of Involvement" href="#history" />,
+  <NavLink key={4} text="History of Involvement" href="#history" />,
 ];
 
 storiesOf('Sub Components/NavLinks', module)
@@ -92,13 +105,13 @@ storiesOf('Sub Components/NavLinks', module)
         - Used to render a group of navigation links
 
         - *NavLinks* component could look like below to render a group of navigation links.
-                <pre><code style=${codeStyle}>
+                <code style=${codeStyle}>
                     &lt;NavLinks&gt;
-                        &lt;NavLink text="Tommy Cambell" href="#tom" preIcon="fa fa-user" /&gt;
-                        &lt;NavLink text="Aubrey Cambell" href="#aub" preIcon="fa fa-user" /&gt;
-                        &lt;NavLink text="Chris Cambell" href="#chr" preIcon="fa fa-user" /&gt;
+                        &lt;NavLink key={1} text="Tommy Cambell" href="#tom" preIcon="fa fa-user" /&gt;
+                        &lt;NavLink key={2} text="Aubrey Cambell" href="#aub" preIcon="fa fa-user" /&gt;
+                        &lt;NavLink key={3} text="Chris Cambell" href="#chr" preIcon="fa fa-user" /&gt;
                     &lt;/NavLinks&gt;
-                </code></pre>
+                </code>
         * * *
         ${basicNavLinksUsage}
      `)(() => (
@@ -114,31 +127,31 @@ storiesOf('Sub Components/NavLinks', module)
          - Used to render nested navigation links.
 
          - Nested Navigation links are constructed by wrapping *NavLinks* component inside *NavLink* component as shown below. Please pass property *nested* with value 'true' on nested *NavLinks* component.
-                  <pre><code style=${codeStyle}>   
+                  <code style=${codeStyle}>   
                       &lt;NavLinks&gt;
-                          &lt;NavLink text="People & Roles", href="#pplroles" &gt;
+                          &lt;NavLink key={1} text="People & Roles" href="#pplroles" &gt;
                              &lt;NavLinks nested={true} &gt;
-                                &lt;NavLink text="Tommy Cambell" href="#tom" preIcon="fa fa-user" /&gt;
-                                &lt;NavLink text="Aubrey Cambell" href="#aub" preIcon="fa fa-user" /&gt;
-                             &lt;/NavLinks &gt;
-                          &lt;/NavLink &gt;,
+                                &lt;NavLink key={1} text="Tommy Cambell" href="#tom" preIcon="fa fa-user" /&gt;
+                                &lt;NavLink key={2} text="Aubrey Cambell" href="#au" preIcon="fa fa-user" /&gt;
+                             &lt;/NavLinks&gt;
+                          &lt;/NavLink&gt;
                       &lt;/NavLinks&gt;
-                  </code></pre>
+                  </code>
 
          - Another example of nested navigation links is shown below. In the below example, nested navigation links are under 2nd NavLink.
-                  <pre><code style=${codeStyle}>    
+                  <code style=${codeStyle}>    
                       &lt;NavLinks&gt;
-                          &lt;NavLink text="Screener Summary" href="#screenerSummary" /&gt;
-                          &lt;NavLink text="People & Roles", href="#pplroles" &gt;
+                          &lt;NavLink key={1} text="Screener Summary" href="#screenerSummary" /&gt;
+                          &lt;NavLink key={2} text="People & Roles" href="#pplroles" &gt;
                              &lt;NavLinks nested={true} &gt;
-                                &lt;NavLink text="Tommy Cambell" href="#tom" preIcon="fa fa-user" /&gt;
-                                &lt;NavLink text="Aubrey Cambell" href="#aub" preIcon="fa fa-user" /&gt;
-                                &lt;NavLink text="Chris Cambell" href="#chr" preIcon="fa fa-user" /&gt;
-                             &lt;/NavLinks &gt;
-                          &lt;/NavLink &gt;,
-                          &lt;NavLink text="History of Involvement" href="#history" /&gt;,
+                                &lt;NavLink key={1} text="Tommy Cambell" href="#tom" preIcon="fa fa-user" /&gt;
+                                &lt;NavLink key={2} text="Aubrey Cambell" href="#au" preIcon="fa fa-user" /&gt;
+                                &lt;NavLink key={3} text="Chris Cambell" href="#chr" preIcon="fa fa-user" /&gt;
+                             &lt;/NavLinks&gt;
+                          &lt;/NavLink&gt;
+                          &lt;NavLink key={4} text="History of Involvement" href="#history" /&gt;
                       &lt;/NavLinks&gt;
-                  </code></pre>
+                  </code>
 
        * * *
        ${basicNavLinksUsage}

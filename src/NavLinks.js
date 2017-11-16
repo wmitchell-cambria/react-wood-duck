@@ -11,10 +11,7 @@ const NavLinks = function(props) {
     return navLinks;
   } else {
     return (
-      <nav
-        className="row"
-        aria-label="Main Content Navigation Menu"
-      >
+      <nav className="row" aria-label="Main Content Navigation Menu">
         {navLinks}
       </nav>
     );

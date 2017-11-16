@@ -76,7 +76,9 @@ describe('NavLinks', function() {
     });
 
     it('renders with accessibility attributes', () => {
-      expect(simpleNavLinksNavElement.prop('aria-label')).toBe('Main Content Navigation Menu');
+      expect(simpleNavLinksNavElement.prop('aria-label')).toBe(
+        'Main Content Navigation Menu'
+      );
     });
 
     it('renders ul tag', () => {
@@ -98,8 +100,9 @@ describe('NavLinks', function() {
     });
 
     it('renders nested navigation links', () => {
-      const nestedNavLinksResultTag = nestedNavLinksComponent.find('ul');
-      expect(nestedNavLinksComponent.find('ul').props().children).toEqual(nestedNavLinks);
+      expect(nestedNavLinksComponent.find('ul').props().children).toEqual(
+        nestedNavLinks
+      );
     });
   });
 });

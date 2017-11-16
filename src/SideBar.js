@@ -17,7 +17,7 @@ const SideBar = function(props) {
 
 SideBar.propTypes = {
   children: PropTypes.node.isRequired,
-  columnWidth: PropTypes.number
+  columnWidth: PropTypes.number,
 };
 
 SideBar.defaultProps = {
