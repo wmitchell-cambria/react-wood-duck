@@ -2,7 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import './EnzymeSetup';
 
-import NavLink from '../NavLink.js';
+import PreIcon from '../PreIcon';
+import PostIcon from '../PostIcon';
+import NavLink from '../NavLink';
 
 describe('NavLink', () => {
   const navLinkHref = 'test.html';
@@ -17,13 +19,12 @@ describe('NavLink', () => {
   const inactiveNavLinkClass = 'inactive-navlink';
   const indentationClassName = `indent-level${indentationLevel}`;
 
-  describe('basic navlink', () => {
+  describe('basic', () => {
     const inactiveBasicNavLink = shallow(
       <NavLink
         href={navLinkHref}
         text={navLinkText}
         indentationLevel={indentationLevel}
-        active={false}
         onClick={() => {}}
       />
     );
@@ -33,7 +34,13 @@ describe('NavLink', () => {
       expect(inst.props.text).toBe(navLinkText);
       expect(inst.props.href).toBe(navLinkHref);
       expect(inst.props.indentationLevel).toBe(indentationLevel);
+    });
+
+    it('is inactive by default', () => {
       expect(inst.props.active).toBe(false);
+      expect(
+        inactiveBasicNavLink.filterWhere(n => n.hasClass(inactiveNavLinkClass))
+      ).toBeTruthy();
     });
 
     it('has li element', () => {
@@ -43,95 +50,53 @@ describe('NavLink', () => {
 
     it('has anchor element', () => {
       const anchorElement = inactiveBasicNavLink.find('a');
-
       expect(anchorElement.text()).toBe(navLinkText);
       expect(anchorElement.props().href).toEqual(navLinkHref);
       expect(anchorElement.props().className).toBe('');
-    });
-
-    it('has inactive styling and valid indentation style', () => {
-      expect(
-        inactiveBasicNavLink.filterWhere(n => n.hasClass(inactiveNavLinkClass))
-      ).toBeTruthy();
     });
 
     it('has valid indentation style', () => {
       expect(inactiveBasicNavLink.find(indentationClassName)).toBeTruthy();
     });
 
-    it('does not have pre & post icon elements', () => {
-      const iElements = inactiveBasicNavLink.find('i');
-      expect(iElements.length).toBe(0);
+    it('has pre icon component', () => {
+      expect(inactiveBasicNavLink.containsMatchingElement(<PreIcon />)).toBe(true);
+    });
+
+    it('has post icon component', () => {
+      expect(inactiveBasicNavLink.containsMatchingElement(<PostIcon />)).toBe(true);
     });
   });
 
-  describe('with pre icon property', () => {
+  describe('with PreIcon', () => {
     const navLinkWithPreIcon = shallow(
-      <NavLink href={navLinkHref} text={navLinkText} preIcon={preIconProp} />
-    );
-    const liElement = navLinkWithPreIcon.filterWhere(n =>
-      n.hasClass(preIconProp)
-    );
-
-    it('has basic elements', () => {
-      expect(liElement).toBeTruthy();
-      expect(liElement.find('a')).toBeTruthy();
-    });
-
-    it('has pre icon element', () => {
-      expect(
-        navLinkWithPreIcon.filterWhere(n => n.hasClass(preIconProp))
-      ).toBeTruthy();
-    });
-  });
-
-  describe('with post icon property', () => {
-    const navLinkWithPostIcon = shallow(
-      <NavLink href={navLinkHref} text={navLinkText} postIcon={postIconProp} />
-    );
-    const liElement = navLinkWithPostIcon.find('li');
-
-    it('has basic elements', () => {
-      expect(liElement).toBeTruthy();
-      expect(liElement.find('a')).toBeTruthy();
-    });
-
-    it('has valid post icon element', () => {
-      expect(
-        navLinkWithPostIcon.filterWhere(n => n.hasClass(postIconProp))
-      ).toBeTruthy();
-    });
-
-    it('has valid post icon style', () => {
-      expect(
-        navLinkWithPostIcon.filterWhere(n => n.hasClass(postIconClass))
-      ).toBeTruthy();
-    });
-  });
-
-  describe('with pre & post icon properties', () => {
-    const navLinkWithPrePostIcons = shallow(
       <NavLink
         href={navLinkHref}
         text={navLinkText}
         preIcon={preIconProp}
-        postIcon={postIconProp}
+        indentationLevel={indentationLevel}
+        onClick={() => {}}
       />
     );
-    const liElement = navLinkWithPrePostIcons.find('li');
 
-    it('has basic elements', function() {
-      expect(liElement).toBeTruthy();
-      expect(liElement.find('a')).toBeTruthy();
+    it('renders pre icon component with given preIcon property', () => {
+      expect(navLinkWithPreIcon.containsMatchingElement(<PreIcon icon={preIconProp} />)).toBe(true);
     });
+  });
 
-    it('has pre & post icons', function() {
-      expect(
-        navLinkWithPrePostIcons.filterWhere(n => n.hasClass(preIconProp))
-      ).toBeTruthy();
-      expect(
-        navLinkWithPrePostIcons.filterWhere(n => n.hasClass(postIconProp))
-      ).toBeTruthy();
+  describe('with PostIcon', () => {
+    const navLinkWithPostIcon = shallow(
+      <NavLink
+        href={navLinkHref}
+        text={navLinkText}
+        postIcon={postIconProp}
+        indentationLevel={indentationLevel}
+        onClick={() => {}}
+      />
+    );
+ 
+    it('renders post icon component with given postIcon property', () => {
+      expect(navLinkWithPostIcon.containsMatchingElement(<PostIcon icon={postIconProp} />)).toBe(true);
     });
   });
 

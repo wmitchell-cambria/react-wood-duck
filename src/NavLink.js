@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import PreIcon from './PreIcon';
+import PostIcon from './PostIcon';
 
 const NavLink = function(props) {
   const activeNavLinkClassName = props.active
@@ -10,7 +12,7 @@ const NavLink = function(props) {
   return (
     <li className="navlink" key={props.text}>
       <span className={activeNavLinkClassName + ' ' + indentationClassName} />
-      {props.preIcon && <i className={`${props.preIcon} pre-icon`} />}
+      <PreIcon icon={props.preIcon} />
       <a
         href={props.href}
         className={activeAnchorClassName}
@@ -18,7 +20,7 @@ const NavLink = function(props) {
       >
         {props.text}
       </a>
-      {props.postIcon && <i className={`${props.postIcon} post-icon`} />}
+      <PostIcon icon={props.postIcon} />
       {props.children}
     </li>
   );
