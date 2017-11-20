@@ -1,9 +1,10 @@
 import React from 'react';
-import TestUtils from 'react-dom/lib/ReactTestUtils';
 import SideNav from '../SideNav';
 import NavLinksContainer from '../NavLinksContainer';
+import { shallow } from 'enzyme';
+import './EnzymeSetup';
 
-describe('Side Nav', function() {
+describe('Side Nav', () => {
   const simpleNavLinks = [
     {
       type: 'navLinks',
@@ -29,33 +30,34 @@ describe('Side Nav', function() {
       ],
     },
   ];
-  const renderer = TestUtils.createRenderer();
   let sideNavWithnavigationLinksresultTag = null;
 
-  beforeEach(function() {
-    renderer.render(<SideNav content={simpleNavLinks} />);
-    sideNavWithnavigationLinksresultTag = renderer.getRenderOutput();
+  beforeEach(() => {
+    sideNavWithnavigationLinksresultTag = shallow(
+      <SideNav content={simpleNavLinks} />
+    );
   });
 
   it('returns side nav element given valid content', function() {
-    expect(sideNavWithnavigationLinksresultTag.type).toBe('div');
-    expect(sideNavWithnavigationLinksresultTag.props.className).toBe(
+    expect(sideNavWithnavigationLinksresultTag.type()).toBe('div');
+    expect(sideNavWithnavigationLinksresultTag.props().className).toBe(
       'container hidden-xs col-md-3 side-nav'
     );
-    expect(sideNavWithnavigationLinksresultTag.props['aria-label']).toBe(
+
+    expect(sideNavWithnavigationLinksresultTag.prop('aria-label')).toBe(
       'Side Nav'
     );
   });
 
-  it('returns side nav element with a bunch of navigation links given content with navigation links details', function() {
-    expect(sideNavWithnavigationLinksresultTag.props.children.length).toBe(1);
-    expect(sideNavWithnavigationLinksresultTag.props.children[0].type).toBe(
+  it('returns side nav element with a bunch of navigation links given content with navigation links details', () => {
+    expect(sideNavWithnavigationLinksresultTag.props().children.length).toBe(1);
+    expect(sideNavWithnavigationLinksresultTag.props().children[0].type).toBe(
       'div'
     );
     expect(
-      sideNavWithnavigationLinksresultTag.props.children[0].props.className
+      sideNavWithnavigationLinksresultTag.childAt(0).props().className
     ).toBe('row');
-    expect(sideNavWithnavigationLinksresultTag.props.children[0]).toEqual(
+    expect(sideNavWithnavigationLinksresultTag.props().children).toEqual([
       <div
         className="row"
         key={0}
@@ -63,28 +65,30 @@ describe('Side Nav', function() {
         aria-label="Main Content Navigation Menu"
       >
         <NavLinksContainer navLinks={simpleNavLinks[0].navItems} />
-      </div>
-    );
+      </div>,
+    ]);
   });
 
-  it('returns navigation links with proper accessibility tags given content with navigation links details', function() {
+  it('returns navigation links with proper accessibility tags given content with navigation links details', () => {
     expect(
-      sideNavWithnavigationLinksresultTag.props.children[0].props['aria-label']
+      sideNavWithnavigationLinksresultTag.props().children[0].props[
+        'aria-label'
+      ]
     ).toBe('Main Content Navigation Menu');
     expect(
-      sideNavWithnavigationLinksresultTag.props.children[0].props.role
+      sideNavWithnavigationLinksresultTag.props().children[0].props.role
     ).toBe('navigation');
   });
 
-  it('returns side nav element with default column width when columnWidth is not provided', function() {
-    renderer.render(<SideNav content={simpleNavLinks} />);
-    const resultTag = renderer.getRenderOutput();
-    expect(resultTag.props.className).toContain('col-md-3');
+  it('returns side nav element with default column width when columnWidth is not provided', () => {
+    const resultTag = shallow(<SideNav content={simpleNavLinks} />);
+    expect(resultTag.props().className).toContain('col-md-3');
   });
 
   it('returns side nav element with specified column width', function() {
-    renderer.render(<SideNav content={simpleNavLinks} columnWidth={4} />);
-    const resultTag = renderer.getRenderOutput();
-    expect(resultTag.props.className).toContain('col-md-4');
+    const resultTag = shallow(
+      <SideNav content={simpleNavLinks} columnWidth={4} />
+    );
+    expect(resultTag.props().className).toContain('col-md-4');
   });
 });

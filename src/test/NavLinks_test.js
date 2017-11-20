@@ -1,9 +1,11 @@
 import React from 'react';
-import ReactTestUtils from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
+import './EnzymeSetup';
+
 import NavLink from '../NavLink';
 import NavLinks from '../NavLinks';
 
-describe('NavLinks', function() {
+describe('NavLinks', () => {
   const simpleNavLinks = [
     {
       type: 'navLink',
@@ -52,20 +54,21 @@ describe('NavLinks', function() {
       ],
     },
   ];
-  const renderer = ReactTestUtils.createRenderer();
-  const clickHandler = function() {
+  const clickHandler = () => {
     console.log('test msg');
   };
 
-  describe('given empty navigation links', function() {
-    const nullNavLinksComponent = renderer.render(<NavLinks navLinks={[]} />);
-    it('renders No nav links', function() {
-      expect(nullNavLinksComponent).toBe(null);
+  describe('given empty navigation links', () => {
+    const nullNavLinksComponent = shallow(<NavLinks navLinks={[]} />);
+
+    it('renders No nav links', () => {
+      expect(nullNavLinksComponent.html()).toBe(null);
+      expect(nullNavLinksComponent.children().length).toBe(0);
     });
   });
 
-  describe('given simple navigation links', function() {
-    const simpleNavLinksComponent = renderer.render(
+  describe('given simple navigation links', () => {
+    const simpleNavLinksComponent = shallow(
       <NavLinks
         navLinks={simpleNavLinks}
         handleClick={clickHandler}
@@ -73,17 +76,17 @@ describe('NavLinks', function() {
         indentationLevel={0}
       />
     );
-    const simpleNavLinksResultTag = renderer.getRenderOutput(
-      simpleNavLinksComponent
-    );
-    it('simple Navigation Links are wrapped in ul tag', function() {
-      expect(simpleNavLinksResultTag.type).toBe('ul');
-      expect(simpleNavLinksResultTag.props.className).toBe('nav nav-stacked');
-      expect(simpleNavLinksResultTag.props.children.length).toBe(2);
+    const simpleNavLinksResultTag = simpleNavLinksComponent.find('ul');
+
+    it('simple Navigation Links are wrapped in ul tag', () => {
+      expect(simpleNavLinksComponent.html()).not.toBe(null);
+      expect(simpleNavLinksResultTag.type()).toBe('ul');
+      expect(simpleNavLinksResultTag.props().className).toBe('nav nav-stacked');
+      expect(simpleNavLinksResultTag.children().length).toBe(2);
     });
 
-    it('renders simple navigation links', function() {
-      expect(simpleNavLinksResultTag.props.children).toEqual([
+    it('renders simple navigation links', () => {
+      expect(simpleNavLinksResultTag.props().children).toEqual([
         <NavLink
           key={simpleNavLinks[0].text}
           text={simpleNavLinks[0].text}
@@ -112,8 +115,8 @@ describe('NavLinks', function() {
     });
   });
 
-  describe('given nested navigation links', function() {
-    const navLinksWithSubNavLinksComponent = renderer.render(
+  describe('given nested navigation links', () => {
+    const navLinksWithSubNavLinksComponent = shallow(
       <NavLinks
         navLinks={navLinksWithSubNavLinks}
         handleClick={clickHandler}
@@ -121,14 +124,15 @@ describe('NavLinks', function() {
         indentationLevel={0}
       />
     );
-    const navLinksWithSubNavLinksResultTag = renderer.getRenderOutput(
-      navLinksWithSubNavLinksComponent
+    const navLinksWithSubNavLinksResultTag = navLinksWithSubNavLinksComponent.find(
+      'ul'
     );
 
     it('renders nested navigation links', function() {
-      expect(navLinksWithSubNavLinksResultTag.type).toBe('ul');
-      expect(navLinksWithSubNavLinksResultTag.props.children.length).toBe(2);
-      expect(navLinksWithSubNavLinksResultTag.props.children).toEqual([
+      expect(navLinksWithSubNavLinksComponent.html()).not.toBe(null);
+      expect(navLinksWithSubNavLinksResultTag.type()).toBe('ul');
+      expect(navLinksWithSubNavLinksResultTag.children().length).toBe(2);
+      expect(navLinksWithSubNavLinksResultTag.props().children).toEqual([
         <NavLink
           key={navLinksWithSubNavLinks[0].text}
           text={navLinksWithSubNavLinks[0].text}

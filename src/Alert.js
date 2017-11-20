@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Alert = props => {
   const classField = `alert-message ${props.alertClassName}-message`;
   const faIcons = `fa ${props.faIcon}`;
+
   return (
     <div className="row">
       <div className="col-xs-12">

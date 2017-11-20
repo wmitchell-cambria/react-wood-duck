@@ -3,26 +3,42 @@ import Layout03 from '../Layout03.js';
 import SideNav from '../SideNav.js';
 import GlobalHeader from '../GlobalHeader.js';
 import PageHeader from '../PageHeader.js';
-import TestUtils from 'react-dom/lib/ReactTestUtils';
+import { shallow } from 'enzyme';
+import './EnzymeSetup';
 
 describe('Layout03', function() {
-  it('renders the tag', function() {
-    const renderer = TestUtils.createRenderer();
-    renderer.render(<Layout03 />);
-    const resultTag = renderer.getRenderOutput();
-    expect(resultTag.type).toBe('div');
-  });
+  const sideNavContent = [
+    {
+      type: 'navLinks',
+      navItems: [
+        {
+          type: 'navLink',
+          text: 'Tommy Cambell',
+          href: '#tom',
+          preIcon: 'fa fa-user',
+        },
+        {
+          type: 'navLink',
+          text: 'Aubrey Cambell',
+          href: '#aub',
+          preIcon: 'fa fa-user',
+        },
+        {
+          type: 'navLink',
+          text: 'Chris Cambell',
+          href: '#chris',
+          preIcon: 'fa fa-user',
+        },
+      ],
+    },
+  ];
+  const wrapper = shallow(<Layout03 />);
 
-  it('includes Global Header, Page Header and Side Nav components', function() {
-    const layout = TestUtils.renderIntoDocument(<Layout03 />);
+  it('contains matching elements', () => {
+    expect(wrapper.containsMatchingElement(<PageHeader />)).toEqual(true);
+    expect(wrapper.containsMatchingElement(<GlobalHeader />)).toEqual(true);
     expect(
-      TestUtils.findRenderedComponentWithType(layout, GlobalHeader)
-    ).toBeTruthy();
-    expect(
-      TestUtils.findRenderedComponentWithType(layout, PageHeader)
-    ).toBeTruthy();
-    expect(
-      TestUtils.findRenderedComponentWithType(layout, SideNav)
-    ).toBeTruthy();
+      wrapper.containsMatchingElement(<SideNav content={sideNavContent} />)
+    ).toEqual(true);
   });
 });

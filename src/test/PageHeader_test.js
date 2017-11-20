@@ -1,71 +1,56 @@
 import React from 'react';
 import PageHeader from '../PageHeader.js';
-import TestUtils from 'react-dom/lib/ReactTestUtils';
 
-describe('PageHeader', function() {
+import { shallow } from 'enzyme';
+import './EnzymeSetup';
+
+describe('<PageHeader />', () => {
   var input = {
     pageTitle: 'testPageTitle',
   };
-  const renderedComponent = TestUtils.createRenderer();
-  renderedComponent.render(<PageHeader />);
-  const resultTag = renderedComponent.getRenderOutput();
-  const pageHeader = TestUtils.renderIntoDocument(<PageHeader />);
-  const pageHeaderwithProps = TestUtils.renderIntoDocument(
-    <PageHeader {...input} />
-  );
 
-  it('renders the tag', function() {
-    expect(resultTag.type).toBe('div');
+  const pageHeader = shallow(<PageHeader />);
+  const pageHeaderwithProps = shallow(<PageHeader {...input} />);
+
+  it('renders the tag', () => {
+    expect(pageHeader.type()).toBe('div');
   });
 
-  it('verify the className', function() {
-    expect(resultTag.props.className).toBe('container-fluid pageHeader');
+  it('verify the className', () => {
+    expect(pageHeader.props().className).toBe('container-fluid pageHeader');
   });
 
-  it('find element with tag', function() {
-    let divElement = TestUtils.scryRenderedDOMComponentsWithTag(
-      pageHeader,
-      'div'
-    );
+  it('find element with tag', () => {
+    const divElement = pageHeader.find('div');
+    const buttonElement = pageHeader.find('button');
+
     expect(divElement.length).toEqual(5);
-    let buttonElement = TestUtils.scryRenderedDOMComponentsWithTag(
-      pageHeader,
-      'button'
-    );
     expect(buttonElement.length).toEqual(1);
   });
 
-  it('find element with class and default props', function() {
-    let divElementArr = TestUtils.scryRenderedDOMComponentsWithClass(
-      pageHeader,
-      'row'
-    );
+  it('find element with class and default props', () => {
+    const divElementArr = pageHeader.find('.row');
+    const divElement1 = pageHeader.find('.page-title');
+    const buttonElement1 = pageHeader.find('.primary-btn');
+
     expect(divElementArr.length).toEqual(1);
-    var divElement1 = TestUtils.findRenderedDOMComponentWithClass(
-      pageHeader,
-      'page-title text-left'
-    );
-    expect(divElement1.className).toBe('page-title text-left');
-    expect(divElement1.textContent).toEqual('CaseName');
-    var buttonElement1 = TestUtils.findRenderedDOMComponentWithClass(
-      pageHeader,
-      'primary-btn pull-right'
-    );
-    expect(buttonElement1.className).toBe('primary-btn pull-right');
-    expect(buttonElement1.textContent).toEqual('Save Form');
+    expect(divElement1.props().className).toBe('page-title text-left');
+    expect(divElement1.props().children).toEqual('CaseName');
+    expect(buttonElement1.props().className).toBe('primary-btn pull-right');
+    expect(buttonElement1.props().children).toEqual('Save Form');
   });
 
-  it('check default props', function() {
-    expect(pageHeader.props.pageTitle).toEqual('CaseName');
+  it('check default props', () => {
+    const instance = pageHeader.instance();
+
+    expect(instance.props.pageTitle).toEqual('CaseName');
   });
 
-  it('find element with class and object passed as props', function() {
-    var divElement1 = TestUtils.findRenderedDOMComponentWithClass(
-      pageHeaderwithProps,
-      'page-title text-left'
-    );
-    expect(divElement1.className).toBe('page-title text-left');
-    expect(divElement1.textContent).toEqual('testPageTitle');
+  it('find element with class and object passed as props', () => {
+    const divElement1 = pageHeaderwithProps.find('.page-title');
+
+    expect(divElement1.props().className).toBe('page-title text-left');
+    expect(divElement1.props().children).toEqual('testPageTitle');
   });
 
   describe('#handleScroll', () => {
@@ -82,8 +67,11 @@ describe('PageHeader', function() {
             return element;
           },
         };
-        pageHeaderwithProps.handleScroll(currentWindow, currentDocument);
-        expect(pageHeaderwithProps.state.stickyHeader).toEqual(true);
+
+        pageHeaderwithProps
+          .instance()
+          .handleScroll(currentWindow, currentDocument);
+        expect(pageHeaderwithProps.instance().state.stickyHeader).toEqual(true);
       });
     });
 
@@ -100,8 +88,12 @@ describe('PageHeader', function() {
             return element;
           },
         };
-        pageHeaderwithProps.handleScroll(currentWindow, currentDocument);
-        expect(pageHeaderwithProps.state.stickyHeader).toEqual(false);
+        pageHeaderwithProps
+          .instance()
+          .handleScroll(currentWindow, currentDocument);
+        expect(pageHeaderwithProps.instance().state.stickyHeader).toEqual(
+          false
+        );
       });
     });
 
@@ -118,8 +110,12 @@ describe('PageHeader', function() {
             return element;
           },
         };
-        pageHeaderwithProps.handleScroll(currentWindow, currentDocument);
-        expect(pageHeaderwithProps.state.stickyHeader).toEqual(false);
+        pageHeaderwithProps
+          .instance()
+          .handleScroll(currentWindow, currentDocument);
+        expect(pageHeaderwithProps.instance().state.stickyHeader).toEqual(
+          false
+        );
       });
     });
   });
@@ -127,24 +123,18 @@ describe('PageHeader', function() {
   describe('#render', () => {
     describe('with stickyHeader', () => {
       it('adds a 0.000em style', () => {
-        let component = TestUtils.renderIntoDocument(<PageHeader />);
-        component.setState({ stickyHeader: true });
-        const pageHeaderElement = TestUtils.findRenderedDOMComponentWithClass(
-          component,
-          'pageHeader'
-        );
-        expect(pageHeaderElement.style.cssText).toEqual('top: 0em;');
+        const pageHeaderElement = shallow(<PageHeader />);
+        pageHeaderElement.setState({ stickyHeader: true });
+
+        expect(pageHeaderElement.props().style).toEqual({ top: '0.000em' });
       });
     });
 
     describe('without stickyHeader', () => {
       it('adds a 0.000em style', () => {
-        let component = TestUtils.renderIntoDocument(<PageHeader />);
-        const pageHeaderElement = TestUtils.findRenderedDOMComponentWithClass(
-          component,
-          'pageHeader'
-        );
-        expect(pageHeaderElement.style.cssText).toEqual('');
+        const pageHeaderElement = shallow(<PageHeader />);
+
+        expect(pageHeaderElement.props().style).toEqual(undefined);
       });
     });
   });

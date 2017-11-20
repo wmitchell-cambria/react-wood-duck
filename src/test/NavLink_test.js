@@ -1,8 +1,10 @@
 import React from 'react';
-import NavLink from '../NavLink.js';
-import ReactTestUtils from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
+import './EnzymeSetup';
 
-describe('NavLink', function() {
+import NavLink from '../NavLink.js';
+
+describe('NavLink', () => {
   const navLinkHref = 'test.html';
   const navLinkText = 'Nav Link Test';
   const navLinkClass = 'navlink';
@@ -13,119 +15,118 @@ describe('NavLink', function() {
   const activeNavLinkClassName = 'active-navlink';
   const inactiveNavLinkClassName = 'inactive-navlink';
 
-  describe('basic navlink', function() {
-    let inactiveBasicNavLink = ReactTestUtils.renderIntoDocument(
+  describe('basic navlink', () => {
+    const inactiveBasicNavLink = shallow(
       <NavLink
         href={navLinkHref}
         text={navLinkText}
         indentationLevel={indentationLevel}
         active={false}
-        onClick={function() {}}
+        onClick={() => {}}
       />
     );
+    const instance = inactiveBasicNavLink.instance();
 
-    it('has li element', function() {
+    it('is an instance and not null', () => {
       expect(inactiveBasicNavLink).not.toBe(null);
-      expect(
-        ReactTestUtils.isCompositeComponent(inactiveBasicNavLink, NavLink)
-      ).toBe(true);
-      const liElement = ReactTestUtils.findRenderedDOMComponentWithTag(
-        inactiveBasicNavLink,
-        'li'
-      );
-      expect(liElement).not.toBe(null);
-      expect(liElement.className).toBe(navLinkClass);
-      expect(liElement.children.length).toBe(2);
+      expect(instance).toEqual(jasmine.any(NavLink));
     });
 
-    it('has anchor element', function() {
-      const liElement = ReactTestUtils.findRenderedDOMComponentWithTag(
-        inactiveBasicNavLink,
-        'li'
-      );
-      const anchorElement = liElement.children[1];
-      expect(anchorElement.tagName).toBe('A');
-      expect(anchorElement.textContent).toBe(navLinkText);
-      expect(anchorElement.href).toContain(navLinkHref);
-      expect(anchorElement.className).toBe('');
+    it('has all the props', () => {
+      expect(instance.props.text).toBe(navLinkText);
+      expect(instance.props.href).toBe(navLinkHref);
+      expect(instance.props.indentationLevel).toBe(indentationLevel);
+      expect(instance.props.active).toBe(false);
+    });
+
+    it('has li element', () => {
+      const liElement = inactiveBasicNavLink.find('li');
+
+      expect(liElement).not.toBe(null);
+      expect(liElement.hasClass(navLinkClass)).toBe(true);
+      expect(liElement.length).toBe(1);
+      expect(liElement.children().length).toBe(2);
+    });
+
+    it('has anchor element', () => {
+      const anchorElement = inactiveBasicNavLink.find('a');
+
+      expect(anchorElement.type()).toEqual('a');
+      expect(anchorElement.text()).toBe(navLinkText);
+      expect(anchorElement.props().href).toEqual(navLinkHref);
+      expect(anchorElement.props().className).toBe('');
       expect(anchorElement.onClick).not.toBe(null);
     });
 
-    it('has span element with inactive class name and valid indentation style', function() {
-      const liElement = ReactTestUtils.findRenderedDOMComponentWithTag(
-        inactiveBasicNavLink,
-        'li'
-      );
-      const spanElement = liElement.children[0];
-      expect(spanElement.tagName).toBe('SPAN');
-      expect(spanElement.className).toBe(inactiveNavLinkClassName);
-      expect(spanElement.style.cssText).toBe('margin-right: 6rem;');
+    it('has span element with inactive class name and valid indentation style', () => {
+      const spanElement = inactiveBasicNavLink.find('span');
+
+      expect(spanElement.type()).toBe('span');
+      expect(spanElement.props().className).toBe(inactiveNavLinkClassName);
+      expect(spanElement.props().style).toEqual({ marginRight: '6rem' });
     });
 
-    it('does not have pre & post icon elements', function() {
-      const iElements = ReactTestUtils.scryRenderedDOMComponentsWithTag(
-        inactiveBasicNavLink,
-        'i'
-      );
-      expect(iElements.length).toBe(0);
+    it('does not have pre & post icon elements', () => {
+      const inactiveElements = inactiveBasicNavLink.find('i');
+      expect(inactiveElements.length).toBe(0);
     });
   });
 
-  describe('navlink with pre icon property', function() {
-    const navLinkWithPreIcon = ReactTestUtils.renderIntoDocument(
+  describe('navlink with pre icon property', () => {
+    const navLinkWithPreIcon = shallow(
       <NavLink href={navLinkHref} text={navLinkText} preIcon={preIconClass} />
     );
-    const liElement = ReactTestUtils.findRenderedDOMComponentWithTag(
-      navLinkWithPreIcon,
-      'li'
-    );
+    const instance = navLinkWithPreIcon.instance();
+    const liElement = navLinkWithPreIcon.find('li');
 
-    it('has basic element', function() {
-      expect(
-        ReactTestUtils.isCompositeComponent(navLinkWithPreIcon, NavLink)
-      ).toBe(true);
-      expect(liElement.children.length).toBe(3);
-      expect(liElement.children[0].tagName).toBe('SPAN');
-      expect(liElement.children[2].tagName).toBe('A');
+    it('is an instance and not null', () => {
+      expect(navLinkWithPreIcon).not.toBe(null);
+      expect(instance).toEqual(jasmine.any(NavLink));
     });
 
-    it('navlink has pre icon', function() {
-      expect(
-        ReactTestUtils.isCompositeComponent(navLinkWithPreIcon, NavLink)
-      ).toBe(true);
-      expect(liElement.children.length).toBe(3);
-      const preIconElement = liElement.children[1];
-      expect(preIconElement.tagName).toBe('I');
-      expect(preIconElement.className).toBe(preIconClass);
+    it('has basic element', () => {
+      expect(liElement.children().length).toBe(3);
+      expect(liElement.childAt(0).type()).toBe('span');
+      expect(liElement.childAt(1).type()).toBe('i');
+      expect(liElement.childAt(2).type()).toBe('a');
+    });
+
+    it('navlink has pre icon', () => {
+      const preIconElement = liElement.find('i');
+
+      expect(preIconElement.length).toBe(1);
+      expect(preIconElement.type()).toBe('i');
+      expect(preIconElement.props().className).toBe(preIconClass);
     });
   });
 
-  describe('navlink with post icon property', function() {
-    const navLinkWithPostIcon = ReactTestUtils.renderIntoDocument(
+  describe('navlink with post icon property', () => {
+    const navLinkWithPostIcon = shallow(
       <NavLink href={navLinkHref} text={navLinkText} postIcon={postIconClass} />
     );
-    const liElement = ReactTestUtils.findRenderedDOMComponentWithTag(
-      navLinkWithPostIcon,
-      'li'
-    );
+    const instance = navLinkWithPostIcon.instance();
+    const liElement = navLinkWithPostIcon.find('li');
 
-    it('has basic elements', function() {
-      expect(
-        ReactTestUtils.isCompositeComponent(navLinkWithPostIcon, NavLink)
-      ).toBe(true);
-      expect(liElement.children.length).toBe(3);
-      expect(liElement.children[0].tagName).toBe('SPAN');
-      expect(liElement.children[1].tagName).toBe('A');
+    it('is an instance and not null', () => {
+      expect(navLinkWithPostIcon).not.toBe(null);
+      expect(instance).toEqual(jasmine.any(NavLink));
     });
 
-    it('has post icon', function() {
-      const postIconElement = liElement.children[2];
-      expect(postIconElement.className).toContain(postIconClass);
+    it('has basic elements', () => {
+      expect(liElement.children().length).toBe(3);
+      expect(liElement.childAt(0).type()).toBe('span');
+      expect(liElement.childAt(1).type()).toBe('a');
+      expect(liElement.childAt(2).type()).toBe('i');
+    });
+
+    it('has post icon', () => {
+      const postIconElement = liElement.find('i');
+      expect(postIconElement.props().className).toContain(postIconClass);
     });
   });
 
-  describe('navlink with pre & post icons', function() {
-    const navLinkWithPrePostIcons = ReactTestUtils.renderIntoDocument(
+  describe('navlink with pre & post icons', () => {
+    const navLinkWithPrePostIcons = shallow(
       <NavLink
         href={navLinkHref}
         text={navLinkText}
@@ -133,52 +134,58 @@ describe('NavLink', function() {
         postIcon={postIconClass}
       />
     );
-    const liElement = ReactTestUtils.findRenderedDOMComponentWithTag(
-      navLinkWithPrePostIcons,
-      'li'
-    );
+    const instance = navLinkWithPrePostIcons.instance();
+    const liElement = navLinkWithPrePostIcons.find('li');
+
+    it('is an instance and not null', () => {
+      expect(navLinkWithPrePostIcons).not.toBe(null);
+      expect(instance).toEqual(jasmine.any(NavLink));
+    });
 
     it('has basic elements', function() {
-      expect(liElement.children[0].tagName).toBe('SPAN');
-      expect(liElement.children[2].tagName).toBe('A');
+      expect(liElement.children().length).toBe(4);
+      expect(liElement.childAt(0).type()).toBe('span');
+      expect(liElement.childAt(1).type()).toBe('i');
+      expect(liElement.childAt(2).type()).toBe('a');
+      expect(liElement.childAt(3).type()).toBe('i');
     });
 
     it('has pre & post icons', function() {
-      expect(
-        ReactTestUtils.isCompositeComponent(navLinkWithPrePostIcons, NavLink)
-      ).toBe(true);
-      expect(liElement.children.length).toBe(4);
-      expect(liElement.children[1].tagName).toBe('I');
-      expect(liElement.children[1].className).toBe(preIconClass);
-      expect(liElement.children[3].tagName).toBe('I');
-      expect(liElement.children[3].className).toContain(postIconClass);
+      expect(liElement.children().length).toBe(4);
+      expect(liElement.childAt(0).type()).toBe('span');
+      expect(liElement.childAt(1).props().className).toBe(preIconClass);
+      expect(liElement.childAt(2).type()).toBe('a');
+      expect(liElement.childAt(3).props().className).toContain(postIconClass);
     });
   });
 
   describe('navlink with child components', function() {
-    const navLinkWithChildren = ReactTestUtils.renderIntoDocument(
+    const navLinkWithChildren = shallow(
       <NavLink href={navLinkHref} text={navLinkText}>
         <div>Test Child</div>
       </NavLink>
     );
-    const liElement = ReactTestUtils.findRenderedDOMComponentWithTag(
-      navLinkWithChildren,
-      'li'
-    );
+    const instance = navLinkWithChildren.instance();
+    const liElement = navLinkWithChildren.find('li');
+
+    it('is an instance and not null', () => {
+      expect(navLinkWithChildren).not.toBe(null);
+      expect(instance).toEqual(jasmine.any(NavLink));
+    });
 
     it('has basic elements', function() {
-      expect(liElement.children.length).toBe(3);
-      expect(liElement.children[0].tagName).toBe('SPAN');
-      expect(liElement.children[1].tagName).toBe('A');
+      expect(liElement.children().length).toBe(3);
+      expect(liElement.childAt(0).type()).toBe('span');
+      expect(liElement.childAt(1).type()).toBe('a');
     });
 
     it('has given child components', function() {
-      expect(liElement.children[2].tagName).toBe('DIV');
+      expect(liElement.childAt(2).type()).toBe('div');
     });
   });
 
   describe('navlink with preIcon & active properties', function() {
-    const activeNavLinkWithPreIcon = ReactTestUtils.renderIntoDocument(
+    const activeNavLinkWithPreIcon = shallow(
       <NavLink
         href={navLinkHref}
         text={navLinkText}
@@ -186,14 +193,10 @@ describe('NavLink', function() {
         active={true}
       />
     );
+    const activeNavLink = activeNavLinkWithPreIcon.find(activeNavLinkClassName);
 
     it('has basic elements with active style', function() {
-      expect(
-        ReactTestUtils.findRenderedDOMComponentWithClass(
-          activeNavLinkWithPreIcon,
-          activeNavLinkClassName
-        )
-      ).toBeTruthy();
+      expect(activeNavLink).toBeTruthy();
     });
   });
 });

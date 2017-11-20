@@ -1,9 +1,7 @@
 import CommonAddressComponent from '../CommonAddressComponent.js';
-import TestUtils from 'react-dom/lib/ReactTestUtils';
-
 import React from 'react';
 import { shallow } from 'enzyme';
-require('./Enzyme_setup');
+import './EnzymeSetup';
 
 const stateTypes = {
   items: [
@@ -50,6 +48,8 @@ describe('Verify Common Address Fields Component', () => {
     stateTypes: stateTypes.items,
     addressFields: addressFields,
     onChange: onChangeSpy,
+    onSuggestionsFetchRequested: onChangeSpy,
+    onSuggestionSelected: onChangeSpy,
   };
   beforeEach(() => {
     commonAddressComponent = shallow(
@@ -63,6 +63,7 @@ describe('Verify Common Address Fields Component', () => {
         onChange={onChangeSpy}
         renderSuggestion={onChangeSpy}
         onSuggestionsFetchRequested={onChangeSpy}
+        onSuggestionSelected={onChangeSpy}
       />
     );
   });
@@ -98,21 +99,15 @@ describe('Verify Common Address Fields Component', () => {
     });
   });
   describe('AutoSuggest Render', () => {
-    let renderedComponent, resultTag;
+    let addressComponent;
     beforeEach(() => {
-      renderedComponent = TestUtils.createRenderer();
-      renderedComponent.render(<CommonAddressComponent {...props} />);
-      resultTag = renderedComponent.getRenderOutput();
+      addressComponent = shallow(<CommonAddressComponent {...props} />);
     });
     it('AutoSuggest label', () => {
-      let autoSuggestField =
-        resultTag.props.children[0].props.children[0].props;
-      expect(autoSuggestField.children).toBe('Physical Address');
+      expect(addressComponent.find('label').text()).toEqual('Physical Address');
     });
     it('for AutoSuggest Component load', () => {
-      let streesAddressAutoFill =
-        resultTag.props.children[0].props.children[1].type.name;
-      expect(streesAddressAutoFill).toBe('Autosuggest');
+      expect(addressComponent.find('Autosuggest').length).toBe(1);
     });
   });
 });
