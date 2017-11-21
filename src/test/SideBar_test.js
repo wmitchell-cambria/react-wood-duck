@@ -49,6 +49,6 @@ describe('Side Bar', function() {
     const sideBarCustomColumnWidth = shallow(
       <SideBar columnWidth={4}>{navLinks}</SideBar>
     );
-    expect(sideBarCustomColumnWidth.find('.col-md-4')).toBeTruthy();
+    expect(sideBarCustomColumnWidth.find('.col-md-4').exists()).toBeTruthy();
   });
 });

@@ -127,11 +127,10 @@ describe('NavLink', () => {
         <div>Test Child</div>
       </NavLink>
     );
-    const liElement = navLinkWithChildren.find('li');
 
     it('has basic elements', function() {
-      expect(liElement).toBeTruthy();
-      expect(liElement.find(Link).exists()).toBe(true);
+      expect(navLinkWithChildren.find('li').exists()).toBeTruthy();
+      expect(navLinkWithChildren.find(Link).exists()).toBe(true);
     });
 
     it('has given child components', function() {

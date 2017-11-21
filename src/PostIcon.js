@@ -7,6 +7,7 @@ const PostIcon = function(props) {
 };
 
 PostIcon.propTypes = {
+  /** icon css class names */
   icon: PropTypes.string,
 };
 

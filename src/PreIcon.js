@@ -7,6 +7,7 @@ const PreIcon = function(props) {
 };
 
 PreIcon.propTypes = {
+  /** icon css class names */
   icon: PropTypes.string,
 };
 
