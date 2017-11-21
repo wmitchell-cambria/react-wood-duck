@@ -7,7 +7,7 @@ const PostIcon = function(props) {
 };
 
 PostIcon.propTypes = {
-   icon: PropTypes.string
-}
+  icon: PropTypes.string,
+};
 
 export default PostIcon;

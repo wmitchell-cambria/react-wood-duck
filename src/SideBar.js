@@ -4,7 +4,12 @@ import classNames from 'classnames';
 
 const SideBar = function(props) {
   const { children, columnWidth } = props;
-  const classField = classNames('container', 'hidden-xs', `col-md-${columnWidth}`,  'side-bar');
+  const classField = classNames(
+    'container',
+    'hidden-xs',
+    `col-md-${columnWidth}`,
+    'side-bar'
+  );
   if (!children || children.length === 0) {
     return null;
   } else {

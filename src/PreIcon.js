@@ -7,7 +7,7 @@ const PreIcon = function(props) {
 };
 
 PreIcon.propTypes = {
-   icon: PropTypes.string
-}
+  icon: PropTypes.string,
+};
 
 export default PreIcon;

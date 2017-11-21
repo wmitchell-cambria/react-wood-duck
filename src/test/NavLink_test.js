@@ -13,7 +13,6 @@ describe('NavLink', () => {
   const navLinkClass = 'navlink';
   const preIconProp = 'fa fa-user';
   const postIconProp = 'fa icon-warning-sign';
-  const postIconClass = 'post-navlink-icon';
   const indentationLevel = 2;
 
   const activeNavLinkClass = 'active-navlink';
@@ -40,7 +39,9 @@ describe('NavLink', () => {
 
     it('is inactive by default', () => {
       expect(inst.props.active).toBe(false);
-      expect(inactiveBasicNavLink.find('.' + inactiveNavLinkClass).exists()).toBe(true);
+      expect(
+        inactiveBasicNavLink.find('.' + inactiveNavLinkClass).exists()
+      ).toBe(true);
     });
 
     it('has li element', () => {
@@ -49,19 +50,34 @@ describe('NavLink', () => {
     });
 
     it('has Link component', () => {
-      expect(inactiveBasicNavLink.containsMatchingElement(<Link text={navLinkText} href={navLinkHref} active={false} clickHandler={clickHandler} />)).toBe(true);
+      expect(
+        inactiveBasicNavLink.containsMatchingElement(
+          <Link
+            text={navLinkText}
+            href={navLinkHref}
+            active={false}
+            clickHandler={clickHandler}
+          />
+        )
+      ).toBe(true);
     });
 
     it('has valid indentation style', () => {
-      expect(inactiveBasicNavLink.find('.' + indentationClassName).exists()).toBe(true);
+      expect(
+        inactiveBasicNavLink.find('.' + indentationClassName).exists()
+      ).toBe(true);
     });
 
     it('has pre icon component', () => {
-      expect(inactiveBasicNavLink.containsMatchingElement(<PreIcon />)).toBe(true);
+      expect(inactiveBasicNavLink.containsMatchingElement(<PreIcon />)).toBe(
+        true
+      );
     });
 
     it('has post icon component', () => {
-      expect(inactiveBasicNavLink.containsMatchingElement(<PostIcon />)).toBe(true);
+      expect(inactiveBasicNavLink.containsMatchingElement(<PostIcon />)).toBe(
+        true
+      );
     });
   });
 
@@ -77,7 +93,11 @@ describe('NavLink', () => {
     );
 
     it('renders valid pre icon component', () => {
-      expect(navLinkWithPreIcon.containsMatchingElement(<PreIcon icon={preIconProp} />)).toBe(true);
+      expect(
+        navLinkWithPreIcon.containsMatchingElement(
+          <PreIcon icon={preIconProp} />
+        )
+      ).toBe(true);
     });
   });
 
@@ -91,9 +111,13 @@ describe('NavLink', () => {
         clickHandler={clickHandler}
       />
     );
- 
+
     it('renders valid post icon component', () => {
-      expect(navLinkWithPostIcon.containsMatchingElement(<PostIcon icon={postIconProp} />)).toBe(true);
+      expect(
+        navLinkWithPostIcon.containsMatchingElement(
+          <PostIcon icon={postIconProp} />
+        )
+      ).toBe(true);
     });
   });
 
@@ -126,12 +150,17 @@ describe('NavLink', () => {
     );
 
     it('has active style', function() {
-      expect(activeNavLinkWithPreIcon.find('.' + activeNavLinkClass).exists()).toBe(true);
+      expect(
+        activeNavLinkWithPreIcon.find('.' + activeNavLinkClass).exists()
+      ).toBe(true);
     });
 
     it('has Link component with active property', function() {
-      expect(activeNavLinkWithPreIcon.containsMatchingElement(<Link text={navLinkText} href={navLinkHref} active={true} />)).toBe(true);
+      expect(
+        activeNavLinkWithPreIcon.containsMatchingElement(
+          <Link text={navLinkText} href={navLinkHref} active={true} />
+        )
+      ).toBe(true);
     });
   });
-
 });

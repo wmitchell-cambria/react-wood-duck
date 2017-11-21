@@ -15,19 +15,17 @@ const basicLinkUsage = `
 
        `;
 
-storiesOf('Components', module)
-  .add(
-    'Link',
-    withInfo(`${basicLinkUsage}`)(() => (
-      <div className="container">
-        <div style={{display: "block"}}>
-          <Link href="test.html" text="Basic Link" />
-        </div>
-        <br/>
-        <div style={{display: "block"}}>
-          <Link href="test.html" text="Active Link" active={true} />
-        </div>
-     </div>
-    ))
-  )
-;
+storiesOf('Components', module).add(
+  'Link',
+  withInfo(`${basicLinkUsage}`)(() => (
+    <div className="container">
+      <div style={{ display: 'block' }}>
+        <Link href="test.html" text="Basic Link" />
+      </div>
+      <br />
+      <div style={{ display: 'block' }}>
+        <Link href="test.html" text="Active Link" active={true} />
+      </div>
+    </div>
+  ))
+);

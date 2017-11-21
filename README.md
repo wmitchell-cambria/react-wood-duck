@@ -37,9 +37,12 @@ The **react-wood-duck component library** is a set of re-usable components and s
 	* DateTimePicker
 	* InputComponent
 	* ListItem
+        * Link
 	* NavLink
   * NavLinks
   * NavLinksContainer
+  * PostIcon
+  * PreIcon
   * Select/Multiselect
   * TextArea
   * Table

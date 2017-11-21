@@ -10,6 +10,7 @@ var TextArea = require('./dist/TextArea.js').default;
 var DateTimePicker = require('./dist/DateTimePicker.js').default;
 var PreIcon = require('./dist/PreIcon.js').default;
 var PostIcon = require('./dist/PostIcon.js').default;
+var Link = require('./dist/Link.js').default;
 var NavLink = require('./dist/NavLink.js').default;
 var NavLinks = require('./dist/NavLinks.js').default;
 var MultiSelect = require('./dist/MultiSelect.js').default;
@@ -34,9 +35,10 @@ module.exports = {
   DateTimePicker: DateTimePicker,
   PreIcon: PreIcon,
   PostIcon: PostIcon,
-  MultiSelect: MultiSelect,
+  Link: Link,
   NavLink: NavLink,
   NavLinks: NavLinks,
+  MultiSelect: MultiSelect,
   GlobalHeader: GlobalHeader,
   PageHeader: PageHeader,
   SideBar: SideBar,

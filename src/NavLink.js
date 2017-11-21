@@ -12,7 +12,9 @@ const NavLink = function(props) {
   const indentationClassName = `indent-level${props.indentationLevel}`;
   return (
     <li className="navlink" key={props.text}>
-      <span className={classNames(activeNavLinkClassName, indentationClassName)} />
+      <span
+        className={classNames(activeNavLinkClassName, indentationClassName)}
+      />
       <PreIcon icon={props.preIcon} />
       <Link
         href={props.href}

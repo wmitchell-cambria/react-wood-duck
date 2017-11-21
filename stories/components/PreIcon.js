@@ -11,11 +11,7 @@ const basicUsage = `
 
        `;
 
-storiesOf('Components', module)
-  .add(
-    'Pre Icon',
-    withInfo(`${basicUsage}`)(() => (
-        <PreIcon icon="fa fa-user" /> 
-    ))
-  )
-;
+storiesOf('Components', module).add(
+  'Pre Icon',
+  withInfo(`${basicUsage}`)(() => <PreIcon icon="fa fa-user" />)
+);

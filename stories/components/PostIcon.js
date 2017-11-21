@@ -11,14 +11,12 @@ const basicUsage = `
 
        `;
 
-storiesOf('Components', module)
-  .add(
-    'Post Icon',
-    withInfo(`${basicUsage}`)(() => (
-      <div className="col-md-1">
-          <span style={{visibility:'hidden'}}>kjh</span>
-        <PostIcon icon="fa fa-exclamation-triangle c-red" />
-      </div>
-    ))
-  )
-;
+storiesOf('Components', module).add(
+  'Post Icon',
+  withInfo(`${basicUsage}`)(() => (
+    <div className="col-md-1">
+      <span style={{ visibility: 'hidden' }}>kjh</span>
+      <PostIcon icon="fa fa-exclamation-triangle c-red" />
+    </div>
+  ))
+);

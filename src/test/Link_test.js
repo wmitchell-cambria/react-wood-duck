@@ -5,42 +5,33 @@ import './EnzymeSetup';
 import Link from '../Link';
 
 describe('Link', () => {
-
   const href = 'test.html';
   const text = 'Nav Link Test';
-  
+
   describe('basic', () => {
-  const link = shallow(<Link href={href}
-        text={text}
-        onClick={() => {}}
-        />
-  );
+    const link = shallow(<Link href={href} text={text} onClick={() => {}} />);
 
-  it('is inactive by default', () => {
-    const inst = link.instance();
-    expect(inst.props.active).toBe(false);
-  });
+    it('is inactive by default', () => {
+      const inst = link.instance();
+      expect(inst.props.active).toBe(false);
+    });
 
-  it('renders anchor element', () => {
-    const anchorElement = link.find('a');
-    expect(anchorElement.text()).toBe(text);
-    expect(anchorElement.props().href).toEqual(href);
-    expect(anchorElement.props().className).toBe('link');
+    it('renders anchor element', () => {
+      const anchorElement = link.find('a');
+      expect(anchorElement.text()).toBe(text);
+      expect(anchorElement.props().href).toEqual(href);
+      expect(anchorElement.props().className).toBe('link');
+    });
   });
-});
 
   describe('active', () => {
-     const inactiveLink = shallow(
-      <Link
-        href={href}
-        text={text}
-        active={true}
-      />
+    const inactiveLink = shallow(
+      <Link href={href} text={text} active={true} />
     );
 
     it('has active style', function() {
       expect(inactiveLink.find('.active').exists()).toBe(true);
-    }); 
+    });
   });
 
   describe('with handleClick callback', function() {

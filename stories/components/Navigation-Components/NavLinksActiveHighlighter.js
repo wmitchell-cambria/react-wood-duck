@@ -5,8 +5,7 @@ import NavLink from '../../../src/NavLink';
 import NavLinks from '../../../src/NavLinks';
 
 class NavLinksActiveHighLighter extends React.Component {
-
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = { activeNavLinkHref: this.getDefaultActiveNavLinkHref() };
     this.handleNavLinkClick = this.handleNavLinkClick.bind(this);
@@ -14,7 +13,7 @@ class NavLinksActiveHighLighter extends React.Component {
   }
 
   getDefaultActiveNavLinkHref() {
-    return "#h1.html";
+    return '#h1.html';
   }
 
   handleNavLinkClick(href, e) {
@@ -22,28 +21,42 @@ class NavLinksActiveHighLighter extends React.Component {
   }
 
   isActive(href) {
-    return this.state.activeNavLinkHref == href;
+    return this.state.activeNavLinkHref === href;
   }
 
   render() {
-    const navLinks = [<NavLink text="History of Involvement" href="#h1.html" active={this.isActive("#h1.html")} clickHandler={this.handleNavLinkClick} />,
-                      <NavLink text="Allegations" href="#h2.html" active={this.isActive("#h2.html")} clickHandler={this.handleNavLinkClick} />,
-                      <NavLink text="Risk Assessment" href="#h3.html" active={this.isActive("#h3.html")} clickHandler={this.handleNavLinkClick} />
-                ];
-    return (
-      <NavLinks>
-        {navLinks}
-      </NavLinks>
-    );
+    const navLinks = [
+      <NavLink
+        key={1}
+        text="History of Involvement"
+        href="#h1.html"
+        active={this.isActive('#h1.html')}
+        clickHandler={this.handleNavLinkClick}
+      />,
+      <NavLink
+        key={2}
+        text="Allegations"
+        href="#h2.html"
+        active={this.isActive('#h2.html')}
+        clickHandler={this.handleNavLinkClick}
+      />,
+      <NavLink
+        key={3}
+        text="Risk Assessment"
+        href="#h3.html"
+        active={this.isActive('#h3.html')}
+        clickHandler={this.handleNavLinkClick}
+      />,
+    ];
+    return <NavLinks>{navLinks}</NavLinks>;
   }
 }
 
 const codeStyle = 'color:powderblue';
 
-storiesOf('Navigation Components/NavLinksActiveHighlighter Sample', module)
-    .add(
-    'NavigationLinksActiveHighlighter',
-    withInfo(`
+storiesOf('Navigation Components/NavLinksActiveHighlighter Sample', module).add(
+  'NavigationLinksActiveHighlighter',
+  withInfo(`
         #### Usage
         - Working sample for NavLinks Active Highlighter.
                 <code style=${codeStyle}>
@@ -69,9 +82,9 @@ storiesOf('Navigation Components/NavLinksActiveHighlighter Sample', module)
                     }
 
                     render() {
-                        const navLinks = [&lt;NavLink text="h1" href="#h1.html" active={this.isActive("#h1.html")} clickHandler={this.handleNavLinkClick} /&gt;,
-                            &lt;NavLink text="h2" href="#h2.html" active={this.isActive("#h2.html")} clickHandler={this.handleNavLinkClick} /&gt;,
-                            &lt;NavLink text="h3" href="#h3.html" active={this.isActive("#h3.html")} clickHandler={this.handleNavLinkClick} /&gt;
+                        const navLinks = [&lt;NavLink key={1} text="h1" href="#h1.html" active={this.isActive("#h1.html")} clickHandler={this.handleNavLinkClick} /&gt;,
+                            &lt;NavLink key={2} text="h2" href="#h2.html" active={this.isActive("#h2.html")} clickHandler={this.handleNavLinkClick} /&gt;,
+                            &lt;NavLink key={3} text="h3" href="#h3.html" active={this.isActive("#h3.html")} clickHandler={this.handleNavLinkClick} /&gt;
                         ];
                         return (
                             &lt;NavLinks&gt;
@@ -81,10 +94,9 @@ storiesOf('Navigation Components/NavLinksActiveHighlighter Sample', module)
                     }
                 }
                 </code>
-`
-  )(() => (
+`)(() => (
     <div className="container col-md-3">
-       <NavLinksActiveHighLighter />
+      <NavLinksActiveHighLighter />
     </div>
   ))
 );
