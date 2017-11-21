@@ -4,6 +4,7 @@ import './EnzymeSetup';
 
 import PreIcon from '../PreIcon';
 import PostIcon from '../PostIcon';
+import Link from '../Link';
 import NavLink from '../NavLink';
 
 describe('NavLink', () => {
@@ -18,6 +19,7 @@ describe('NavLink', () => {
   const activeNavLinkClass = 'active-navlink';
   const inactiveNavLinkClass = 'inactive-navlink';
   const indentationClassName = `indent-level${indentationLevel}`;
+  const clickHandler = function() {};
 
   describe('basic', () => {
     const inactiveBasicNavLink = shallow(
@@ -25,7 +27,7 @@ describe('NavLink', () => {
         href={navLinkHref}
         text={navLinkText}
         indentationLevel={indentationLevel}
-        onClick={() => {}}
+        clickHandler={clickHandler}
       />
     );
     const inst = inactiveBasicNavLink.instance();
@@ -38,9 +40,7 @@ describe('NavLink', () => {
 
     it('is inactive by default', () => {
       expect(inst.props.active).toBe(false);
-      expect(
-        inactiveBasicNavLink.filterWhere(n => n.hasClass(inactiveNavLinkClass))
-      ).toBeTruthy();
+      expect(inactiveBasicNavLink.find('.' + inactiveNavLinkClass).exists()).toBe(true);
     });
 
     it('has li element', () => {
@@ -48,15 +48,12 @@ describe('NavLink', () => {
       expect(liElement.hasClass(navLinkClass)).toBe(true);
     });
 
-    it('has anchor element', () => {
-      const anchorElement = inactiveBasicNavLink.find('a');
-      expect(anchorElement.text()).toBe(navLinkText);
-      expect(anchorElement.props().href).toEqual(navLinkHref);
-      expect(anchorElement.props().className).toBe('');
+    it('has Link component', () => {
+      expect(inactiveBasicNavLink.containsMatchingElement(<Link text={navLinkText} href={navLinkHref} active={false} clickHandler={clickHandler} />)).toBe(true);
     });
 
     it('has valid indentation style', () => {
-      expect(inactiveBasicNavLink.find(indentationClassName)).toBeTruthy();
+      expect(inactiveBasicNavLink.find('.' + indentationClassName).exists()).toBe(true);
     });
 
     it('has pre icon component', () => {
@@ -75,11 +72,11 @@ describe('NavLink', () => {
         text={navLinkText}
         preIcon={preIconProp}
         indentationLevel={indentationLevel}
-        onClick={() => {}}
+        clickHandler={clickHandler}
       />
     );
 
-    it('renders pre icon component with given preIcon property', () => {
+    it('renders valid pre icon component', () => {
       expect(navLinkWithPreIcon.containsMatchingElement(<PreIcon icon={preIconProp} />)).toBe(true);
     });
   });
@@ -91,11 +88,11 @@ describe('NavLink', () => {
         text={navLinkText}
         postIcon={postIconProp}
         indentationLevel={indentationLevel}
-        onClick={() => {}}
+        clickHandler={clickHandler}
       />
     );
  
-    it('renders post icon component with given postIcon property', () => {
+    it('renders valid post icon component', () => {
       expect(navLinkWithPostIcon.containsMatchingElement(<PostIcon icon={postIconProp} />)).toBe(true);
     });
   });
@@ -110,7 +107,7 @@ describe('NavLink', () => {
 
     it('has basic elements', function() {
       expect(liElement).toBeTruthy();
-      expect(liElement.find('a')).toBeTruthy();
+      expect(liElement.find(Link).exists()).toBe(true);
     });
 
     it('has given child components', function() {
@@ -127,33 +124,14 @@ describe('NavLink', () => {
         active={true}
       />
     );
-    const activeNavLink = activeNavLinkWithPreIcon.filterWhere(n =>
-      n.hasClass(activeNavLinkClass)
-    );
 
     it('has active style', function() {
-      expect(activeNavLink).toBeTruthy();
+      expect(activeNavLinkWithPreIcon.find('.' + activeNavLinkClass).exists()).toBe(true);
+    });
+
+    it('has Link component with active property', function() {
+      expect(activeNavLinkWithPreIcon.containsMatchingElement(<Link text={navLinkText} href={navLinkHref} active={true} />)).toBe(true);
     });
   });
 
-  describe('with handleClick callback', function() {
-    let clickInstance;
-    let navLinkWithClickHandler;
-    beforeEach(function() {
-      clickInstance = { handleClick: function() {} };
-      spyOn(clickInstance, 'handleClick');
-      navLinkWithClickHandler = shallow(
-        <NavLink
-          href={navLinkHref}
-          text={navLinkText}
-          handleClick={clickInstance.handleClick}
-        />
-      );
-    });
-
-    it('invokes callback on click', function() {
-      navLinkWithClickHandler.find('a').simulate('click');
-      expect(clickInstance.handleClick).toHaveBeenCalled();
-    });
-  });
 });

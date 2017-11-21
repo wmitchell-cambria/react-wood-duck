@@ -1,25 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import PreIcon from './PreIcon';
 import PostIcon from './PostIcon';
+import Link from './Link';
 
 const NavLink = function(props) {
   const activeNavLinkClassName = props.active
     ? 'active-navlink'
     : 'inactive-navlink';
-  const activeAnchorClassName = props.active ? 'active' : '';
   const indentationClassName = `indent-level${props.indentationLevel}`;
   return (
     <li className="navlink" key={props.text}>
-      <span className={activeNavLinkClassName + ' ' + indentationClassName} />
+      <span className={classNames(activeNavLinkClassName, indentationClassName)} />
       <PreIcon icon={props.preIcon} />
-      <a
+      <Link
         href={props.href}
-        className={activeAnchorClassName}
-        onClick={e => props.handleClick(props.href, e)}
-      >
-        {props.text}
-      </a>
+        text={props.text}
+        active={props.active}
+        clickHandler={props.clickHandler}
+      />
       <PostIcon icon={props.postIcon} />
       {props.children}
     </li>
@@ -38,7 +38,7 @@ NavLink.propTypes = {
   /** Indicates if current NavLink is actively selected */
   active: PropTypes.bool,
   /** Hyperlink On Click Handler. This can be used to indicate actively selected NavLink. */
-  handleClick: PropTypes.func,
+  clickHandler: PropTypes.func,
   /** It is used to align nested Navigation links */
   indentationLevel: PropTypes.number,
   /** This property is used to display nested elements under NavLink  */

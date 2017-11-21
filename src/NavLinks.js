@@ -20,7 +20,7 @@ const NavLinks = function(props) {
 
 NavLinks.propTypes = {
   /** Component(s) to be rendered under NavLinks. Usually NavLink component(s) **/
-  children: PropTypes.object,
+  children: PropTypes.node,
   /** Is this NavLinks component nested inside another NavLinks/NavLink component **/
   nested: PropTypes.bool,
 };

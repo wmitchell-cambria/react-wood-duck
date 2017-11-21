@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import NavLink from '../../src/NavLink';
+import NavLink from '../../../src/NavLink';
 
 const basicNavLinkUsage = `
     #### Basic NavLink Usage
@@ -16,7 +16,7 @@ const basicNavLinkUsage = `
       - This supports a number of variations by passing a different set of properties few of which are shown as seperate stories under NavLink menu. All these properties can be used individually or together.
 
        `;
-storiesOf('Sub Components/NavLink', module)
+storiesOf('Navigation Components/NavLink', module)
   .add(
     'Basic NavLink',
     withInfo(`${basicNavLinkUsage}`)(() => (

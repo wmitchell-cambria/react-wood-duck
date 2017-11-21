@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import NavLinks from '../../src/NavLinks';
-import NavLink from '../../src/NavLink';
+import NavLinks from '../../../src/NavLinks';
+import NavLink from '../../../src/NavLink';
 
 const codeStyle = 'color:powderblue';
 const basicNavLinksUsage = `
@@ -97,7 +97,7 @@ const navLinksWithInnerNav = [
   <NavLink key={4} text="History of Involvement" href="#history" />,
 ];
 
-storiesOf('Sub Components/NavLinks', module)
+storiesOf('Navigation Components/NavLinks', module)
   .add(
     'Simple Navigation links',
     withInfo(`
