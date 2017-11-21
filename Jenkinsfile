@@ -1,0 +1,25 @@
+DOCKER_GROUP = 'cwds'
+DOCKER_IMAGE = 'react_wood_duck'
+
+node {
+  def app
+    try {
+      stage('Checkout') {
+        checkout scm
+      }
+      stage('Build Docker Image') {
+        app = docker.build("${DOCKER_GROUP}/${DOCKER_IMAGE}:${env.BUILD_ID}")
+      }
+      app.withRun("-e CI=true") { container ->
+        stage('Lint') {
+          sh "docker exec -t ${container.id} yarn lint"
+        }
+        stage('Unit Test') {
+          sh "docker exec -t ${container.id} yarn run test"
+        }
+      }
+    } catch(Exception e) {
+      currentBuild.result = "FAILURE"
+        throw e
+    }
+}

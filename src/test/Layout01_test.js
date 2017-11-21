@@ -2,26 +2,14 @@ import React from 'react';
 import Layout01 from '../Layout01.js';
 import GlobalHeader from '../GlobalHeader.js';
 import PageHeader from '../PageHeader.js';
-import TestUtils from 'react-dom/lib/ReactTestUtils';
+import { shallow } from 'enzyme';
+import './EnzymeSetup';
 
-describe('Layout01', function() {
-  it('renders the tag', function() {
-    const renderer = TestUtils.createRenderer();
-    renderer.render(<Layout01 />);
-    expect(renderer.getRenderOutput().type).toBe('div');
-  });
+describe('Layout01', () => {
+  const wrapper = shallow(<Layout01 />);
 
-  it('find if it contains GlobalHeader and PageHeader', function() {
-    const layout = TestUtils.renderIntoDocument(<Layout01 />);
-    const globalHeaderComponent = TestUtils.scryRenderedComponentsWithType(
-      layout,
-      GlobalHeader
-    );
-    expect(globalHeaderComponent.length).toEqual(1);
-    const pageHeader = TestUtils.scryRenderedComponentsWithType(
-      layout,
-      PageHeader
-    );
-    expect(pageHeader.length).toEqual(1);
+  it('contains matching elements', () => {
+    expect(wrapper.containsMatchingElement(<PageHeader />)).toEqual(true);
+    expect(wrapper.containsMatchingElement(<GlobalHeader />)).toEqual(true);
   });
 });
