@@ -9,7 +9,7 @@ const Link = function(props) {
     <a
       href={href}
       className={classes}
-      onClick={e => clickHandler(props.href, e)}
+      onClick={event => clickHandler(props.href, event)}
     >
       {text}
     </a>

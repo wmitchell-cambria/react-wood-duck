@@ -70,7 +70,7 @@ const SideBarStory = withInfo(
                &lt;/SideNav&gt;
            </code>
 
-    - Please refer to NavLinks menu to learn more on how to construct simple navigation links & nested navigation links.
+    - Please refer to "Navigation Components > NavLinks" menu to learn more on how to construct simple navigation links & nested navigation links.
 
  `
 )(() => (

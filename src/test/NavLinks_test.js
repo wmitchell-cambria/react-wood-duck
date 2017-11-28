@@ -5,9 +5,7 @@ import NavLink from '../NavLink';
 import NavLinks from '../NavLinks';
 
 describe('NavLinks', function() {
-  const clickHandler = function() {
-    console.log('test msg');
-  };
+  const clickHandler = function() {};
   const simpleNavLinks = [
     <NavLink
       text="Tommy Cambell"

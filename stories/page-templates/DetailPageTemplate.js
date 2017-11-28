@@ -43,6 +43,6 @@ const sideBarContent = (
     />
   </NavLinks>
 );
-const DetailPage = () => <Layout03 sideBarContent={sideBarContent}/>;
+const DetailPage = () => <Layout03 sideBarContent={sideBarContent} />;
 
 storiesOf('Page Templates', module).add('03 Detail Page Template', DetailPage);
