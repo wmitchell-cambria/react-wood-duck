@@ -2,46 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GlobalHeader from './GlobalHeader.js';
 import PageHeader from './PageHeader.js';
-import SideNav from './SideNav.js';
+import SideBar from './SideBar.js';
 
 class Layout03 extends React.Component {
   render() {
-    const sideNavContent = [
-      {
-        type: 'navLinks',
-        navItems: [
-          {
-            type: 'navLink',
-            text: 'Tommy Cambell',
-            href: '#tom',
-            preIcon: 'fa fa-user',
-          },
-          {
-            type: 'navLink',
-            text: 'Aubrey Cambell',
-            href: '#aub',
-            preIcon: 'fa fa-user',
-          },
-          {
-            type: 'navLink',
-            text: 'Chris Cambell',
-            href: '#chris',
-            preIcon: 'fa fa-user',
-          },
-        ],
-      },
-    ];
-    const sideNavColumnWidth = 3;
+    const { sideBarContent, sideBarColumnWidth } = this.props;
     return (
       <div>
         <GlobalHeader />
         <PageHeader />
-        <SideNav content={sideNavContent} columnWidth={sideNavColumnWidth} />
+        <SideBar columnWidth={sideBarColumnWidth}>{sideBarContent}</SideBar>
         <div>{this.props.children}</div>
       </div>
     );
   }
 }
-Layout03.propTypes = { children: PropTypes.any };
-Layout03.defaultProps = {};
+Layout03.propTypes = {
+  children: PropTypes.any,
+  sideBarContent: PropTypes.node,
+  sideBarColumnWidth: PropTypes.number,
+};
+
 export default Layout03;
