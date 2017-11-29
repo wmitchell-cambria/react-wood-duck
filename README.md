@@ -116,7 +116,7 @@ Add these following imports in your test cases for the components
 
 	import React from 'react';
 	import { shallow, mount, render } from 'enzyme';
-	import Enzyme_setup from './Enzyme_setup';
+	import './EnzymeSetup';
 	import ComponentName from '../Component.js';
 
 ### Push to git
