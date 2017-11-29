@@ -5,25 +5,30 @@ import './EnzymeSetup';
 
 describe('Cards', () => {
   const wrapper = shallow(<Cards />);
+
   const card = {
+    editClass: '',
     cardHeaderText: 'some-text',
     children: 'primary',
   };
   const component = mount(<Cards />);
   component.setProps(card);
 
-  it('verifying the className', () => {
-    expect(wrapper.hasClass('bg-lightest-grey container')).toBe(true);
-  });
-
   it('has props', () => {
     expect(wrapper.children.length).toEqual(1);
+    expect(component.prop('cardbgcolor')).toEqual('bg-light-grey');
+    expect(component.prop('wrapContainer')).toEqual('container-fluid');
+    expect(component.prop('columnXsmallWidth')).toEqual(12);
+    expect(component.prop('columnMediumWidth')).toEqual(12);
+    expect(component.prop('columnLargeWidth')).toEqual(12);
+    expect(component.prop('offsetMediumValue')).toEqual(0);
     expect(
       component
         .find('div')
         .at(1)
         .props().className
-    ).toEqual('card edit double-gap-top');
+    ).toEqual('card ' + card.editClass + ' double-gap-top');
+
     expect(
       component
         .find('div')
