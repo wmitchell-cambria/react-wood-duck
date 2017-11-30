@@ -11,12 +11,12 @@ The **react-wood-duck component library** is a set of re-usable components and s
 * [Usage](#usage)
 * [Developmemt](#development)
 * [Contributing](#contributing)
-	* [Add and Modify the Components](#add-and-modify-the-components)
-	* [Push to git](#push-to-git)
-	* [Versioning](#versioning)
-	* [Publish to NPM](#publish-to-npm)
-	* [Documentation](#documentation)
-	* [Storybook](#storybook)
+* [Add and Modify the Components](#add-and-modify-the-components)
+* [Push to git](#push-to-git)
+* [Versioning](#versioning)
+* [Publish to NPM](#publish-to-npm)
+* [Documentation](#documentation)
+* [Storybook](#storybook)
 
 ## List of Components
 * Global Components (Required by all DS teams)
