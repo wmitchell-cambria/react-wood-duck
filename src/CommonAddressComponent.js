@@ -96,7 +96,8 @@ export default class CommonAddressFields extends React.Component {
             this.props.onChange(
               'state',
               dictionaryNilSelect(event.target.selectedOptions[0])
-            )}
+            )
+          }
         />
       </div>
     );

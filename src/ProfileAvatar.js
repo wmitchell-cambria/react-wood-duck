@@ -31,7 +31,8 @@ class ProfileAvatar extends React.Component {
           <a
             href="#/"
             onClick={event =>
-              this.props.logoutCallback(this.props.profileId, event)}
+              this.props.logoutCallback(this.props.profileId, event)
+            }
           >
             Logout
           </a>

@@ -14,11 +14,11 @@ const InputComponent = props => {
   return (
     <div className="form-group">
       <div
-        className={`${props.gridClassName}${props.serverError ||
-        props.validationError ||
-        props.required
-          ? 'has-error'
-          : ''}`}
+        className={`${props.gridClassName}${
+          props.serverError || props.validationError || props.required
+            ? 'has-error'
+            : ''
+        }`}
       >
         <label className={props.labelClassName} htmlFor={props.id}>
           {props.label}
