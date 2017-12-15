@@ -21,7 +21,7 @@ header {
       opacity: 1;
     }
   }
-  a {
+  a, .btn.btn-link {
     color: $white;
     opacity: 0.87;
 
@@ -38,7 +38,15 @@ header {
 
     &:focus {
       color: $white;
+      opacity: 1;
+      box-shadow: none;
+      border-color: transparent;
+      text-decoration: none;
+      outline: none;
     }
+  }
+  .btn-link {
+    padding: 0em;
   }
   ul.header-actions {
     li {
@@ -69,9 +77,15 @@ header {
       background-color: $teel-blue;
       color: $white;
       flex: 0 0 15%;
-      padding: 0.45rem;
+      padding: 0.40rem 0.25rem 0.25rem 0.15rem;
       text-align: center;
       cursor: pointer;
+      a:focus, a:hover, a:active {
+        background-color: transparent;
+        box-shadow: none;
+        border-color: transparent;
+        outline: none;
+  }
     }
   }
   .c_dropdown {
@@ -97,7 +111,6 @@ header {
     }
   }
 
-  .c_dropdown:after,
   .c_dropdown:before {
     bottom: 100%;
     left: 87%;

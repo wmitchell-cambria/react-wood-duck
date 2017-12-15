@@ -1,127 +1,105 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import GlobalHeaderAction from './GlobalHeaderAction';
+import ProfileAvatar from './ProfileAvatar';
 
-const defaultSearchIcon = () => <i className="fa fa-search" />;
-const defaultAddIcon = () => <i className="fa fa-plus" />;
-const defaultBellIcon = () => <i className="fa fa-bell" />;
+const logo = 'CWDS';
+const searchIcon = () => <i className="fa fa-search" />;
+const addIcon = () => <i className="fa fa-plus" />;
+const notificationIcon = () => <i className="fa fa-bell" />;
 
 class GlobalHeader extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHidden: true,
-    };
-    this._handleChange = this._handleChange.bind(this);
-    this._handleBlur = this._handleBlur.bind(this);
-    this._renderToggle = this._renderToggle.bind(this);
-    this._clickUrl = this._clickUrl.bind(this);
-  }
-  _handleChange() {
-    this.setState({
-      isHidden: !this.state.isHidden,
-    });
-  }
-
-  _handleBlur() {
-    this.setState({
-      isHidden: true,
-    });
-  }
-
-  _clickUrl() {
-    window.location.href = this.props.logoutUrl;
-  }
-
-  _renderToggle() {
-    return (
-      <ul className="c_dropdown">
-        <li>
-          <a onMouseDown={this._clickUrl} href="#/">
-            Logout
-          </a>
-        </li>
-      </ul>
-    );
-  }
   render() {
     const {
-      logo,
-      searchIcon,
-      addIcon,
-      notificationIcon,
+      logoCallback,
+      profileId,
       profileName,
       profileAvatar,
+      searchCallback,
+      addNewCallback,
+      notificationsCallback,
+      logoutCallback,
     } = this.props;
     return (
-      <header className="container-fluid" role="banner">
-        <nav className="row">
-          <div className="col-xs-12 col-sm-1">
-            <div className="logo">{logo}</div>
-          </div>
-          <div className="col-xs-12 col-sm-11">
-            <div className="pull-right">
-              <ul className="header-actions">
-                <li>
-                  <a aria-label="search" href="#/">
-                    {searchIcon}
-                  </a>
-                </li>
-                <li>
-                  <a aria-label="add new" href="#/">
-                    {addIcon}
-                  </a>
-                </li>
-                <li>
-                  <a aria-label="notifications" href="#/">
-                    {notificationIcon}
-                  </a>
-                </li>
-                <li>
-                  <p className="profile">
-                    {' '}
-                    <a href="#/">{profileName}</a>
-                  </p>
-                </li>
-                <li>
-                  <div className="profile-avatar">
-                    <a
-                      href="#/"
-                      onClick={this._handleChange}
-                      tabIndex="0"
-                      onBlur={this._handleBlur}
-                    >
-                      {profileAvatar}
-                    </a>
-                    {!this.state.isHidden && this._renderToggle()}
-                  </div>
-                </li>
-              </ul>
+      <header role="banner">
+        <div className="container">
+          <nav className="row">
+            <div className="col-xs-12 col-sm-1">
+              <div className="logo">
+                <button
+                  className="btn btn-link"
+                  type="button"
+                  onClick={logoCallback}
+                >
+                  {logo}
+                </button>
+              </div>
             </div>
-          </div>
-        </nav>
+            <div className="col-xs-12 col-sm-11">
+              <div className="pull-right">
+                <ul className="header-actions">
+                  <GlobalHeaderAction
+                    icon={searchIcon()}
+                    ariaLabel="search"
+                    callback={searchCallback}
+                    profileId={profileId}
+                  />
+                  <GlobalHeaderAction
+                    icon={addIcon()}
+                    ariaLabel="add new"
+                    callback={addNewCallback}
+                    profileId={profileId}
+                  />
+                  <GlobalHeaderAction
+                    icon={notificationIcon()}
+                    ariaLabel="notifications"
+                    callback={notificationsCallback}
+                    profileId={profileId}
+                  />
+                  <li>
+                    <p className="profile">
+                      {' '}
+                      <a href="#/">{profileName}</a>
+                    </p>
+                  </li>
+                  <li>
+                    <ProfileAvatar
+                      profileId={profileId}
+                      profileAvatar={profileAvatar}
+                      logoutCallback={logoutCallback}
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
       </header>
     );
   }
 }
 
 GlobalHeader.propTypes = {
-  logo: PropTypes.string,
+  /** callback for logo (CWDS) */
+  logoCallback: PropTypes.func,
+  /** profile name / user name */
   profileName: PropTypes.string,
-  profileAvatar: PropTypes.string,
-  logoutUrl: PropTypes.string,
-  searchIcon: PropTypes.any,
-  addIcon: PropTypes.any,
-  notificationIcon: PropTypes.any,
+  /** profile avatar */
+  profileAvatar: PropTypes.node,
+  /** profile id OR user id if a user is logged in */
+  profileId: PropTypes.string,
+  /** callback to logout user */
+  logoutCallback: PropTypes.func,
+  /** callback to customize search functionality */
+  searchCallback: PropTypes.func,
+  /** callback to customize 'Add New' functionality */
+  addNewCallback: PropTypes.func,
+  /** notification callback to show notifications */
+  notificationsCallback: PropTypes.func,
 };
 
 GlobalHeader.defaultProps = {
-  logo: 'CWDS',
-  profileName: 'Profile Name',
-  profileAvatar: 'PN',
-  logoutUrl: '/logout',
-  searchIcon: defaultSearchIcon(),
-  addIcon: defaultAddIcon(),
-  notificationIcon: defaultBellIcon(),
+  profileName: '',
 };
 
 export default GlobalHeader;
