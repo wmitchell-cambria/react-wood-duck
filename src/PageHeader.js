@@ -33,15 +33,20 @@ class PageHeader extends Component {
     }
 
     return (
-      <div className="page-header-mast" style={stickyClass}>
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-9">
-              <div className="page-title text-left">{this.props.pageTitle}</div>
+      <div style={stickyClass}>
+        <div className="page-header-mast">
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-9">
+                <div className="page-title text-left">
+                  {this.props.pageTitle}
+                </div>
+              </div>
+              <div className="col-xs-3">{this.props.button}</div>
             </div>
-            <div className="col-xs-3">{this.props.button}</div>
           </div>
         </div>
+        {this.props.children}
       </div>
     );
   }
@@ -53,11 +58,15 @@ const buttonDefault = (
   </button>
 );
 PageHeader.propTypes = {
+  /** Button to be rendered inside the component, pass null to hide */
   button: PropTypes.node,
+  /** Child to be rendered underneath the component */
+  children: PropTypes.node,
+  /** Text to be rendered inside the component */
   pageTitle: PropTypes.string,
 };
 PageHeader.defaultProps = {
-  pageTitle: `CaseName`,
+  pageTitle: 'CaseName',
   button: buttonDefault,
 };
 

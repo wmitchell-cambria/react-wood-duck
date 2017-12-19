@@ -5,38 +5,42 @@ import { shallow } from 'enzyme';
 import './EnzymeSetup';
 
 describe('<PageHeader />', () => {
-  var input = {
+  const input = {
     pageTitle: 'testPageTitle',
   };
+  let pageHeader;
+  let pageHeaderwithProps;
 
-  const pageHeader = shallow(<PageHeader />);
-  const pageHeaderwithProps = shallow(<PageHeader {...input} />);
+  beforeEach(() => {
+    pageHeader = shallow(<PageHeader />);
+    pageHeaderwithProps = shallow(<PageHeader {...input} />);
+  });
 
   it('renders the tag', () => {
     expect(pageHeader.type()).toBe('div');
   });
 
-  it('verify the className', () => {
-    expect(pageHeader.props().className).toBe('page-header-mast');
+  it('verifies the className', () => {
+    expect(pageHeader.find('.page-header-mast').exists()).toBe(true);
   });
 
-  it('find element with tag', () => {
-    expect(pageHeader.find('div').length).toEqual(6);
+  it('finds element with tag', () => {
+    expect(pageHeader.find('div').length).toEqual(7);
     expect(pageHeaderwithProps.find('button').length).toEqual(1);
   });
 
-  it('find element with class and default props', () => {
+  it('finds element with class and default props', () => {
     expect(pageHeader.find('.row').length).toEqual(1);
     expect(pageHeader.find('.page-title').props().className).toBe(
       'page-title text-left'
     );
   });
 
-  it('check default props', () => {
+  it('checks default props', () => {
     expect(pageHeader.instance().props.pageTitle).toEqual('CaseName');
   });
 
-  it('find element with class and object passed as props', () => {
+  it('finds element with class and object passed as props', () => {
     expect(pageHeaderwithProps.find('.page-title').props().className).toBe(
       'page-title text-left'
     );
@@ -114,6 +118,15 @@ describe('<PageHeader />', () => {
   });
 
   describe('#render', () => {
+    it('renders passed children', () => {
+      const pageHeaderElement = shallow(
+        <PageHeader>
+          <span />
+        </PageHeader>
+      );
+      expect(pageHeaderElement.find('span').exists()).toBe(true);
+    });
+
     describe('with stickyHeader', () => {
       it('adds a 0.000em style', () => {
         const pageHeaderElement = shallow(<PageHeader />);
