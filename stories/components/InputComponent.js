@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-import InputComponent from '../../src/InputComponent';
+import InputComponent from '../../src/InputComponent'
 
-const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
+const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>
 
 const InputComponentStory = withInfo(
   `
@@ -55,8 +55,8 @@ const InputComponentStory = withInfo(
       disabled={true}
     />
   </div>
-));
+))
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
-  .add('InputComponent', InputComponentStory);
+  .add('InputComponent', InputComponentStory)

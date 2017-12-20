@@ -1,6 +1,6 @@
-import FormField from '../common/FormField';
-import PropTypes from 'prop-types';
-import React from 'react';
+import FormField from '../common/FormField'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const InputField = ({
   errors,
@@ -26,21 +26,21 @@ const InputField = ({
     label,
     labelClassName,
     required,
-  };
+  }
 
   const sanitizeValue = (string, allowRegex) => {
-    const characterArray = string.split('');
+    const characterArray = string.split('')
     return characterArray
       .filter(character => character.match(allowRegex))
-      .join('');
-  };
+      .join('')
+  }
 
   const onChangeWrapper = event => {
     if (event.target.value && allowCharacters) {
-      event.target.value = sanitizeValue(event.target.value, allowCharacters);
+      event.target.value = sanitizeValue(event.target.value, allowCharacters)
     }
-    onChange(event);
-  };
+    onChange(event)
+  }
 
   return (
     <FormField {...formFieldProps}>
@@ -57,13 +57,13 @@ const InputField = ({
         disabled={disabled}
       />
     </FormField>
-  );
-};
+  )
+}
 
 InputField.defaultProps = {
   type: 'text',
   mask: '',
-};
+}
 
 InputField.propTypes = {
   allowCharacters: PropTypes.instanceOf(RegExp),
@@ -80,5 +80,5 @@ InputField.propTypes = {
   required: PropTypes.bool,
   type: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
-export default InputField;
+}
+export default InputField

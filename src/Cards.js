@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 const Cards = props => {
   const {
@@ -11,7 +11,7 @@ const Cards = props => {
     offsetMediumValue,
     columnMediumWidth,
     columnLargeWidth,
-  } = props;
+  } = props
   const classField = classNames(
     cardbgcolor,
     wrapContainer,
@@ -19,12 +19,12 @@ const Cards = props => {
     `col-md-${columnMediumWidth}`,
     `col-md-offset-${offsetMediumValue}`,
     `col-xs-${columnXsmallWidth}`
-  );
-  let editClass = '';
+  )
+  let editClass = ''
   if (props.editable) {
-    editClass = 'edit';
+    editClass = 'edit'
   } else {
-    editClass = '';
+    editClass = ''
   }
   return (
     <div className={classField}>
@@ -38,8 +38,8 @@ const Cards = props => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 Cards.propTypes = {
   cardHeaderText: PropTypes.string,
@@ -51,7 +51,7 @@ Cards.propTypes = {
   columnXsmallWidth: PropTypes.number,
   wrapContainer: PropTypes.string,
   editable: PropTypes.bool,
-};
+}
 
 Cards.defaultProps = {
   cardbgcolor: 'bg-light-grey',
@@ -61,6 +61,6 @@ Cards.defaultProps = {
   columnXsmallWidth: 12,
   wrapContainer: 'container-fluid',
   editable: false,
-};
+}
 
-export default Cards;
+export default Cards

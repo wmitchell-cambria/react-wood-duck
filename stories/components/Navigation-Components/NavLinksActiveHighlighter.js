@@ -1,27 +1,27 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import NavLink from '../../../src/NavLink';
-import NavLinks from '../../../src/NavLinks';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
+import NavLink from '../../../src/NavLink'
+import NavLinks from '../../../src/NavLinks'
 
 class NavLinksActiveHighLighter extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { activeNavLinkHref: this.getDefaultActiveNavLinkHref() };
-    this.handleNavLinkClick = this.handleNavLinkClick.bind(this);
-    this.isActive = this.isActive.bind(this);
+    super(props)
+    this.state = { activeNavLinkHref: this.getDefaultActiveNavLinkHref() }
+    this.handleNavLinkClick = this.handleNavLinkClick.bind(this)
+    this.isActive = this.isActive.bind(this)
   }
 
   getDefaultActiveNavLinkHref() {
-    return '#h1.html';
+    return '#h1.html'
   }
 
   handleNavLinkClick(href, e) {
-    this.setState({ activeNavLinkHref: href });
+    this.setState({ activeNavLinkHref: href })
   }
 
   isActive(href) {
-    return this.state.activeNavLinkHref === href;
+    return this.state.activeNavLinkHref === href
   }
 
   render() {
@@ -47,12 +47,12 @@ class NavLinksActiveHighLighter extends React.Component {
         active={this.isActive('#h3.html')}
         clickHandler={this.handleNavLinkClick}
       />,
-    ];
-    return <NavLinks>{navLinks}</NavLinks>;
+    ]
+    return <NavLinks>{navLinks}</NavLinks>
   }
 }
 
-const codeStyle = 'color:powderblue';
+const codeStyle = 'color:powderblue'
 
 storiesOf('Navigation Components/NavLinksActiveHighlighter Sample', module).add(
   'NavigationLinksActiveHighlighter',
@@ -99,4 +99,4 @@ storiesOf('Navigation Components/NavLinksActiveHighlighter Sample', module).add(
       <NavLinksActiveHighLighter />
     </div>
   ))
-);
+)

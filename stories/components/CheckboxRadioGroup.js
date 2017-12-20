@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-import CheckboxRadioGroup from '../../src/CheckboxRadioGroup';
+import CheckboxRadioGroup from '../../src/CheckboxRadioGroup'
 
 const CenterDecorator = storyFn => (
   <div className="container-fluid">{storyFn()}</div>
-);
-let data = ['Sojourner Truth', 'Frederick Douglass', 'Booker T. Washington'];
+)
+let data = ['Sojourner Truth', 'Frederick Douglass', 'Booker T. Washington']
 
 const CheckboxRadioGroupStory = withInfo(
   `
@@ -110,8 +110,8 @@ const CheckboxRadioGroupStory = withInfo(
       </div>
     </div>
   </div>
-));
+))
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
-  .add('CheckboxRadioGroup', CheckboxRadioGroupStory);
+  .add('CheckboxRadioGroup', CheckboxRadioGroupStory)

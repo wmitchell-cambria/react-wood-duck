@@ -1,34 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import InputComponent from './InputComponent.js';
-import DropDownField from './DropDownField.js';
-import ReactAutosuggest from 'react-autosuggest';
+import React from 'react'
+import PropTypes from 'prop-types'
+import InputComponent from './InputComponent.js'
+import DropDownField from './DropDownField.js'
+import ReactAutosuggest from 'react-autosuggest'
 
 const getDictionaryId = object => {
-  return (object && object.id) || '';
-};
+  return (object && object.id) || ''
+}
 
 const dictionaryNilSelect = object => {
-  return object.value !== '' ? { id: object.value, value: object.text } : null;
-};
+  return object.value !== '' ? { id: object.value, value: object.text } : null
+}
 
 export default class CommonAddressFields extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       suggestions: this.props.suggestions,
-    };
+    }
 
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(
       this
-    );
-    this.getSuggestionValue = this.getSuggestionValue.bind(this);
-    this.renderSuggestion = this.renderSuggestion.bind(this);
-    this.onStreetAddressChange = this.onStreetAddressChange.bind(this);
+    )
+    this.getSuggestionValue = this.getSuggestionValue.bind(this)
+    this.renderSuggestion = this.renderSuggestion.bind(this)
+    this.onStreetAddressChange = this.onStreetAddressChange.bind(this)
   }
 
   getSuggestionValue(suggestion) {
-    return suggestion.street_address;
+    return suggestion.street_address
   }
   onSuggestionsClearRequested() {
     // No operation
@@ -39,19 +39,19 @@ export default class CommonAddressFields extends React.Component {
       <div>
         {suggestion.street_address}, {suggestion.city}, {suggestion.state}
       </div>
-    );
+    )
   }
   onStreetAddressChange(event, { newValue }) {
-    this.props.onChange(this.props.id, newValue);
+    this.props.onChange(this.props.id, newValue)
   }
   render() {
-    const addressFields = this.props.addressFields;
+    const addressFields = this.props.addressFields
     const inputProps = {
       id: this.props.addressType + this.props.id,
       placeholder: this.props.placeholder,
       value: addressFields.street_address,
       onChange: this.onStreetAddressChange,
-    };
+    }
     return (
       <div>
         <div className="col-md-12">
@@ -100,7 +100,7 @@ export default class CommonAddressFields extends React.Component {
           }
         />
       </div>
-    );
+    )
   }
 }
 CommonAddressFields.propTypes = {
@@ -115,11 +115,11 @@ CommonAddressFields.propTypes = {
   onSelection: PropTypes.func,
   onSuggestionsFetchRequested: PropTypes.func.isRequired,
   onSuggestionSelected: PropTypes.func.isRequired,
-};
+}
 
 CommonAddressFields.defaultProps = {
   id: 'street_address',
   addressType: '',
   placeholder: '',
   suggestions: [],
-};
+}

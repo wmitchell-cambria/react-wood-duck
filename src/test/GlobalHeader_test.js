@@ -1,52 +1,52 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import './EnzymeSetup';
+import React from 'react'
+import { shallow } from 'enzyme'
+import './EnzymeSetup'
 
-import GlobalHeader from '../GlobalHeader';
-import GlobalHeaderAction from '../GlobalHeaderAction';
-import ProfileAvatar from '../ProfileAvatar';
+import GlobalHeader from '../GlobalHeader'
+import GlobalHeaderAction from '../GlobalHeaderAction'
+import ProfileAvatar from '../ProfileAvatar'
 
 describe('Global Header', () => {
-  const searchIcon = <i className="fa fa-search" />;
-  const addNewIcon = <i className="fa fa-plus" />;
-  const notificationIcon = <i className="fa fa-bell" />;
+  const searchIcon = <i className="fa fa-search" />
+  const addNewIcon = <i className="fa fa-plus" />
+  const notificationIcon = <i className="fa fa-bell" />
 
   describe('With default properties', () => {
-    const globalHeader = shallow(<GlobalHeader />);
+    const globalHeader = shallow(<GlobalHeader />)
 
     it('renders the tag', () => {
-      expect(globalHeader.type()).toBe('header');
-    });
+      expect(globalHeader.type()).toBe('header')
+    })
 
     it('has a div wrapper with a container class', () => {
-      expect(globalHeader.find('.container').length).toEqual(1);
-    });
+      expect(globalHeader.find('.container').length).toEqual(1)
+    })
 
     it('renders nav element', () => {
-      expect(globalHeader.find('nav').length).toEqual(1);
-    });
+      expect(globalHeader.find('nav').length).toEqual(1)
+    })
 
     it('renders logo', () => {
       expect(globalHeader.findWhere(n => n.text() === 'CWDS').exists()).toBe(
         true
-      );
-    });
+      )
+    })
 
     it('contains search action without callback', () => {
       expect(
         globalHeader.contains(
           <GlobalHeaderAction icon={searchIcon} ariaLabel="search" />
         )
-      ).toBe(true);
-    });
+      ).toBe(true)
+    })
 
     it('contains add action without callback', () => {
       expect(
         globalHeader.contains(
           <GlobalHeaderAction icon={addNewIcon} ariaLabel="add new" />
         )
-      ).toBe(true);
-    });
+      ).toBe(true)
+    })
 
     it('contains notification action without callback', () => {
       expect(
@@ -56,13 +56,13 @@ describe('Global Header', () => {
             ariaLabel="notifications"
           />
         )
-      ).toBe(true);
-    });
+      ).toBe(true)
+    })
 
     it('renders empty profile name', () => {
-      expect(globalHeader.find('.profile a').text()).toBe('');
-    });
-  });
+      expect(globalHeader.find('.profile a').text()).toBe('')
+    })
+  })
 
   describe('With given properties', () => {
     var input = {
@@ -75,21 +75,21 @@ describe('Global Header', () => {
       addNewCallback: function() {},
       notificationsCallback: function() {},
       logoutCallback: function() {},
-    };
-    let globalHeaderWithProps;
+    }
+    let globalHeaderWithProps
     beforeEach(function() {
-      globalHeaderWithProps = shallow(<GlobalHeader {...input} />);
-    });
+      globalHeaderWithProps = shallow(<GlobalHeader {...input} />)
+    })
 
     it('click on logo invokes logoCallback', () => {
-      spyOn(input, 'logoCallback');
-      globalHeaderWithProps.setProps({ logoCallback: input.logoCallback });
+      spyOn(input, 'logoCallback')
+      globalHeaderWithProps.setProps({ logoCallback: input.logoCallback })
       globalHeaderWithProps
         .find('.logo')
         .find('button')
-        .simulate('click');
-      expect(input.logoCallback).toHaveBeenCalled();
-    });
+        .simulate('click')
+      expect(input.logoCallback).toHaveBeenCalled()
+    })
 
     it('renders search icon', () => {
       expect(
@@ -101,8 +101,8 @@ describe('Global Header', () => {
             profileId={input.profileId}
           />
         )
-      ).toBe(true);
-    });
+      ).toBe(true)
+    })
 
     it('renders "add new" action with callback', () => {
       expect(
@@ -114,8 +114,8 @@ describe('Global Header', () => {
             profileId={input.profileId}
           />
         )
-      ).toBe(true);
-    });
+      ).toBe(true)
+    })
 
     it('renders notification action with callback', () => {
       expect(
@@ -127,14 +127,14 @@ describe('Global Header', () => {
             profileId={input.profileId}
           />
         )
-      ).toBe(true);
-    });
+      ).toBe(true)
+    })
 
     it('renders empty profile name with callback', () => {
       expect(globalHeaderWithProps.find('.profile a').text()).toBe(
         input.profileName
-      );
-    });
+      )
+    })
 
     it('renders profile avatar with given profileAvatar property', () => {
       expect(
@@ -145,7 +145,7 @@ describe('Global Header', () => {
             logoutCallback={input.logoutCallback}
           />
         )
-      ).toBe(true);
-    });
-  });
-});
+      ).toBe(true)
+    })
+  })
+})

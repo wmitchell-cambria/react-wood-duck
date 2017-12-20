@@ -1,26 +1,33 @@
-import Affix from 'react-overlays/lib/AutoAffix';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 const SideBar = function(props) {
-  const { children } = props;
-  const classField = classNames('side-bar');
+  const { children, columnWidth } = props
+  const classField = classNames(
+    'container',
+    'hidden-xs',
+    `col-md-${columnWidth}`,
+    'side-bar'
+  )
   if (!children || children.length === 0) {
-    return null;
+    return null
   } else {
     return (
-      <Affix viewportOffsetTop={85}>
-        <div className={classField} aria-label="Side Bar">
-          {children}
-        </div>
-      </Affix>
-    );
+      <div className={classField} aria-label="Side Bar">
+        {children}
+      </div>
+    )
   }
-};
+}
 
 SideBar.propTypes = {
   children: PropTypes.node,
-};
+  columnWidth: PropTypes.number,
+}
 
-export default SideBar;
+SideBar.defaultProps = {
+  columnWidth: 3,
+}
+
+export default SideBar

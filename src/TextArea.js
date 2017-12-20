@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const TextArea = props => (
   <div className="form-group">
@@ -19,7 +19,7 @@ const TextArea = props => (
       </label>
     </div>
   </div>
-);
+)
 
 TextArea.propTypes = {
   id: PropTypes.string,
@@ -32,6 +32,6 @@ TextArea.propTypes = {
   resize: PropTypes.bool,
   placeholder: PropTypes.string,
   handleOnChange: PropTypes.func,
-};
+}
 
-export default TextArea;
+export default TextArea

@@ -1,9 +1,9 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
 
 const CenterDecorator = storyFn => (
   <div className="container-fluid">{storyFn()}</div>
-);
+)
 
 const IconsStory = () => (
   <div>
@@ -14,8 +14,8 @@ const IconsStory = () => (
     </p>
     <a href="http://fontawesome.io/">FontAwesome</a>
   </div>
-);
+)
 
 storiesOf('Styles', module)
   .addDecorator(CenterDecorator)
-  .add('Icons', IconsStory);
+  .add('Icons', IconsStory)

@@ -1,7 +1,7 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import PostIcon from '../../src/PostIcon';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
+import PostIcon from '../../src/PostIcon'
 
 const basicUsage = `
     ####  Usage
@@ -9,7 +9,7 @@ const basicUsage = `
 
       - Wrapped in *NavLink* component.
 
-       `;
+       `
 
 storiesOf('Components', module).add(
   'Post Icon',
@@ -19,4 +19,4 @@ storiesOf('Components', module).add(
       <PostIcon icon="fa fa-exclamation-triangle c-red" />
     </div>
   ))
-);
+)

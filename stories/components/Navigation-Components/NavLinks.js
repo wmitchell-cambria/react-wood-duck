@@ -1,10 +1,10 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import NavLinks from '../../../src/NavLinks';
-import NavLink from '../../../src/NavLink';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
+import NavLinks from '../../../src/NavLinks'
+import NavLink from '../../../src/NavLink'
 
-const codeStyle = 'color:powderblue';
+const codeStyle = 'color:powderblue'
 const basicNavLinksUsage = `
     ###### Basic NavLinks Usage
         - Use *NavLinks* component to render a group of navigation links.
@@ -18,11 +18,11 @@ const basicNavLinksUsage = `
     ###### Accessibility
         - *NavLinks* component wraps contents in <div role="navigation"> if it is not nested.
 
- `;
+ `
 
 const handleClick = function() {
-  return false;
-};
+  return false
+}
 const simpleNavLinks = [
   <NavLink
     key={1}
@@ -45,7 +45,7 @@ const simpleNavLinks = [
     preIcon="fa fa-user"
     handleClick={handleClick}
   />,
-];
+]
 
 const navLinksWithInnerNav = [
   <NavLink
@@ -95,7 +95,7 @@ const navLinksWithInnerNav = [
     </NavLinks>
   </NavLink>,
   <NavLink key={4} text="History of Involvement" href="#history" />,
-];
+]
 
 storiesOf('Navigation Components/NavLinks', module)
   .add(
@@ -160,4 +160,4 @@ storiesOf('Navigation Components/NavLinks', module)
         <NavLinks>{navLinksWithInnerNav}</NavLinks>
       </div>
     ))
-  );
+  )

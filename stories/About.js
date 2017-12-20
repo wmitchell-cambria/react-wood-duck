@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
+import { storiesOf } from '@storybook/react'
 
 const About = () => (
   <main className="styleguide-content">
@@ -55,6 +55,6 @@ const About = () => (
       </div>
     </div>
   </main>
-);
+)
 
-storiesOf('CWDS Component Library', module).add('About', About);
+storiesOf('CWDS Component Library', module).add('About', About)

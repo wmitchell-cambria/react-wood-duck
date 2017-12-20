@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import CheckboxField from '../common/CheckboxField';
-import SelectField from '../common/SelectField';
+import PropTypes from 'prop-types'
+import React from 'react'
+import CheckboxField from '../common/CheckboxField'
+import SelectField from '../common/SelectField'
 
 const RaceField = ({
   personId,
@@ -39,7 +39,7 @@ const RaceField = ({
         </SelectField>
       )}
   </div>
-);
+)
 RaceField.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -49,6 +49,6 @@ RaceField.propTypes = {
   race: PropTypes.string,
   raceDetail: PropTypes.string,
   raceDetailOptions: PropTypes.array,
-};
+}
 
-export default RaceField;
+export default RaceField

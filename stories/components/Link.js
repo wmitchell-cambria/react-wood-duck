@@ -1,7 +1,7 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import Link from '../../src/Link';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
+import Link from '../../src/Link'
 
 const basicLinkUsage = `
     #### Basic Link Usage
@@ -13,7 +13,7 @@ const basicLinkUsage = `
 
       - Wrapped in *NavLink* component.
 
-       `;
+       `
 
 storiesOf('Components', module).add(
   'Link',
@@ -28,4 +28,4 @@ storiesOf('Components', module).add(
       </div>
     </div>
   ))
-);
+)

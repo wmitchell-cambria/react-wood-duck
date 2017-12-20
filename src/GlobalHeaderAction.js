@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const GlobalHeaderIcon = function(props) {
-  const { icon, ariaLabel, callback } = props;
-  if (!callback) return null;
+  const { icon, ariaLabel, callback } = props
+  if (!callback) return null
 
   return (
     <li>
@@ -11,8 +11,8 @@ const GlobalHeaderIcon = function(props) {
         {icon}
       </a>
     </li>
-  );
-};
+  )
+}
 
 GlobalHeaderIcon.propTypes = {
   /** Icon element to render */
@@ -21,6 +21,6 @@ GlobalHeaderIcon.propTypes = {
   ariaLabel: PropTypes.string.isRequired,
   /** callback to invoke onClick */
   callback: PropTypes.func,
-};
+}
 
-export default GlobalHeaderIcon;
+export default GlobalHeaderIcon

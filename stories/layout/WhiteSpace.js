@@ -1,5 +1,5 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
 
 const WhitesSpaceStory = () => (
   <div className="container-fluid">
@@ -25,5 +25,5 @@ const WhitesSpaceStory = () => (
       </tbody>
     </table>
   </div>
-);
-storiesOf('Layout', module).add('White Space', WhitesSpaceStory);
+)
+storiesOf('Layout', module).add('White Space', WhitesSpaceStory)

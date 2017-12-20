@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
+import { storiesOf } from '@storybook/react'
 
 const Accessibility = () => (
   <main className="styleguide-content">
@@ -266,6 +266,6 @@ const Accessibility = () => (
       </div>
     </div>
   </main>
-);
+)
 
-storiesOf('CWDS Component Library', module).add('Accessibility', Accessibility);
+storiesOf('CWDS Component Library', module).add('Accessibility', Accessibility)

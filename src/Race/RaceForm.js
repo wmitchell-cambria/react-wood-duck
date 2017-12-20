@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import RaceField from './RaceField';
+import React from 'react'
+import PropTypes from 'prop-types'
+import RaceField from './RaceField'
 
 const RaceForm = ({
   onRaceChange,
@@ -130,7 +130,7 @@ const RaceForm = ({
       </div>
     </div>
   </div>
-);
+)
 
 RaceForm.propTypes = {
   onRaceChange: PropTypes.func,
@@ -140,6 +140,6 @@ RaceForm.propTypes = {
   raceDetails: PropTypes.object,
   races: PropTypes.object,
   racesDisabled: PropTypes.bool,
-};
+}
 
-export default RaceForm;
+export default RaceForm

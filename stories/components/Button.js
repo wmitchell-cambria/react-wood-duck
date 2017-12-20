@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-import Button from '../../src/Button';
+import Button from '../../src/Button'
 
-const styles = { padding: '1.5rem' };
+const styles = { padding: '1.5rem' }
 
-const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
-const ButtonContainer = ({ children }) => <div style={styles}>{children}</div>;
-ButtonContainer.propTypes = { children: PropTypes.node };
+const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>
+const ButtonContainer = ({ children }) => <div style={styles}>{children}</div>
+ButtonContainer.propTypes = { children: PropTypes.node }
 
 const ButtonStory = withInfo(
   ` 
@@ -106,8 +106,8 @@ const ButtonStory = withInfo(
       </div>
     </div>
   </ButtonContainer>
-));
+))
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
-  .add('Button', ButtonStory);
+  .add('Button', ButtonStory)

@@ -1,9 +1,9 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
 
 const CenterDecorator = storyFn => (
   <div className="container-fluid">{storyFn()}</div>
-);
+)
 const GridStory = () => (
   <div>
     <h1>Grid</h1>
@@ -13,8 +13,8 @@ const GridStory = () => (
       <a href="https://v4-alpha.getbootstrap.com/layout/grid/"> Bootstrap </a>
     </p>
   </div>
-);
+)
 
 storiesOf('Layout', module)
   .addDecorator(CenterDecorator)
-  .add('Grid', GridStory);
+  .add('Grid', GridStory)

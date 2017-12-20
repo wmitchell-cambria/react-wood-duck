@@ -1,6 +1,6 @@
-import FormField from '../common/FormField';
-import PropTypes from 'prop-types';
-import React from 'react';
+import FormField from '../common/FormField'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const SelectField = ({
   gridClassName,
@@ -33,7 +33,7 @@ const SelectField = ({
       {children}
     </select>
   </FormField>
-);
+)
 
 SelectField.propTypes = {
   children: PropTypes.oneOfType([
@@ -49,5 +49,5 @@ SelectField.propTypes = {
   onChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
   value: PropTypes.string,
-};
-export default SelectField;
+}
+export default SelectField

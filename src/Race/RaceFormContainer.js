@@ -1,6 +1,6 @@
-import React from 'react';
-import RaceForm from './RaceForm';
-import { RACE_DETAILS } from './Races';
+import React from 'react'
+import RaceForm from './RaceForm'
+import { RACE_DETAILS } from './Races'
 
 const raceDetailOptions = Object.keys(RACE_DETAILS).reduce(
   (raceDetails, race) => ({
@@ -8,16 +8,16 @@ const raceDetailOptions = Object.keys(RACE_DETAILS).reduce(
     [race]: RACE_DETAILS[race].map(value => ({ label: value, value })),
   }),
   {}
-);
+)
 
-const personId = '1';
+const personId = '1'
 
 const getIsRaceIndeterminateValueSelector = races => {
-  const isUnknown = races.Unknown;
-  const isAbandoned = races.Abandoned;
-  const isDeclinedToAnswer = races['Declined to answer'];
-  return Boolean(isUnknown || isAbandoned || isDeclinedToAnswer);
-};
+  const isUnknown = races.Unknown
+  const isAbandoned = races.Abandoned
+  const isDeclinedToAnswer = races['Declined to answer']
+  return Boolean(isUnknown || isAbandoned || isDeclinedToAnswer)
+}
 
 const racesStatic = {
   White: false,
@@ -28,7 +28,7 @@ const racesStatic = {
   Unknown: false,
   Abandoned: false,
   'Declined to answer': false,
-};
+}
 
 const raceStaticDetails = {
   White: '',
@@ -39,49 +39,49 @@ const raceStaticDetails = {
   Unknown: '',
   Abandoned: '',
   'Declined to answer': '',
-};
+}
 
 class RaceFormContainer extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       personId: personId,
       raceDetailOptions,
       racesDisabled: getIsRaceIndeterminateValueSelector(racesStatic),
       races: JSON.parse(JSON.stringify(racesStatic)),
       raceDetails: JSON.parse(JSON.stringify(raceStaticDetails)),
-    };
-    this.onRaceChange = this.onRaceChange.bind(this);
-    this.onRaceDetailChange = this.onRaceDetailChange.bind(this);
+    }
+    this.onRaceChange = this.onRaceChange.bind(this)
+    this.onRaceDetailChange = this.onRaceDetailChange.bind(this)
   }
 
   onRaceChange(changedRace, value) {
-    let races = this.state.races;
-    let raceDetails = this.state.raceDetails;
-    let racesDisabled;
-    races[changedRace] = value;
-    this.setState({ races: races, raceDetails: raceDetails });
+    let races = this.state.races
+    let raceDetails = this.state.raceDetails
+    let racesDisabled
+    races[changedRace] = value
+    this.setState({ races: races, raceDetails: raceDetails })
     if (
       changedRace === 'Unknown' ||
       changedRace === 'Abandoned' ||
       changedRace === 'Declined to answer'
     ) {
-      races = JSON.parse(JSON.stringify(racesStatic));
-      races[changedRace] = value;
-      raceDetails = JSON.parse(JSON.stringify(raceStaticDetails));
-      racesDisabled = getIsRaceIndeterminateValueSelector(races);
+      races = JSON.parse(JSON.stringify(racesStatic))
+      races[changedRace] = value
+      raceDetails = JSON.parse(JSON.stringify(raceStaticDetails))
+      racesDisabled = getIsRaceIndeterminateValueSelector(races)
     }
     this.setState({
       races: races,
       raceDetails: raceDetails,
       racesDisabled: racesDisabled,
-    });
+    })
   }
 
   onRaceDetailChange(changedRace, value) {
-    let raceDetails = this.state.raceDetails;
-    raceDetails[changedRace] = value;
-    this.setState({ raceDetails: raceDetails });
+    let raceDetails = this.state.raceDetails
+    raceDetails[changedRace] = value
+    this.setState({ raceDetails: raceDetails })
   }
 
   render() {
@@ -93,8 +93,8 @@ class RaceFormContainer extends React.Component {
           onRaceDetailChange={this.onRaceDetailChange}
         />
       </div>
-    );
+    )
   }
 }
 
-export default RaceFormContainer;
+export default RaceFormContainer

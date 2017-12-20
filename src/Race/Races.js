@@ -31,4 +31,4 @@ export const RACE_DETAILS = {
   Unknown: [],
   Abandoned: [],
   'Declined to answer': [],
-};
+}

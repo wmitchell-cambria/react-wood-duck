@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import GlobalHeaderAction from './GlobalHeaderAction';
-import ProfileAvatar from './ProfileAvatar';
+import React from 'react'
+import PropTypes from 'prop-types'
+import GlobalHeaderAction from './GlobalHeaderAction'
+import ProfileAvatar from './ProfileAvatar'
 
-const logo = 'CWDS';
-const searchIcon = () => <i className="fa fa-search" />;
-const addIcon = () => <i className="fa fa-plus" />;
-const notificationIcon = () => <i className="fa fa-bell" />;
+const logo = 'CWDS'
+const searchIcon = () => <i className="fa fa-search" />
+const addIcon = () => <i className="fa fa-plus" />
+const notificationIcon = () => <i className="fa fa-bell" />
 
 class GlobalHeader extends React.Component {
   render() {
@@ -19,7 +19,7 @@ class GlobalHeader extends React.Component {
       addNewCallback,
       notificationsCallback,
       logoutCallback,
-    } = this.props;
+    } = this.props
     return (
       <header role="banner">
         <div className="container">
@@ -75,7 +75,7 @@ class GlobalHeader extends React.Component {
           </nav>
         </div>
       </header>
-    );
+    )
   }
 }
 
@@ -96,10 +96,10 @@ GlobalHeader.propTypes = {
   addNewCallback: PropTypes.func,
   /** notification callback to show notifications */
   notificationsCallback: PropTypes.func,
-};
+}
 
 GlobalHeader.defaultProps = {
   profileName: '',
-};
+}
 
-export default GlobalHeader;
+export default GlobalHeader

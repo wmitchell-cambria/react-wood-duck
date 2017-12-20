@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 const Link = function(props) {
-  const { text, href, active, clickHandler } = props;
-  const classes = classNames({ link: true, active: active });
+  const { text, href, active, clickHandler } = props
+  const classes = classNames({ link: true, active: active })
   return (
     <a
       href={href}
@@ -13,8 +13,8 @@ const Link = function(props) {
     >
       {text}
     </a>
-  );
-};
+  )
+}
 
 Link.propTypes = {
   /** NavLink Text  */
@@ -25,10 +25,10 @@ Link.propTypes = {
   active: PropTypes.bool,
   /** Hyperlink On Click Handler. This can be used to indicate actively selected NavLink. */
   clickHandler: PropTypes.func,
-};
+}
 
 Link.defaultProps = {
   active: false,
-};
+}
 
-export default Link;
+export default Link

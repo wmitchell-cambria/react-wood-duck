@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const Alert = props => {
-  const classField = `alert-message ${props.alertClassName}-message`;
-  const faIcons = `fa ${props.faIcon}`;
+  const classField = `alert-message ${props.alertClassName}-message`
+  const faIcons = `fa ${props.faIcon}`
 
   return (
     <div className="row">
@@ -21,17 +21,17 @@ const Alert = props => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 Alert.propTypes = {
   alertClassName: PropTypes.string,
   faIcon: PropTypes.string,
   alertMessage: PropTypes.string,
   alertCross: PropTypes.bool,
-};
+}
 
 Alert.defaultProps = {
   alertCross: true,
-};
-export default Alert;
+}
+export default Alert

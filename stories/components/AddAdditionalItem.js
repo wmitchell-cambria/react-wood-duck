@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-import InputComponent from '../../src/InputComponent';
-import ListItem from '../../src/AddAdditionalItem';
+import InputComponent from '../../src/InputComponent'
+import ListItem from '../../src/AddAdditionalItem'
 
-const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
+const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>
 const ListItemStory = withInfo(
   `
     #### Usage
@@ -42,8 +42,8 @@ const ListItemStory = withInfo(
       <div className="clearfix" />
     </ListItem>
   </div>
-));
+))
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
-  .add('AddAdditionalItem', ListItemStory);
+  .add('AddAdditionalItem', ListItemStory)

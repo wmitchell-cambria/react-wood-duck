@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Table = props => {
   return (
@@ -33,7 +33,7 @@ const Table = props => {
         </tr>
       </tbody>
     </table>
-  );
-};
+  )
+}
 
-export default Table;
+export default Table

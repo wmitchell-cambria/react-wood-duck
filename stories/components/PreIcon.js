@@ -1,7 +1,7 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import PreIcon from '../../src/PreIcon';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
+import PreIcon from '../../src/PreIcon'
 
 const basicUsage = `
     ####  Usage
@@ -9,9 +9,9 @@ const basicUsage = `
 
       - Wrapped in *NavLink* component.
 
-       `;
+       `
 
 storiesOf('Components', module).add(
   'Pre Icon',
   withInfo(`${basicUsage}`)(() => <PreIcon icon="fa fa-user" />)
-);
+)

@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import InputField from '../common/InputField';
-import SelectField from '../common/SelectField';
+import React from 'react'
+import PropTypes from 'prop-types'
+import InputField from '../common/InputField'
+import SelectField from '../common/SelectField'
 
 const AddressesForm = ({
   addAddress,
@@ -71,8 +71,8 @@ const AddressesForm = ({
           className="btn btn-default list-item__button"
           aria-label="Delete address"
           onClick={event => {
-            event.preventDefault();
-            deleteAddress(index);
+            event.preventDefault()
+            deleteAddress(index)
           }}
         >
           <i className="fa fa-times" />
@@ -92,7 +92,7 @@ const AddressesForm = ({
       </div>
     </div>
   </div>
-);
+)
 
 AddressesForm.propTypes = {
   addAddress: PropTypes.func,
@@ -119,6 +119,6 @@ AddressesForm.propTypes = {
       value: PropTypes.string,
     })
   ),
-};
+}
 
-export default AddressesForm;
+export default AddressesForm

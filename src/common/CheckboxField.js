@@ -1,6 +1,6 @@
-import ErrorMessages from '../common/ErrorMessages';
-import PropTypes from 'prop-types';
-import React from 'react';
+import ErrorMessages from '../common/ErrorMessages'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const CheckboxField = ({
   errors,
@@ -30,7 +30,7 @@ const CheckboxField = ({
     </label>
     <ErrorMessages ariaDescribedBy={id} errors={errors} />
   </div>
-);
+)
 
 CheckboxField.propTypes = {
   checked: PropTypes.bool,
@@ -42,6 +42,6 @@ CheckboxField.propTypes = {
   onChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
   value: PropTypes.string.isRequired,
-};
+}
 
-export default CheckboxField;
+export default CheckboxField

@@ -1,24 +1,24 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-import DropDownField from '../../src/DropDownField';
+import DropDownField from '../../src/DropDownField'
 
-const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
+const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>
 
 const stateTypes = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
-];
+]
 class DropDownWrapper extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { checkSelectedValue: '' };
-    this.handleOnChange = this.handleOnChange.bind(this);
+    super(props)
+    this.state = { checkSelectedValue: '' }
+    this.handleOnChange = this.handleOnChange.bind(this)
   }
   handleOnChange(event) {
-    this.setState({ checkSelectedValue: event.value });
+    this.setState({ checkSelectedValue: event.value })
   }
   render() {
     return (
@@ -29,7 +29,7 @@ class DropDownWrapper extends React.Component {
         options={stateTypes}
         onChange={this.handleOnChange}
       />
-    );
+    )
   }
 }
 const DropDownFieldStory = withInfo(
@@ -63,8 +63,8 @@ const DropDownFieldStory = withInfo(
       screen readers because they select each option 
       as they read them.
   `
-)(() => <DropDownWrapper />);
+)(() => <DropDownWrapper />)
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
-  .add('DropDownField', DropDownFieldStory);
+  .add('DropDownField', DropDownFieldStory)

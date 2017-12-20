@@ -1,8 +1,8 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import NavLink from '../../src/NavLink';
-import NavLinks from '../../src/NavLinks';
-import Layout03 from '../../src/Layout03';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import NavLink from '../../src/NavLink'
+import NavLinks from '../../src/NavLinks'
+import Layout03 from '../../src/Layout03'
 
 const sideBarContent = (
   <NavLinks>
@@ -42,18 +42,18 @@ const sideBarContent = (
       postIcon="fa fa-exclamation-triangle c-red"
     />
   </NavLinks>
-);
+)
 const globalHeaderProps = {
   searchCallback: function() {},
   addNewCallback: function() {},
   notificationsCallback: function() {},
   logoutCallback: function() {},
-};
+}
 const DetailPage = () => (
   <Layout03
     sideBarContent={sideBarContent}
     globalHeaderProps={globalHeaderProps}
   />
-);
+)
 
-storiesOf('Page Templates', module).add('03 Detail Page Template', DetailPage);
+storiesOf('Page Templates', module).add('03 Detail Page Template', DetailPage)

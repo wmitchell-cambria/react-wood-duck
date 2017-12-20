@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const CheckboxRadioGroup = props => (
   <fieldset className="fieldset-inputs sans">
@@ -18,10 +18,10 @@ const CheckboxRadioGroup = props => (
           />
           <span>{opt}</span>
         </label>
-      );
+      )
     })}
   </fieldset>
-);
+)
 
 CheckboxRadioGroup.propTypes = {
   heading: PropTypes.string,
@@ -33,6 +33,6 @@ CheckboxRadioGroup.propTypes = {
   options: PropTypes.array,
   selectedOptions: PropTypes.array,
   handleOnChange: PropTypes.func,
-};
+}
 
-export default CheckboxRadioGroup;
+export default CheckboxRadioGroup

@@ -1,11 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import './EnzymeSetup';
-import NavLink from '../NavLink';
-import NavLinks from '../NavLinks';
+import React from 'react'
+import { shallow } from 'enzyme'
+import './EnzymeSetup'
+import NavLink from '../NavLink'
+import NavLinks from '../NavLinks'
 
 describe('NavLinks', function() {
-  const clickHandler = function() {};
+  const clickHandler = function() {}
   const simpleNavLinks = [
     <NavLink
       text="Tommy Cambell"
@@ -22,7 +22,7 @@ describe('NavLinks', function() {
       handleClick={clickHandler}
       key={2}
     />,
-  ];
+  ]
   const nestedNavLinks = [
     <NavLink text="Screener Summary" href="#summary" key={1} />,
     <NavLink text="People & Roles" href="#ppl" key={2}>
@@ -51,56 +51,56 @@ describe('NavLinks', function() {
         />
       </NavLinks>
     </NavLink>,
-  ];
+  ]
 
   describe('given empty navigation links', () => {
-    const nullNavLinksComponent = shallow(<NavLinks />);
+    const nullNavLinksComponent = shallow(<NavLinks />)
 
     it('renders No navigation links', () => {
-      expect(nullNavLinksComponent.html()).toBe(null);
-      expect(nullNavLinksComponent.children().length).toBe(0);
-    });
-  });
+      expect(nullNavLinksComponent.html()).toBe(null)
+      expect(nullNavLinksComponent.children().length).toBe(0)
+    })
+  })
 
   describe('given simple navigation links', () => {
     const simpleNavLinksComponent = shallow(
       <NavLinks>{simpleNavLinks}</NavLinks>
-    );
-    const simpleNavLinksUlElement = simpleNavLinksComponent.find('ul');
-    const simpleNavLinksNavElement = simpleNavLinksComponent.find('.row');
+    )
+    const simpleNavLinksUlElement = simpleNavLinksComponent.find('ul')
+    const simpleNavLinksNavElement = simpleNavLinksComponent.find('.row')
 
     it('renders nav element', () => {
-      expect(simpleNavLinksNavElement.props().className).toBe('row');
-    });
+      expect(simpleNavLinksNavElement.props().className).toBe('row')
+    })
 
     it('renders with accessibility attributes', () => {
       expect(simpleNavLinksNavElement.prop('aria-label')).toBe(
         'Main Content Navigation Menu'
-      );
-    });
+      )
+    })
 
     it('renders ul tag', () => {
-      expect(simpleNavLinksUlElement.props().className).toBe('nav nav-stacked');
-    });
+      expect(simpleNavLinksUlElement.props().className).toBe('nav nav-stacked')
+    })
 
     it('renders simple navigation links', () => {
-      expect(simpleNavLinksUlElement.props().children).toEqual(simpleNavLinks);
-    });
-  });
+      expect(simpleNavLinksUlElement.props().children).toEqual(simpleNavLinks)
+    })
+  })
 
   describe('given nested navigation links', () => {
     const nestedNavLinksComponent = shallow(
       <NavLinks>{nestedNavLinks}</NavLinks>
-    );
+    )
 
     it('renders only one nav element', () => {
-      expect(nestedNavLinksComponent.filter('nav').length).toBe(1);
-    });
+      expect(nestedNavLinksComponent.filter('nav').length).toBe(1)
+    })
 
     it('renders nested navigation links', () => {
       expect(nestedNavLinksComponent.find('ul').props().children).toEqual(
         nestedNavLinks
-      );
-    });
-  });
-});
+      )
+    })
+  })
+})

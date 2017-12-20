@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-import Table from '../../src/Table';
+import Table from '../../src/Table'
 
-const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
+const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>
 const TableStory = withInfo(
   `
     #### Usage
@@ -39,8 +39,8 @@ const TableStory = withInfo(
       - When adding a title to a table, include it in a <caption> 
       tag inside of the <table> element.
   `
-)(() => <Table />);
+)(() => <Table />)
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
-  .add('Table', TableStory);
+  .add('Table', TableStory)

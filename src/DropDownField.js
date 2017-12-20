@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Select from 'react-select';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Select from 'react-select'
 
 const DropDownField = props => {
   return (
@@ -16,8 +16,8 @@ const DropDownField = props => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
 DropDownField.propTypes = {
   options: PropTypes.array,
@@ -28,11 +28,11 @@ DropDownField.propTypes = {
   gridClassName: PropTypes.string,
   label: PropTypes.string,
   selectClassName: PropTypes.string,
-};
+}
 
 DropDownField.defaultpropTypes = {
   label: 'Select DropDown',
   selectClassName: 'reusable-select',
-};
+}
 
-export default DropDownField;
+export default DropDownField

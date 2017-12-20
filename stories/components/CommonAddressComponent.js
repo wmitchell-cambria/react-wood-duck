@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
+import { storiesOf } from '@storybook/react'
 
-import CommonAddressComponent from '../../src/CommonAddressComponent';
+import CommonAddressComponent from '../../src/CommonAddressComponent'
 
-const styles = { paddingTop: '20px' };
+const styles = { paddingTop: '20px' }
 const addressFields = {
   street_address: '',
   zip: '',
   city: '',
   state: null,
-};
+}
 const stateTypes = {
   items: [
     {
@@ -38,15 +38,15 @@ const stateTypes = {
       value: 'California',
     },
   ],
-};
+}
 const onChange = (key, value) => {
-  addressFields[key] = value;
-};
+  addressFields[key] = value
+}
 const CenterDecorator = storyFn => (
   <div className="container" style={styles}>
     {storyFn()}
   </div>
-);
+)
 
 const CommonAddressComponentStory = () => (
   <CommonAddressComponent
@@ -60,8 +60,8 @@ const CommonAddressComponentStory = () => (
     onSuggestionsFetchRequested={event => {}}
     onSuggestionSelected={() => {}}
   />
-);
+)
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
-  .add('CommonAddressComponent', CommonAddressComponentStory);
+  .add('CommonAddressComponent', CommonAddressComponentStory)

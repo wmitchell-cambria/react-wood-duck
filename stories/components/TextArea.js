@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
+import { storiesOf } from '@storybook/react'
 
-import TextArea from '../../src/TextArea';
+import TextArea from '../../src/TextArea'
 
-const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
+const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>
 
 const TextAreaStory = () => (
   <TextArea
@@ -15,8 +15,8 @@ const TextAreaStory = () => (
     placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     value=""
   />
-);
+)
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
-  .add('TextArea', TextAreaStory);
+  .add('TextArea', TextAreaStory)

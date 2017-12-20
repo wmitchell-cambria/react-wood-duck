@@ -1,7 +1,7 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
 
-const styles = { paddingTop: '1.0rem', paddingBottom: '1.0rem' };
+const styles = { paddingTop: '1.0rem', paddingBottom: '1.0rem' }
 
 const TypographyStory = () => (
   <div className="container">
@@ -98,6 +98,6 @@ const TypographyStory = () => (
       </div>
     </div>
   </div>
-);
+)
 
-storiesOf('Styles', module).add('Typography', TypographyStory);
+storiesOf('Styles', module).add('Typography', TypographyStory)

@@ -1,11 +1,11 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import SideBar from '../../src/SideBar';
-import NavLinks from '../../src/NavLinks';
-import NavLink from '../../src/NavLink';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
+import SideBar from '../../src/SideBar'
+import NavLinks from '../../src/NavLinks'
+import NavLink from '../../src/NavLink'
 
-const codeStyle = 'color:powderblue';
+const codeStyle = 'color:powderblue'
 const navLinks = (
   <NavLinks>
     <NavLink text="Screener Summary" href="#screenerSummary" />
@@ -45,9 +45,9 @@ const navLinks = (
       postIcon="fa fa-exclamation-triangle c-red"
     />
   </NavLinks>
-);
+)
 
-const CenterDecorator = story => <div>{story()}</div>;
+const CenterDecorator = story => <div>{story()}</div>
 const SideBarStory = withInfo({
   inline: false,
   text: `
@@ -83,8 +83,8 @@ const SideBarStory = withInfo({
       </div>
     </div>
   </div>
-));
+))
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
-  .add('SideBar', SideBarStory);
+  .add('SideBar', SideBarStory)

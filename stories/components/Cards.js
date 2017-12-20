@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-import Cards from '../../src/Cards';
+import Cards from '../../src/Cards'
 
-const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
+const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>
 const cardBody = (
   <div>
     <div className="row">
@@ -37,7 +37,7 @@ const cardBody = (
       </div>
     </div>
   </div>
-);
+)
 
 const CardsStory = withInfo(
   `
@@ -75,8 +75,8 @@ const CardsStory = withInfo(
   <Cards cardHeaderText="Profile Information" cardbgcolor="transparent">
     {cardBody}
   </Cards>
-));
+))
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
-  .add('Cards', CardsStory);
+  .add('Cards', CardsStory)

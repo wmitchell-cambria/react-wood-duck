@@ -1,7 +1,7 @@
-import CommonAddressComponent from '../CommonAddressComponent.js';
-import React from 'react';
-import { shallow } from 'enzyme';
-import './EnzymeSetup';
+import CommonAddressComponent from '../CommonAddressComponent.js'
+import React from 'react'
+import { shallow } from 'enzyme'
+import './EnzymeSetup'
 
 const stateTypes = {
   items: [
@@ -30,16 +30,16 @@ const stateTypes = {
       value: 'California',
     },
   ],
-};
+}
 describe('Verify Common Address Fields Component', () => {
-  let commonAddressComponent, onChangeSpy;
-  onChangeSpy = jasmine.createSpy('onChange');
+  let commonAddressComponent, onChangeSpy
+  onChangeSpy = jasmine.createSpy('onChange')
   const addressFields = {
     street_address: '',
     zip: '',
     city: '',
     state: null,
-  };
+  }
   const props = {
     addressTitle: 'Physical Address',
     addressType: 'Residential',
@@ -50,7 +50,7 @@ describe('Verify Common Address Fields Component', () => {
     onChange: onChangeSpy,
     onSuggestionsFetchRequested: onChangeSpy,
     onSuggestionSelected: onChangeSpy,
-  };
+  }
   beforeEach(() => {
     commonAddressComponent = shallow(
       <CommonAddressComponent
@@ -65,49 +65,49 @@ describe('Verify Common Address Fields Component', () => {
         onSuggestionsFetchRequested={onChangeSpy}
         onSuggestionSelected={onChangeSpy}
       />
-    );
-  });
+    )
+  })
   it('Load Address Fields', () => {
-    expect(commonAddressComponent.length).toEqual(1);
-  });
+    expect(commonAddressComponent.length).toEqual(1)
+  })
   it('verify Residential street address', () => {
     let streetAddress = commonAddressComponent
       .find('#Residentialstreet_address')
-      .at(0);
-    expect(streetAddress.length).toBe(1);
-  });
+      .at(0)
+    expect(streetAddress.length).toBe(1)
+  })
   it('verify mailing address zip change', () => {
-    let zipCodeField = commonAddressComponent.find('#Residentialzip').at(0);
-    zipCodeField.simulate('change', { target: { value: '95833' } });
-    expect(onChangeSpy).toHaveBeenCalledWith('zip', '95833');
-  });
+    let zipCodeField = commonAddressComponent.find('#Residentialzip').at(0)
+    zipCodeField.simulate('change', { target: { value: '95833' } })
+    expect(onChangeSpy).toHaveBeenCalledWith('zip', '95833')
+  })
   it('verify mailing Address city change', () => {
-    let cityField = commonAddressComponent.find('#Residentialcity').at(0);
-    cityField.simulate('change', { target: { value: 'Sacramento' } });
-    expect(onChangeSpy).toHaveBeenCalledWith('city', 'Sacramento');
-  });
+    let cityField = commonAddressComponent.find('#Residentialcity').at(0)
+    cityField.simulate('change', { target: { value: 'Sacramento' } })
+    expect(onChangeSpy).toHaveBeenCalledWith('city', 'Sacramento')
+  })
   it('verify mailing Address State change', () => {
     let stateDropDownField = commonAddressComponent
       .find('#Residentialstate_type')
-      .at(0);
+      .at(0)
     stateDropDownField.simulate('change', {
       target: { selectedOptions: [{ value: 1, text: 'Alabama' }] },
-    });
+    })
     expect(onChangeSpy).toHaveBeenCalledWith('state', {
       id: 1,
       value: 'Alabama',
-    });
-  });
+    })
+  })
   describe('AutoSuggest Render', () => {
-    let addressComponent;
+    let addressComponent
     beforeEach(() => {
-      addressComponent = shallow(<CommonAddressComponent {...props} />);
-    });
+      addressComponent = shallow(<CommonAddressComponent {...props} />)
+    })
     it('AutoSuggest label', () => {
-      expect(addressComponent.find('label').text()).toEqual('Physical Address');
-    });
+      expect(addressComponent.find('label').text()).toEqual('Physical Address')
+    })
     it('for AutoSuggest Component load', () => {
-      expect(addressComponent.find('Autosuggest').length).toBe(1);
-    });
-  });
-});
+      expect(addressComponent.find('Autosuggest').length).toBe(1)
+    })
+  })
+})

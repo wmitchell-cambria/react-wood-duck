@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const InputComponent = props => {
-  let errorMessage = '';
+  let errorMessage = ''
   if (props.required || props.validationError) {
-    errorMessage = props.validationErrorMessage;
+    errorMessage = props.validationErrorMessage
   }
 
   if (props.serverError) {
-    errorMessage = props.serverErrorMessage;
+    errorMessage = props.serverErrorMessage
   }
 
   return (
@@ -42,8 +42,8 @@ const InputComponent = props => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
 InputComponent.propTypes = {
   id: PropTypes.string,
@@ -61,5 +61,5 @@ InputComponent.propTypes = {
   value: PropTypes.any,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
-};
-export default InputComponent;
+}
+export default InputComponent

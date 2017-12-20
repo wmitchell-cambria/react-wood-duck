@@ -1,7 +1,7 @@
-import React from 'react';
-import TextArea from '../TextArea.js';
-import { shallow } from 'enzyme';
-import './EnzymeSetup';
+import React from 'react'
+import TextArea from '../TextArea.js'
+import { shallow } from 'enzyme'
+import './EnzymeSetup'
 
 describe('TextArea', () => {
   const textarea = {
@@ -13,20 +13,20 @@ describe('TextArea', () => {
     fieldClassName: 'field class name',
     placeholder: 'should be string',
     value: 'some-text',
-  };
+  }
 
-  const wrapper = shallow(<TextArea {...textarea} />);
+  const wrapper = shallow(<TextArea {...textarea} />)
 
   it('verify the no of "div" tags ', () => {
-    expect(wrapper.find('div').length).toEqual(2);
-  });
+    expect(wrapper.find('div').length).toEqual(2)
+  })
 
   it('has a className', () => {
-    expect(wrapper.hasClass('form-group')).toBe(true);
-  });
+    expect(wrapper.hasClass('form-group')).toBe(true)
+  })
   it('has basic elements', () => {
-    expect(wrapper.find('label').prop('className')).toEqual('form-label');
-  });
+    expect(wrapper.find('label').prop('className')).toEqual('form-label')
+  })
 
   it('it has props', () => {
     expect(
@@ -34,36 +34,36 @@ describe('TextArea', () => {
         .find('div')
         .at(1)
         .props().className
-    ).toEqual(textarea.gridClassName);
+    ).toEqual(textarea.gridClassName)
     expect(
       wrapper
         .find('label')
         .at(0)
         .props().htmlFor
-    ).toEqual(textarea.name);
+    ).toEqual(textarea.name)
     expect(
       wrapper
         .find('textarea')
         .at(0)
         .props().className
-    ).toEqual(textarea.labelClassName);
+    ).toEqual(textarea.labelClassName)
     expect(
       wrapper
         .find('textarea')
         .at(0)
         .props().value
-    ).toEqual(textarea.value);
+    ).toEqual(textarea.value)
     expect(
       wrapper
         .find('textarea')
         .at(0)
         .props().placeholder
-    ).toEqual(textarea.placeholder);
+    ).toEqual(textarea.placeholder)
     expect(
       wrapper
         .find('textarea')
         .at(0)
         .props().rows
-    ).toEqual(textarea.rows);
-  });
-});
+    ).toEqual(textarea.rows)
+  })
+})

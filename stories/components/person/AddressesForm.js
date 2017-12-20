@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
+import { storiesOf } from '@storybook/react'
 
-import AddressesForm from '../../../src/person/AddressesForm';
+import AddressesForm from '../../../src/person/AddressesForm'
 
-const styles = { paddingTop: '20px' };
+const styles = { paddingTop: '20px' }
 const CenterDecorator = storyFn => (
   <div className="container" style={styles}>
     {storyFn()}
   </div>
-);
+)
 
 const AddressesFormStory = () => (
   <AddressesForm
@@ -33,8 +33,8 @@ const AddressesFormStory = () => (
       { label: 'New York', value: 'ny' },
     ]}
   />
-);
+)
 
 storiesOf('Person Components', module)
   .addDecorator(CenterDecorator)
-  .add('AddressesForm', AddressesFormStory);
+  .add('AddressesForm', AddressesFormStory)

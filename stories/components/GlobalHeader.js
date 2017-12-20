@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-import GlobalHeader from '../../src/GlobalHeader';
+import GlobalHeader from '../../src/GlobalHeader'
 
-const callback = function(event) {};
+const callback = function(event) {}
 
 const GlobalHeaderStory = withInfo(
   `
@@ -31,6 +31,6 @@ const GlobalHeaderStory = withInfo(
     notificationsCallback={callback}
     logoutCallback={callback}
   />
-));
+))
 
-storiesOf('Components', module).add('GlobalHeader', GlobalHeaderStory);
+storiesOf('Components', module).add('GlobalHeader', GlobalHeaderStory)
