@@ -12,7 +12,9 @@ var config = function(config) {
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
-    files: ['src/test/*.js'],
+    files: ['src/test/*.js',
+            'src/test/**/*.js',
+    ],
 
     // list of files to exclude
     exclude: [],
@@ -21,6 +23,7 @@ var config = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'src/test/*.js': ['webpack', 'sourcemap'],
+      'src/test/**/*.js': ['webpack', 'sourcemap'],
     },
 
     webpack: Object.assign({}, webpackConfig, {
