@@ -1,4 +1,5 @@
 var Alert = require('./dist/Alert.js').default;
+var AddressesForm = require('./dist/person/AddressesForm').default;
 var Button = require('./dist/Button.js').default;
 var Cards = require('./dist/Cards.js').default;
 var CheckboxRadioGroup = require('./dist/CheckboxRadioGroup.js').default;
@@ -24,6 +25,7 @@ var CommonAddressComponent = require('./dist/CommonAddressComponent.js')
 
 module.exports = {
   Alert: Alert,
+  AddressesForm: AddressesForm,
   Button: Button,
   Cards: Cards,
   CheckboxRadioGroup: CheckboxRadioGroup,
