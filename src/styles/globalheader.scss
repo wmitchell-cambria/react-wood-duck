@@ -109,6 +109,9 @@ header {
       cursor: pointer;
       text-outline: none;
     }
+    :hover {
+      background-color: #d8ecf0
+    }
   }
 
   .c_dropdown:before {
@@ -120,18 +123,21 @@ header {
     width: 0;
     position: absolute;
     pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: #fff;
+    border-width: 0.8rem;
+    margin-left: -1.5rem;
+    :hover {
+      background-color: #d8ecf0
+    }
   }
 
   .c_dropdown:after {
     border-bottom-color: #fff;
     border-width: 0.8rem;
     margin-left: -1.5rem;
-  }
-
-  .c_dropdown:before {
-    border-color: rgba(136, 183, 213, 0);
-    border-bottom-color: #fff;
-    border-width: 0.8rem;
-    margin-left: -1.5rem;
+    :hover {
+      background-color: #d8ecf0
+    }
   }
 }
