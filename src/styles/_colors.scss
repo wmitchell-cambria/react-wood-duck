@@ -1,5 +1,128 @@
 //////colors/////// section with the following colors
 
+$spruce: #0d4f78;
+$aspen: #09798e;
+$fir: #d8ecf0;
+$oak: #601974;
+$maple: #bb3709;
+$hickory: #e7740b;
+$elm: #068347;
+
+$white: #ffffff;
+$ray: #f5f5f5; //page background
+$grouper: #e8e8e8;
+$trout: #d1d1d1; // boarders
+$wahoo: #5c5c5c; //input labels
+$shark: #1a1a1a; //default body text
+
+/////////////////////////////////////////
+// - Color aliases - //
+/////////////////////////////////////////
+$brand-01: $spruce;
+$brand-02: $aspen;
+$brand-03: $oak;
+$error-01: $maple;
+$warning-01: $hickory;
+$success-01: $elm;
+$info-01: $spruce;
+$links-default: $spruce;
+$text-default: $shark;
+$input-fields-border: $trout;
+
+/////////////////////////////////////////
+// - Color Helpers - //
+/////////////////////////////////////////
+.c-spruce {
+  color: $spruce;
+}
+.c-aspen {
+  color: $aspen;
+}
+.c-fir {
+  color: $fir;
+}
+.c-oak {
+  color: $oak;
+}
+.c-maple {
+  color: $maple;
+}
+.c-hickory {
+  color: $hickory;
+}
+.c-elm {
+  color: $elm;
+}
+.c-white {
+  color: $white;
+}
+.c-ray {
+  color: $ray;
+}
+.c-grouper {
+  color: $grouper;
+}
+.c-trout {
+  color: $trout;
+}
+.c-wahoo {
+  color: $wahoo;
+}
+.c-shark {
+  color: $shark;
+}
+.bg-locust {
+  color: linear-gradient(to right, $spruce, $aspen);
+}
+
+.bg-spruce {
+  background-color: $spruce;
+}
+.bg-aspen {
+  background-color: $aspen;
+}
+.bg-fir {
+  background-color: $fir;
+}
+.bg-oak {
+  background-color: $oak;
+}
+.bg-maple {
+  background-color: $maple;
+}
+.bg-hickory {
+  background-color: $hickory;
+}
+.bg-elm {
+  background-color: $elm;
+}
+.bg-white {
+  background-color: $white;
+}
+.bg-ray {
+  background-color: $ray;
+}
+.bg-grouper {
+  background-color: $grouper;
+}
+.bg-trout {
+  background-color: $trout;
+}
+.bg-wahoo {
+  background-color: $wahoo;
+}
+.bg-shark {
+  background-color: $shark;
+}
+.bg-locust {
+  background-image:
+    linear-gradient(to right, $spruce, $aspen);
+}
+
+/////////////////////////////////////////
+// Legacy colors
+/////////////////////////////////////////
+
 $light-blue: #1ba7fa;
 $medium-blue: #2974a2;
 $dark-blue: #053d53;
@@ -9,20 +132,19 @@ $dark-ash-blue: #065a67;
 $blue-black: #072d47;
 $light-blue-black: #0c4e78;
 $secondary-blue: #114161;
-$teel-blue: #09798e;
+$teel-blue: $aspen;
 $dark-teel-blue: #00687c;
 $light-green: #3fbfad;
 $medium-green: #297d74;
 $dark-green: #065144;
 $ash-green: #087b8e;
-$white: #fff;
-$white-smoke: #f5f5f5;
-$lightest-grey: #e8e8e8;
+$white-smoke: $ray;
+$lightest-grey: $grouper;
 $light-grey: #d4d4d4;
 $medium-grey: #b1b1b1;
 $mediumdark-grey: #c6c8ca;
 $dark-grey: #707070;
-$disabled-grey: #5c5c5c;
+$disabled-grey: $wahoo;
 $darker-grey: #4a4a4a;
 $darkest-grey: #050505;
 $primary-grey: #ebebea;
@@ -38,11 +160,11 @@ $grey-plus: #626262;
 // - Alert Colors - //
 
 /////////////////////////////////////////
-$info-blue: #0d4f78;
+$info-blue: $spruce;
 $warning-yellow: #e7a10a;
 $ash-grey: #c4c4c4;
 $error-red: #ad2213;
-$success-green: #068347;
+$success-green: $elm;
 
 /////////////////////////////////////////
 
@@ -51,11 +173,11 @@ $success-green: #068347;
 /////////////////////////////////////////
 $input-grey: #ebebeb;
 $base-blue: #00829b;
-$pinkish-grey: #d1d1d1;
+$pinkish-grey: $trout;
 
 /////////////////////////////////////////
 
-// - Color Helpers - //
+// - Legacy Color Classes - //
 
 /////////////////////////////////////////
 
@@ -68,7 +190,6 @@ $pinkish-grey: #d1d1d1;
 .c-dark-blue {
   color: $dark-blue;
 }
-
 .c-light-green {
   color: $light-green;
 }
@@ -77,10 +198,6 @@ $pinkish-grey: #d1d1d1;
 }
 .c-dark-green {
   color: $dark-green;
-}
-
-.c-white {
-  color: $white;
 }
 .c-white-smoke {
   color: $white-smoke;
@@ -100,7 +217,6 @@ $pinkish-grey: #d1d1d1;
 .c-darkest-grey {
   color: $darkest-grey;
 }
-
 .c-yellow {
   color: $yellow;
 }
@@ -120,7 +236,6 @@ $pinkish-grey: #d1d1d1;
 .bg-dark-blue {
   background-color: $dark-blue;
 }
-
 .bg-light-green {
   background-color: $light-green;
 }
@@ -129,10 +244,6 @@ $pinkish-grey: #d1d1d1;
 }
 .bg-dark-green {
   background-color: $dark-green;
-}
-
-.bg-white {
-  background-color: $white;
 }
 .bg-white-smoke {
   background-color: $white-smoke;
@@ -152,7 +263,6 @@ $pinkish-grey: #d1d1d1;
 .bg-darkest-grey {
   background-color: $darkest-grey;
 }
-
 .bg-yellow {
   background-color: $yellow;
 }

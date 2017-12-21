@@ -16,7 +16,7 @@ const PageHeaderStory = () => <PageHeader />;
 const PageHeaderStoryHidden = () => <PageHeader button={null} />;
 const PageHeaderStoryChildren = () => (
   <PageHeader pageTitle="This page has a child">
-    <div className="row bg-red c-white-smoke text-center">
+    <div className="row bg-maple c-ray text-center">
       <p>This is a child component</p>
     </div>
   </PageHeader>
