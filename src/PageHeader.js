@@ -16,8 +16,8 @@ class PageHeader extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   handleScroll(currentWindow = window, currentDocument = document) {
-    var element = currentDocument.querySelector('.page-header-mast');
-    var pageY = window.scrollY;
+    const element = currentDocument.querySelector('.page-header-mast');
+    let pageY = window.scrollY;
     pageY = currentWindow.scrollY;
     if (pageY !== 0 && element.getBoundingClientRect().bottom > 100) {
       this.setState({ stickyHeader: true });
@@ -26,14 +26,12 @@ class PageHeader extends Component {
     }
   }
   render() {
-    if (this.state.stickyHeader) {
-      var stickyClass = {
-        top: '0.000em',
-      };
-    }
+    const headerContainerClass = this.state.stickyHeader
+      ? 'sticky page-header-container'
+      : 'page-header-container';
 
     return (
-      <div style={stickyClass}>
+      <div className={headerContainerClass}>
         <div className="page-header-mast">
           <div className="container">
             <div className="row">

@@ -2,6 +2,13 @@
  PAGE HEADER STYLING
 ***/
 
+.page-header-container {
+  position: sticky;
+  z-index: 1;
+}
+.sticky.page-header-container {
+  top: 0.000em;
+}
 .page-header-mast {
   background: $dark-ash-blue;
   background: -webkit-linear-gradient(
@@ -35,11 +42,9 @@
   height: $mast-height;
   padding-bottom: $medium-spacing;
   padding-top: $medium-spacing;
-  position: sticky;
   width: 100%;
   vertical-align: middle;
   transition: top 0.2s ease;
-  z-index: 1;
 }
 .page-title {
   color: $white;

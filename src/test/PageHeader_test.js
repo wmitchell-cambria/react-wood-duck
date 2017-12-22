@@ -128,19 +128,22 @@ describe('<PageHeader />', () => {
     });
 
     describe('with stickyHeader', () => {
-      it('adds a 0.000em style', () => {
+      it('adds "sticky" class name', () => {
         const pageHeaderElement = shallow(<PageHeader />);
         pageHeaderElement.setState({ stickyHeader: true });
 
-        expect(pageHeaderElement.props().style).toEqual({ top: '0.000em' });
+        expect(pageHeaderElement.props().className).toEqual(
+          'sticky page-header-container'
+        );
       });
     });
 
     describe('without stickyHeader', () => {
-      it('adds a 0.000em style', () => {
+      it('does not add "sticky" class name', () => {
         const pageHeaderElement = shallow(<PageHeader />);
-
-        expect(pageHeaderElement.props().style).toEqual(undefined);
+        expect(pageHeaderElement.props().className).toEqual(
+          'page-header-container'
+        );
       });
     });
   });
