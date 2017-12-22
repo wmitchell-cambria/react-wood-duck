@@ -38,6 +38,7 @@ const navLinks = (
     <NavLink text="Contacts" href="#contacts" />
     <NavLink text="Risk & Safety Assessment" href="#risk" />
     <NavLink text="Home Assessment" href="#homeAssessment" />
+
     <NavLink
       text="Decision"
       href="#decision"
@@ -77,7 +78,9 @@ const SideBarStory = withInfo({
 })(() => (
   <div>
     <div className="row">
-      <SideBar columnWidth={3}>{navLinks}</SideBar>
+      <div className="col-lg-3">
+        <SideBar>{navLinks}</SideBar>
+      </div>
     </div>
   </div>
 ));

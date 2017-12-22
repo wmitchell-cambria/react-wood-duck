@@ -1,7 +1,6 @@
 import React from 'react';
 import NavLink from '../NavLink.js';
 import NavLinks from '../NavLinks.js';
-import SideBar from '../SideBar.js';
 import Layout03 from '../Layout03.js';
 import GlobalHeader from '../GlobalHeader.js';
 import PageHeader from '../PageHeader.js';
@@ -45,18 +44,13 @@ describe('Layout03', function() {
   );
 
   it('verify the no of "div" tags ', () => {
-    expect(wrapper.find('div').length).toEqual(2);
+    expect(wrapper.find('div').length).toEqual(6);
   });
 
   it('contains matching elements', () => {
     expect(wrapper.containsMatchingElement(<PageHeader />)).toEqual(true);
     expect(
       wrapper.containsMatchingElement(<GlobalHeader {...globalHeaderProps} />)
-    ).toEqual(true);
-    expect(
-      wrapper.containsMatchingElement(
-        <SideBar columnWidth={sideBarWidth}>{sideBarContent}</SideBar>
-      )
     ).toEqual(true);
   });
 });

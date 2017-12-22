@@ -37,18 +37,5 @@ describe('Side Bar', function() {
     it('renders side bar with NavLinks component', () => {
       expect(sideBarWithNavigationLinksWrapper.find(NavLinks).length).toBe(1);
     });
-
-    it('renders side bar with default column width when columnWidth is not provided', () => {
-      expect(sideBarWithNavigationLinksWrapper.find('.col-md-3').length).toBe(
-        1
-      );
-    });
-  });
-
-  it('renders side bar with specified column width', () => {
-    const sideBarCustomColumnWidth = shallow(
-      <SideBar columnWidth={4}>{navLinks}</SideBar>
-    );
-    expect(sideBarCustomColumnWidth.find('.col-md-4').exists()).toBeTruthy();
   });
 });
