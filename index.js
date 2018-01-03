@@ -11,6 +11,8 @@ var TextArea = require('./dist/TextArea.js').default;
 var DateTimePicker = require('./dist/DateTimePicker.js').default;
 var PreIcon = require('./dist/PreIcon.js').default;
 var PostIcon = require('./dist/PostIcon.js').default;
+var RaceForm = require('./dist/Race/RaceForm.js').default;
+var RaceFormContainer = require('./dist/Race/RaceFormContainer.js').default;
 var Link = require('./dist/Link.js').default;
 var NavLink = require('./dist/NavLink.js').default;
 var NavLinks = require('./dist/NavLinks.js').default;
@@ -37,6 +39,8 @@ module.exports = {
   DateTimePicker: DateTimePicker,
   PreIcon: PreIcon,
   PostIcon: PostIcon,
+  RaceForm: RaceForm,
+  RaceFormContainer: RaceFormContainer,
   Link: Link,
   NavLink: NavLink,
   NavLinks: NavLinks,

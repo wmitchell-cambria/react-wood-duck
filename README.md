@@ -52,8 +52,12 @@ The **react-wood-duck component library** is a set of re-usable components and s
   * FormField
   * InputField
   * SelectField
+  * CheckboxField
   
- * Person
+ * Race
+   * RaceForm
+
+* Person
    * AddressesForm
 
 ## Installation

@@ -37,6 +37,7 @@ import './components/SideBar';
 import './components/Table';
 import './components/TextArea';
 import './components/person/AddressesForm';
+import './components/Race/RaceForm';
 // Page Templates
 import './page-templates/LandingPageTemplate';
 import './page-templates/Category';
