@@ -10,7 +10,7 @@
 
   label {
     color: $dark-grey;
-    margin-top: 3rem;
+    margin-top: $large-spacing;
   }
 
   .card-header {
@@ -18,13 +18,11 @@
     display: block;
     font-size: $h3-title-font-size;
     overflow: hidden;
-    padding: $base-spacing $double-spacing;
 
     span {
       float: left;
       font-weight: $normal-weight;
-      margin: 0;
-      padding: 0;
+      padding: $medium-spacing $large-spacing;
     }
 
     a {
@@ -49,7 +47,6 @@
         margin-right: $base-spacing;
       }
     }
-
     .btn {
       margin-left: $half-spacing;
       margin-top: $double-spacing;
@@ -59,8 +56,11 @@
       margin-left: 0;
       margin-top: $double-spacing;
     }
+    .pull-right {
+      display: -webkit-inline-box;
+      padding-top: $large-spacing;
+    }
   }
-
   &.edit {
     border-left: 0.7rem solid $medium-blue;
   }

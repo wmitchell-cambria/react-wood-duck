@@ -7,13 +7,6 @@ describe('Button', () => {
   const btnclass = 'some class';
   const wrapper = mount(<Button btnClassName={btnclass} btnName={btnclass} />);
 
-  it('verify the no of "div" tags ', () => {
-    expect(wrapper.find('div').length).toEqual(1);
-  });
-
-  it('has a className', () => {
-    expect(wrapper.find('div').props().className).toEqual('row');
-  });
   it('has a props', () => {
     const button = {
       btnClassName: 'specific class name',

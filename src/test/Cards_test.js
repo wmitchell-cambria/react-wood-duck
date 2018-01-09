@@ -5,7 +5,6 @@ import './EnzymeSetup';
 
 describe('Cards', () => {
   const wrapper = shallow(<Cards />);
-
   const card = {
     editClass: '',
     cardHeaderText: 'some-text',
@@ -16,12 +15,14 @@ describe('Cards', () => {
 
   it('has props', () => {
     expect(wrapper.children.length).toEqual(1);
-    expect(component.prop('cardbgcolor')).toEqual('bg-light-grey');
+    expect(component.prop('cardbgcolor')).toEqual('transparent');
     expect(component.prop('wrapContainer')).toEqual('container-fluid');
     expect(component.prop('columnXsmallWidth')).toEqual(12);
     expect(component.prop('columnMediumWidth')).toEqual(12);
     expect(component.prop('columnLargeWidth')).toEqual(12);
     expect(component.prop('offsetMediumValue')).toEqual(0);
+    expect(component.prop('cardHeaderButton')).toEqual(false);
+    expect(component.prop('cardActionButtons')).toEqual(false);
     expect(
       component
         .find('div')
@@ -54,5 +55,23 @@ describe('Cards', () => {
         .props().children
     ).toEqual(card.cardHeaderText);
     expect(component.props().children).toEqual(card.children);
+  });
+
+  it('when cardHeaderButton is true edit button displays', () => {
+    let post = {
+      cardHeaderButton: true,
+      cardActionButtons: false,
+    };
+    const wrapper = shallow(<Cards {...post} />);
+    expect(wrapper.find('Button').length).toBe(1);
+  });
+
+  it('when cardActionButtons is true save and cancel buttons displays', () => {
+    let post = {
+      cardHeaderButton: false,
+      cardActionButtons: true,
+    };
+    const wrapper = shallow(<Cards {...post} />);
+    expect(wrapper.find('Button').length).toBe(2);
   });
 });
