@@ -5,11 +5,11 @@ import DropDownField from './DropDownField.js';
 import ReactAutosuggest from 'react-autosuggest';
 
 const getDictionaryId = object => {
-  return (object && object.id) || '';
+  return (object && object.value) || '';
 };
 
-const dictionaryNilSelect = object => {
-  return object.value !== '' ? { id: object.value, value: object.text } : null;
+const getDictionaryValue = object => {
+  return object !== null ? { id: object.id, value: object.value } : null;
 };
 
 export default class CommonAddressFields extends React.Component {
@@ -90,13 +90,14 @@ export default class CommonAddressFields extends React.Component {
           selectClassName="reusable-select"
           name={''}
           selectedOption={getDictionaryId(addressFields.state)}
-          options={this.props.stateTypes}
+          options={this.props.stateTypes.map(type => ({
+            label: type.value,
+            value: type.value,
+            id: type.id,
+          }))}
           label="State"
           onChange={event =>
-            this.props.onChange(
-              'state',
-              dictionaryNilSelect(event.target.selectedOptions[0])
-            )
+            this.props.onChange('state', getDictionaryValue(event))
           }
         />
       </div>

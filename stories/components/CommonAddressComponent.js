@@ -39,28 +39,43 @@ const stateTypes = {
     },
   ],
 };
-const onChange = (key, value) => {
-  addressFields[key] = value;
-};
+
 const CenterDecorator = storyFn => (
   <div className="container" style={styles}>
     {storyFn()}
   </div>
 );
 
-const CommonAddressComponentStory = () => (
-  <CommonAddressComponent
-    addressTitle="Physical Address"
-    addressType="Residential"
-    id="street_address"
-    suggestions={[]}
-    stateTypes={stateTypes.items}
-    addressFields={addressFields}
-    onChange={onChange()}
-    onSuggestionsFetchRequested={event => {}}
-    onSuggestionSelected={() => {}}
-  />
-);
+class CommonAddressComponentWrapper extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {addressFields};
+    this.handleOnChange = this.handleOnChange.bind(this);
+  }
+  handleOnChange(key, value) {
+    const newAddressFields = this.state.addressFields;
+    newAddressFields[key] = value;
+    this.setState({ addressFields: newAddressFields });
+  }
+
+  render() {
+    return (
+    <CommonAddressComponent
+      addressTitle="Physical Address"
+      addressType="Residential"
+      id="street_address"
+      suggestions={[]}
+      stateTypes={stateTypes.items}
+      addressFields={addressFields}
+      onChange={this.handleOnChange}
+      onSuggestionsFetchRequested={event => {}}
+      onSuggestionSelected={() => {}}
+    />
+    );
+  }
+}
+
+const CommonAddressComponentStory = (() => <CommonAddressComponentWrapper />);
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)

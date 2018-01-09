@@ -90,9 +90,7 @@ describe('Verify Common Address Fields Component', () => {
     let stateDropDownField = commonAddressComponent
       .find('#Residentialstate_type')
       .at(0);
-    stateDropDownField.simulate('change', {
-      target: { selectedOptions: [{ value: 1, text: 'Alabama' }] },
-    });
+    stateDropDownField.simulate('change', { id: 1, value: 'Alabama' });
     expect(onChangeSpy).toHaveBeenCalledWith('state', {
       id: 1,
       value: 'Alabama',
