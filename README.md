@@ -149,8 +149,9 @@ Use [SemVer](http://semver.org/) for versioning:
 
 ### Publish to NPM
 
-	npm publish -m “your message/version number”
-
+```
+npm publish -m “your message/version number”
+```
 ### Documentation
 
 When you add new component(s), please update the [List of Components](#list-of-components) in this ReadMe file.			
