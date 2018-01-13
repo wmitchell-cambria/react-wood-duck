@@ -53,7 +53,7 @@ The **react-wood-duck component library** is a set of re-usable components and s
   * InputField
   * SelectField
   * CheckboxField
-  
+
  * Race
    * RaceForm
 
@@ -99,11 +99,11 @@ Clone the repository from git:
 
 To get all npm dependencies in react-wood-duck, run command:
 
-	npm install 
-	
-For Specific dependency: 
+	npm install
 
-	npm install "dependency-name" 
+For Specific dependency:
+
+	npm install "dependency-name"
 
 Create or Modify the react components by following the [Style Guidelines](https://github.com/airbnb/javascript/tree/master/react).
 
@@ -116,12 +116,12 @@ For Example:
 		Alert: Alert,
 		Button: Button,
 	};
-		
+
 After creating or modifying the react components in **react-wood-duck/src**,
 run command:
 
 	npm run prepublish
-	
+
 **NOTE:** when you run this, it compiles the **"src"** code and generates the transpiled CommonJS in **“dist”** folder within your local machine 
 
 ### Writing test cases Using Enzyme
@@ -135,22 +135,22 @@ Add these following imports in your test cases for the components
 ### Push to git
 
 Commit the changes and push to GitHub:
-        
+
 	git status 
-	git add . 
+	git add .
 	git commit -m “Your Message and specify the updated version number” 
 	git push origin master  
- 	
+
 ### Versioning
 
 Use [SemVer](http://semver.org/) for versioning:
 
 	npm version patch/minor/major
-	
+
 ### Publish to NPM
 
 	npm publish -m “your message/version number”
-	
+
 ### Documentation
 
 When you add new component(s), please update the [List of Components](#list-of-components) in this ReadMe file.			
@@ -194,7 +194,7 @@ After writing your story, import your story at index.js
 	import from './components/NewComponent';
 
 Run your storybook with:
-	
+
 	yarn run storybook
 
 View your storybook browser http://localhost:6006/
