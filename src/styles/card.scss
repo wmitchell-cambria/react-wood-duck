@@ -6,15 +6,17 @@
 
 .card {
   background-color: $white;
+  border-radius: $base-border-radius;
+  box-shadow: $regular-shadow;
   color: $darkest-grey;
 
   label {
     color: $dark-grey;
-    margin-top: $large-spacing;
+    margin-top: $half-spacing;
   }
 
   .card-header {
-    border-bottom: 0.1rem solid $lightest-grey;
+    border-bottom: $thin-border solid $lightest-grey;
     display: block;
     font-size: $h3-title-font-size;
     overflow: hidden;
@@ -31,9 +33,7 @@
     }
 
     button {
-      background: none;
-      border: none;
-      outline: none;
+      margin-left: $small-spacing;
     }
   }
 
@@ -42,6 +42,10 @@
     padding: 0 $double-spacing $double-spacing;
 
     @media screen and (max-width: 767px) {
+      img {
+        max-height: 15rem;
+        max-width: 15rem;
+      }
       .centered {
         margin-left: $base-spacing;
         margin-right: $base-spacing;
