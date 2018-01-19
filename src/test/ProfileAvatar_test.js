@@ -25,9 +25,14 @@ describe('ProfileAvatar', () => {
   });
 
   describe('given logoutCallback', () => {
-    const callback = function() {};
-    const spyCallback = jasmine.createSpy(callback);
-    const profileAvatar = shallow(<ProfileAvatar logoutCallback={callback} />);
+    let spyCallback;
+    let profileAvatar;
+
+    beforeEach(() => {
+      spyCallback = jasmine.createSpy('callback');
+      profileAvatar = shallow(<ProfileAvatar logoutCallback={'callback'} />);
+    });
+
     it('renders default avatar', () => {
       expect(profileAvatar.contains(defaultProfileAvatar)).toBe(true);
     });
@@ -50,14 +55,86 @@ describe('ProfileAvatar', () => {
       );
     });
 
-    it('click on logout invokes logoutCallback', () => {
-      profileAvatar.setProps({ logoutCallback: spyCallback });
-      profileAvatar.setState({ isHidden: false });
-      profileAvatar
-        .find('a')
-        .at(1)
-        .simulate('click');
-      expect(spyCallback).toHaveBeenCalled();
+    describe('when the menu is not moused over', () => {
+      it('blurs the avatar hides the logout button', () => {
+        profileAvatar.setState({ isHidden: false, dropdownFocused: false });
+        profileAvatar
+          .find('a')
+          .first()
+          .simulate('blur', { preventDefault: () => {} });
+        expect(
+          profileAvatar.findWhere(n => n.text() === 'Logout').exists()
+        ).toBe(false);
+      });
+
+      describe('when focusing the logout link', () => {
+        it('changes mouse over state', () => {
+          profileAvatar.setProps({ logoutCallback: spyCallback });
+          profileAvatar.setState({ isHidden: false, dropdownFocused: false });
+          profileAvatar
+            .find('a')
+            .at(1)
+            .simulate('focus');
+          expect(profileAvatar.state().dropdownFocused).toBe(true);
+        });
+      });
+    });
+
+    describe('when the menu is moused over', () => {
+      it('blurs the avatar does not hide the logout button', () => {
+        profileAvatar.setState({ isHidden: false, dropdownFocused: true });
+        profileAvatar
+          .find('a')
+          .first()
+          .simulate('blur', { preventDefault: () => {} });
+        expect(
+          profileAvatar.findWhere(n => n.text() === 'Logout').exists()
+        ).toBe(true);
+      });
+
+      describe('blurring the logout link', () => {
+        it('changes mouse over state', () => {
+          profileAvatar.setProps({ logoutCallback: spyCallback });
+          profileAvatar.setState({ isHidden: false, dropdownFocused: true });
+          profileAvatar
+            .find('a')
+            .at(1)
+            .simulate('blur');
+          expect(profileAvatar.state().dropdownFocused).toBe(false);
+        });
+      });
+    });
+
+    describe('when clicking logout', () => {
+      it('invokes logoutCallback', () => {
+        profileAvatar.setProps({ logoutCallback: spyCallback });
+        profileAvatar.setState({ isHidden: false });
+        profileAvatar
+          .find('a')
+          .at(1)
+          .simulate('mouseover');
+        profileAvatar
+          .find('a')
+          .first()
+          .simulate('blur', { preventDefault: () => {} });
+        profileAvatar
+          .find('a')
+          .at(1)
+          .simulate('click', { preventDefault: () => {} });
+        expect(spyCallback).toHaveBeenCalled();
+        expect(profileAvatar.html()).not.toContain('logout');
+      });
+
+      it('closes the dropdown menu and sets dropdownFocused to false', () => {
+        profileAvatar.setProps({ logoutCallback: spyCallback });
+        profileAvatar.setState({ isHidden: false, dropdownFocused: true });
+        profileAvatar
+          .find('a')
+          .at(1)
+          .simulate('click', { preventDefault: () => {} });
+        expect(profileAvatar.html()).not.toContain('Logout');
+        expect(profileAvatar.state().dropdownFocused).toBe(false);
+      });
     });
   });
 
