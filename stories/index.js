@@ -38,6 +38,7 @@ import './components/Table';
 import './components/TextArea';
 import './components/person/AddressesForm';
 import './components/Race/RaceForm';
+import './components/Ethnicity/EthnicityForm';
 // Page Templates
 import './page-templates/LandingPageTemplate';
 import './page-templates/Category';

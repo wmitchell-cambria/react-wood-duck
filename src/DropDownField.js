@@ -11,7 +11,7 @@ const DropDownField = props => {
           value={props.selectedOption}
           id={props.id}
           onChange={props.onChange}
-          placeholder=''
+          placeholder=""
           className={props.selectClassName}
           options={props.options}
         />

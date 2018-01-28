@@ -106,7 +106,7 @@ describe('RaceForm', () => {
       component.find('RaceField[race="Declined to answer"]').props().disabled
     ).toEqual(true);
   });
-  
+
   it('it disables the race fields, except "Declined to answer" if it is checked', () => {
     const component = renderRaceForm({
       racesDisabled: true,

@@ -4,6 +4,7 @@ var Button = require('./dist/Button.js').default;
 var Cards = require('./dist/Cards.js').default;
 var CheckboxRadioGroup = require('./dist/CheckboxRadioGroup.js').default;
 var DropDownField = require('./dist/DropDownField.js').default;
+var EthnicityForm = require('./dist/EthnicityForm.js').default;
 var InputComponent = require('./dist/InputComponent.js').default;
 var AddAdditionalItem = require('./dist/AddAdditionalItem.js').default;
 var Table = require('./dist/Table.js').default;
@@ -12,7 +13,6 @@ var DateTimePicker = require('./dist/DateTimePicker.js').default;
 var PreIcon = require('./dist/PreIcon.js').default;
 var PostIcon = require('./dist/PostIcon.js').default;
 var RaceForm = require('./dist/Race/RaceForm.js').default;
-var RaceFormContainer = require('./dist/Race/RaceFormContainer.js').default;
 var Link = require('./dist/Link.js').default;
 var NavLink = require('./dist/NavLink.js').default;
 var NavLinks = require('./dist/NavLinks.js').default;
@@ -32,6 +32,7 @@ module.exports = {
   Cards: Cards,
   CheckboxRadioGroup: CheckboxRadioGroup,
   DropDownField: DropDownField,
+  EthnicityForm: EthnicityForm,
   InputComponent: InputComponent,
   AddAdditionalItem: AddAdditionalItem,
   Table: Table,
@@ -40,7 +41,6 @@ module.exports = {
   PreIcon: PreIcon,
   PostIcon: PostIcon,
   RaceForm: RaceForm,
-  RaceFormContainer: RaceFormContainer,
   Link: Link,
   NavLink: NavLink,
   NavLinks: NavLinks,
