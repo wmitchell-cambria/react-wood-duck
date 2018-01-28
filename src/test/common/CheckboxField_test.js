@@ -55,7 +55,6 @@ describe('CheckboxField', () => {
     it('renders with NO required prop', () => {
       expect(component.find('label.required').exists()).toEqual(false);
       expect(component.find('input').prop('required')).toEqual(undefined);
-      expect(component.find('input').prop('aria-required')).toEqual(undefined);
     });
   });
 
@@ -76,7 +75,6 @@ describe('CheckboxField', () => {
       component = shallow(<CheckboxField {...props} required />);
       expect(component.find('label.required').exists()).toEqual(true);
       expect(component.find('input').prop('required')).toEqual(true);
-      expect(component.find('input').prop('aria-required')).toEqual(true);
     });
 
     it('renders with disable prop', () => {
