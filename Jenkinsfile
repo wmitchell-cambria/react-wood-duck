@@ -12,7 +12,7 @@ node {
       }
       app.withRun("-e CI=true") { container ->
         stage('Lint') {
-          sh "docker exec -t ${container.id} yarn lint"
+          sh "docker exec -t ${container.id} yarn eslint ./{src,stories} "
         }
         stage('Unit Test') {
           sh "docker exec -t ${container.id} yarn run test"
