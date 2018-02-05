@@ -12,9 +12,7 @@ var config = function(config) {
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
-    files: ['src/test/*.js',
-            'src/test/**/*.js',
-    ],
+    files: ['src/test/*.js', 'src/test/**/*.js'],
 
     // list of files to exclude
     exclude: [],
