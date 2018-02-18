@@ -35,12 +35,12 @@ class PageHeader extends Component {
         <div className="page-header-mast">
           <div className="container">
             <div className="row">
-              <div className="col-xs-9">
+              <div className="col-xs-7">
                 <div className="page-title text-left">
                   {this.props.pageTitle}
                 </div>
               </div>
-              <div className="col-xs-3">{this.props.button}</div>
+              <div className="col-xs-5">{this.props.button}</div>
             </div>
           </div>
         </div>
