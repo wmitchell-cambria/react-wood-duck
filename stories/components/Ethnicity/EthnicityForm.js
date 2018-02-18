@@ -28,8 +28,8 @@ export default class EthnicityFormContainer extends React.Component {
 
   onChange(field, value) {
     field !== 'ethnicity_detail'
-      ? value === 'Yes' || value === null || value.length === 0
-        ? this.setState({ latinoOrigin: value, disableFields: false })
+      ? value === 'Yes' || !value
+        ? this.setState({ latinoOrigin: value, disableFields: value === 'Yes' })
         : this.setState({
             latinoOrigin: value,
             disableFields: true,
@@ -57,6 +57,7 @@ const EthnicityFormStory = withInfo(
     
      #### Accessibility
      Make sure the functionality of ethnicity is working as same as storybook. (Click Functions)
+     When Clicked, other options should disable.
   `
 )(() => <EthnicityFormContainer />);
 
