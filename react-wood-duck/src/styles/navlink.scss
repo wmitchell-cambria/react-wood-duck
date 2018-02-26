@@ -1,0 +1,66 @@
+@mixin indent($level) {
+   margin-right: $large-spacing * $level;
+}
+
+li.navlink {
+  font-size: 1.4rem;
+  a.link {
+    text-decoration:none;
+    color: black;
+    display: inline-block;
+  }
+
+  a.link:focus, a.link:hover, a.link.active {
+    color: #17486a;
+    background-color: transparent;
+    box-shadow: none;
+    border-color: transparent;
+    font-weight: bold;
+  }
+
+  .active-inactive-navlink {
+     padding-right: $small-spacing;
+     width: $small-width;
+  }
+
+  .inactive-navlink {
+    @extend .active-inactive-navlink;
+    border-left: 6px solid transparent;
+  }
+
+  .active-navlink {
+    @extend .active-inactive-navlink;
+    height: 30px;
+    border-left: 6px solid #17486a;
+    left: 0;
+    margin-top: 7px;
+  }
+
+.indent-level0 {
+   @include indent(0);
+}
+
+.indent-level1 {
+   @include indent(1);
+}
+
+.indent-level2 {
+   @include indent(2);
+}
+
+.indent-level3 {
+   @include indent(3);
+}
+
+.indent-level4 {
+   @include indent(4);
+}
+
+.indent-level5 {
+   @include indent(5);
+}
+
+.indent-level6 {
+   @include indent(6);
+}
+}

@@ -1,0 +1,126 @@
+/////////////////////////////////////////
+
+// - Alerts - //
+
+/////////////////////////////////////////
+
+.input-error {
+  position: relative;
+
+  input {
+    @extend %error-border;
+  }
+
+  textarea {
+    @extend %error-border;
+  }
+
+  select {
+    @extend %error-border;
+  }
+
+  label {
+    margin-top: 0;
+  }
+
+  .input-inline {
+    border: $thin-border solid $light-grey;
+    width: inherit;
+  }
+}
+
+.input-error-label {
+  display: block;
+  font-weight: $normal-weight;
+}
+
+.input-error-message {
+  color: $red;
+  display: block;
+  padding-top: $smallplus-spacing;
+}
+
+.input-error-message:first-child::before {
+  content: '\f071';
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  padding-right: $extra-small-spacing;
+  text-decoration: inherit;
+}
+
+.input-error-message:not(:first-child) {
+  padding-left: $medium-plus-spacing;
+}
+
+.alert-message {
+  background-color: $white;
+  border-right: $thin-border solid;
+  display: table;
+  margin-top: $base-spacing;
+  width: 100%;
+  border-color: $ash-grey;
+  border-top-right-radius: $thin-border;
+  border-bottom-right-radius: $thin-border;
+
+  .alert-icon {
+    display: table-cell;
+    font-size: $h3-title-font-size;
+    padding: $medium-spacing;
+    text-align: center;
+    vertical-align: middle;
+    width: $double-width;
+    border-color: $ash-grey;
+    border-top-left-radius: $thin-border;
+    border-bottom-left-radius: $thin-border;
+  }
+
+  .alert-text {
+    display: table-cell;
+    margin-left: $base-spacing;
+    color: $black;
+    padding: $base-spacing;
+    border-top: $thin-border solid;
+    border-bottom: $thin-border solid;
+    border-color: $ash-grey;
+  }
+  .alert-cross {
+    display: table-cell;
+    color: $dark-grey;
+    padding: $medium-spacing;
+    text-align: center;
+    cursor: pointer;
+    width: $extra-small-width;
+    border-top: $thin-border solid;
+    border-bottom: $thin-border solid;
+    border-color: $ash-grey;
+  }
+}
+
+.info-message {
+  .alert-icon {
+    background-color: $info-blue;
+    color: $white;
+  }
+}
+
+.warning-message {
+  .alert-icon {
+    background-color: $warning-yellow;
+    color: $white;
+  }
+}
+
+.success-message {
+  .alert-icon {
+    background-color: $success-green;
+    color: $white;
+  }
+}
+
+.error-message {
+  .alert-icon {
+    background-color: $error-red;
+    color: $white;
+  }
+}

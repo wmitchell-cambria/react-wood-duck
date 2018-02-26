@@ -1,0 +1,31 @@
+/////////////////////////////////////////
+
+// - Lists - //
+
+/////////////////////////////////////////
+
+.list-item {
+  background-color: $white-smoke;
+  margin: $double-spacing 0 0;
+  padding: 0 0 $base-spacing;
+  position: relative;
+
+  input,
+  select {
+    background-color: $white;
+  }
+}
+
+.list-item__a {
+  font-size: 1.5rem;
+  position: absolute;
+  right: 1.3rem;
+  top: 0.7rem;
+}
+
+.list-item__button {
+  position: absolute;
+  right: -0.2rem;
+  top: -0.5rem;
+  padding: 1.2rem;
+}

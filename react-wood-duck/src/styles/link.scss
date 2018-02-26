@@ -1,0 +1,11 @@
+a.link {
+   font-size: 1.4rem;
+   text-decoration:none;
+   color: black;
+}
+
+a.link:focus, a.link:hover, a.link.active {
+    color: #17486a;
+    background-color: transparent;
+    font-weight: bold;
+}

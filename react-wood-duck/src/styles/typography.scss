@@ -1,0 +1,107 @@
+/////////////////////////////////////////
+
+// - Typography - //
+
+/////////////////////////////////////////
+
+html {
+  font-family: $font-family;
+  font-size: $root-font;
+}
+
+body {
+  background-color: $lightest-grey;
+  color: $darkest-grey;
+  font-family: $font-family;
+  font-size: $base-font;
+}
+
+p {
+  margin-bottom: $base-spacing;
+  margin-top: $base-spacing;
+}
+
+a {
+  color: $medium-blue;
+}
+
+a:hover,
+a:active {
+  color: $dark-blue;
+}
+
+a:visited {
+  color: $medium-blue;
+  text-decoration: underline;
+}
+
+a:focus {
+  box-shadow: 0 0 3px $medium-blue, 0 0 7px $medium-blue;
+  outline: 0;
+}
+
+.dark-background-link a {
+  color: $light-grey;
+}
+
+h1,
+h2,
+h3 {
+  clear: both;
+  margin-bottom: $half-spacing;
+  margin-top: $base-spacing * 1.5;
+}
+
+h1 {
+  font-size: $h1-page-title-font-size;
+  font-weight: $light-weight;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: $h2-card-header-font-size;
+  font-weight: $semibold-weight;
+}
+
+h3 {
+  font-size: $h3-title-font-size;
+  font-weight: $semibold-weight;
+}
+
+h4 {
+  font-size: $h4-subheader-font-size;
+  font-weight: $semibold-weight;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+pre {
+  background-color: $darkest-grey;
+  border: 0;
+  border-radius: 0;
+  font-family: $code-font-family;
+  font-size: $base-font;
+  margin: 0;
+  max-height: 60rem;
+
+  xmp {
+    color: $white;
+    margin-left: -5rem;
+    padding: 0 3rem 0 0;
+  }
+}
+
+ul,
+ol {
+  margin: 0;
+}
+
+.body2 {
+  font-size: $base-font;
+  font-weight: $semibold-weight;
+}
+
+.text-helper {
+  color: $darker-grey;
+  font-size: $helper-text-font-size;
+}

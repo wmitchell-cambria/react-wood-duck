@@ -5,11 +5,11 @@ import DropDownField from './DropDownField.js';
 import ReactAutosuggest from 'react-autosuggest';
 
 const getDictionaryId = object => {
-  return (object && object.value) || '';
+  return object === null ? '' : object.value
 };
 
-const getDictionaryValue = object => {
-  return object !== null ? { id: object.id, value: object.value } : null;
+const dictionaryNilSelect = object => {
+  return object.value !== '' ? { id: object.value, value: object.text } : null;
 };
 
 export default class CommonAddressFields extends React.Component {
@@ -70,7 +70,7 @@ export default class CommonAddressFields extends React.Component {
           gridClassName="col-md-4"
           id={this.props.addressType + 'zip'}
           value={addressFields.zip}
-          label="Zip (required)"
+          label="Zip"
           placeholder=""
           type="text"
           onChange={event => this.props.onChange('zip', event.target.value)}
@@ -79,7 +79,7 @@ export default class CommonAddressFields extends React.Component {
           gridClassName="col-md-4"
           id={this.props.addressType + 'city'}
           value={addressFields.city}
-          label="City (required)"
+          label="City"
           placeholder=""
           type="text"
           onChange={event => this.props.onChange('city', event.target.value)}
@@ -90,14 +90,13 @@ export default class CommonAddressFields extends React.Component {
           selectClassName="reusable-select"
           name={''}
           selectedOption={getDictionaryId(addressFields.state)}
-          options={this.props.stateTypes.map(type => ({
-            label: type.value,
-            value: type.value,
-            id: type.id,
-          }))}
-          label="State (required)"
+          options={this.props.stateTypes.map((type) => ({label: type.value, value: type.value, id: type.id}))}
+          label="State"
           onChange={event =>
-            this.props.onChange('state', getDictionaryValue(event))
+            this.props.onChange(
+              'state',
+              ({id: event.id, value: event.value})
+            )
           }
         />
       </div>
