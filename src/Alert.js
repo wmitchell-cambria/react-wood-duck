@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Alert = props => {
   const classField = `alert-message ${props.alertClassName}-message`;
   const faIcons = `fa ${props.faIcon}`;
-  let messageData = () => {
+  const messageData = () => {
     if (Array.isArray(props.alertMessage)) {
       return props.alertMessage.map((item, i) => <p key={i}> {item}</p>);
     } else {
@@ -12,20 +12,18 @@ const Alert = props => {
     }
   };
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-xs-12">
-          <div className={classField}>
-            <div className="alert-icon">
-              <i className={faIcons} />
-            </div>
-            <div className="alert-text">{messageData()}</div>
-            {props.alertCross && (
-              <div className="alert-cross">
-                <i className="fa fa-times" />
-              </div>
-            )}
+    <div className="row">
+      <div className="col-xs-12">
+        <div className={classField}>
+          <div className="alert-icon">
+            <i className={faIcons} />
           </div>
+          <div className="alert-text">{messageData()}</div>
+          {props.alertCross && (
+            <div className="alert-cross">
+              <i className="fa fa-times" />
+            </div>
+          )}
         </div>
       </div>
     </div>
