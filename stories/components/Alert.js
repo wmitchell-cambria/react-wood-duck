@@ -94,6 +94,8 @@ const alert = withInfo(
 
       - Success Message
 
+      - Display the list of Alerts
+
     #### Usage
     
       - Alerts should not be used for field level validation - see invalid 
@@ -117,6 +119,8 @@ const alert = withInfo(
     
       - Use Success Alerts for positive reinforcement after completing a 
       task (Example: screening successfully created, form 100% complete) 
+
+      - Use An Array to display the list of Alerts.
     
     ##### Accessibility
 
