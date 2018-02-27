@@ -11,6 +11,77 @@ const longMessage = `Error it enim ad minim veniam, quis nostrud exercitation ul
   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
   deserunt mollit anim id est laborum.`;
 const CenterDecorator = storyFn => <div className="container">{storyFn()}</div>;
+
+class Alerts extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: [],
+      sampleList: [
+        {
+          activation_date: '1-4-2002',
+          activation_reason_code: 2323,
+        },
+        {
+          activation_date: '4-5-2003',
+          activation_reason_code: 1212,
+        },
+        {
+          activation_date: '5-6-2018',
+          activation_reason_code: 1234,
+        },
+      ],
+    };
+    this.getAlertMessages = this.getAlertMessages.bind(this);
+  }
+  getAlertMessages() {
+    this.state.sampleList.map(item => {
+      this.state.list.push(item.activation_reason_code);
+    });
+  }
+  componentDidMount() {
+    this.getAlertMessages();
+  }
+  render() {
+    return (
+      <div>
+        <Alert
+          alertClassName="error"
+          alertMessage="Error Message"
+          faIcon="fa-exclamation-triangle"
+          alertCross={false}
+        />
+        <Alert
+          alertClassName="warning"
+          alertMessage="Warning Message"
+          faIcon="fa-warning"
+        />
+        <Alert
+          alertClassName="info"
+          alertMessage="Information Message."
+          faIcon="fa-info-circle"
+        />
+        <Alert
+          alertClassName="success"
+          alertMessage="Success Message."
+          faIcon="fa-check-circle"
+        />
+        <Alert
+          alertClassName="error"
+          alertMessage={longMessage}
+          faIcon="fa-exclamation-triangle"
+          alertCross={false}
+        />
+        <Alert
+          alertClassName="warning"
+          faIcon="fa-warning"
+          alertMessage={this.state.list}
+          alertCross={false}
+        />
+      </div>
+    );
+  }
+}
 const alert = withInfo(
   `
     #### Types of Alert
@@ -51,37 +122,7 @@ const alert = withInfo(
 
     The error alert should have the appropriate role="alert" attribute.
   `
-)(() => (
-  <div>
-    <Alert
-      alertClassName="error"
-      alertMessage="Error Message"
-      faIcon="fa-exclamation-triangle"
-      alertCross={false}
-    />
-    <Alert
-      alertClassName="warning"
-      alertMessage="Warning Message"
-      faIcon="fa-warning"
-    />
-    <Alert
-      alertClassName="info"
-      alertMessage="Information Message."
-      faIcon="fa-info-circle"
-    />
-    <Alert
-      alertClassName="success"
-      alertMessage="Success Message."
-      faIcon="fa-check-circle"
-    />
-    <Alert
-      alertClassName="error"
-      alertMessage={longMessage}
-      faIcon="fa-exclamation-triangle"
-      alertCross={false}
-    />
-  </div>
-));
+)(() => <Alerts />);
 
 storiesOf('Components', module)
   .addDecorator(CenterDecorator)
