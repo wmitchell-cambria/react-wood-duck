@@ -11,8 +11,31 @@ describe('Alert', () => {
   const alert = {
     alertClassName: 'Success!',
     faIcon: 'fa-info-circle icon',
-    alertMessage: 'Error! you have to check back again!',
+    data: [],
+    alertMessage: [
+      {
+        activation_date: '1-4-2002',
+        activation_reason_code: 2323,
+      },
+      {
+        activation_date: '4-5-2003',
+        activation_reason_code: 1212,
+      },
+      {
+        activation_date: '5-6-2018',
+        activation_reason_code: 1234,
+      },
+    ],
     alertCross: true,
+    messageData: () => {
+      if (Array.isArray(this.alertMessage)) {
+        return this.alertMessage.map(item => {
+          this.data.push(item.activation_reason_code);
+        });
+      } else {
+        return this.alertMessage;
+      }
+    },
   };
   const comp = mount(<Alert />);
   comp.setProps(alert);
