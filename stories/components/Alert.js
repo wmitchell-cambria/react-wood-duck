@@ -20,15 +20,16 @@ class Alerts extends React.Component {
       sampleList: [
         {
           activation_date: '1-4-2002',
-          activation_reason_code: 2323,
+          activation_reason_code: 'Handguns in house',
         },
         {
           activation_date: '4-5-2003',
-          activation_reason_code: 1212,
+          activation_reason_code:
+            'Aggressive dog on premises, yard not fenced ',
         },
         {
           activation_date: '5-6-2018',
-          activation_reason_code: 1234,
+          activation_reason_code: 'Allergies - Severe peanut, needs epi pen',
         },
       ],
     };
