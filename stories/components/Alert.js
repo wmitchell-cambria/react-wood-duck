@@ -16,7 +16,7 @@ class Alerts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: [],
+      reasons: [],
       sampleList: [
         {
           activation_date: '1-4-2002',
@@ -37,7 +37,7 @@ class Alerts extends React.Component {
   }
   getAlertMessages() {
     this.state.sampleList.map(item => {
-      this.state.list.push(item.activation_reason_code);
+      this.state.reasons.push(item.activation_reason_code);
     });
   }
   componentDidMount() {
@@ -76,7 +76,7 @@ class Alerts extends React.Component {
         <Alert
           alertClassName="warning"
           faIcon="fa-warning"
-          alertMessage={this.state.list}
+          alertMessage={this.state.reasons}
           alertCross={false}
         />
       </div>
@@ -120,8 +120,6 @@ const alert = withInfo(
     
       - Use Success Alerts for positive reinforcement after completing a 
       task (Example: screening successfully created, form 100% complete) 
-
-      - Use An Array to display the list of Alerts.
     
     ##### Accessibility
 
