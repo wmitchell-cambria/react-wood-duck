@@ -1,48 +1,74 @@
 import React from 'react';
 import Alert from '../Alert.js';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import './EnzymeSetup';
 
 describe('Alert', () => {
   const alertclass = 'Testing';
   const wrapper = shallow(
-    <Alert alertClassName={alertclass} faIcon={alertclass} />
+    <Alert
+      alertClassName={alertclass}
+      faIcon={alertclass}
+      alertMessage={alertclass}
+    />
   );
   const alert = {
     alertClassName: 'Success!',
     faIcon: 'fa-info-circle icon',
-    data: [],
-    alertMessage: [
-      {
-        activation_date: '1-4-2002',
-        activation_reason_code: 2323,
-      },
-      {
-        activation_date: '4-5-2003',
-        activation_reason_code: 1212,
-      },
-      {
-        activation_date: '5-6-2018',
-        activation_reason_code: 1234,
-      },
-    ],
     alertCross: true,
-    messageData: () => {
-      if (Array.isArray(this.alertMessage)) {
-        return this.alertMessage.map(item => {
-          this.data.push(item.activation_reason_code);
-        });
-      } else {
-        return this.alertMessage;
-      }
-    },
   };
-  const comp = mount(<Alert />);
+  const comp = shallow(<Alert />);
   comp.setProps(alert);
 
   it('has a className', () => {
     expect(wrapper.hasClass('row')).toBe(true);
   });
+
+  describe('#messageData()', () => {
+    it('displays array', () => {
+      const alertData = {
+        alertMessage: [
+          {
+            activation_date: '1-4-2002',
+            activation_reason_code: 'Handguns in house',
+          },
+          {
+            activation_date: '4-5-2003',
+            activation_reason_code:
+              'Aggressive dog on premises, yard not fenced ',
+          },
+        ],
+        reasons: [],
+        messageData() {
+          if (Array.isArray(alertData.alertMessage)) {
+            return alertData.alertMessage.map(item => {
+              alertData.reasons.push(item.activation_reason_code);
+            });
+          } else return alertData.alertMessage;
+        },
+      };
+      const comp = shallow(<Alert />);
+      comp.setProps(alertData);
+      expect(alertData.messageData().length).toEqual(2);
+    });
+
+    it('displays text', () => {
+      const alertData = {
+        alertMessage: 'Handguns in house',
+        reasons: [],
+        messageData() {
+          if (Array.isArray(alertData.alertMessage)) {
+            return alertData.alertMessage.map(item => {
+              alertData.reasons.push(item.activation_reason_code);
+            });
+          } else return alertData.alertMessage;
+        },
+      };
+      comp.setProps(alertData);
+      expect(alertData.messageData()).toEqual('Handguns in house');
+    });
+  });
+
   it('has a props', () => {
     expect(
       comp
@@ -74,13 +100,6 @@ describe('Alert', () => {
 
     expect(
       comp
-        .find('div')
-        .at(4)
-        .props().children
-    ).toEqual(alert.alertMessage);
-
-    expect(
-      comp
         .find('i')
         .at(0)
         .props().className
@@ -102,5 +121,6 @@ describe('Alert', () => {
     expect(instance.props.faIcon).toEqual(alertclass);
     expect(instance.props.alertClassName).toEqual(alertclass);
     expect(instance.props.alertCross).toEqual(true);
+    expect(instance.props.alertMessage).toEqual(alertclass);
   });
 });
