@@ -70,7 +70,7 @@ export default class CommonAddressFields extends React.Component {
           gridClassName="col-md-4"
           id={this.props.addressType + 'zip'}
           value={addressFields.zip}
-          label="Zip"
+          label="Zip (required)"
           placeholder=""
           type="text"
           onChange={event => this.props.onChange('zip', event.target.value)}
@@ -79,7 +79,7 @@ export default class CommonAddressFields extends React.Component {
           gridClassName="col-md-4"
           id={this.props.addressType + 'city'}
           value={addressFields.city}
-          label="City"
+          label="City (required)"
           placeholder=""
           type="text"
           onChange={event => this.props.onChange('city', event.target.value)}
@@ -95,7 +95,7 @@ export default class CommonAddressFields extends React.Component {
             value: type.value,
             id: type.id,
           }))}
-          label="State"
+          label="State (required)"
           onChange={event =>
             this.props.onChange('state', getDictionaryValue(event))
           }
